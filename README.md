@@ -1,7 +1,6 @@
 # Treasury of Weary Souls
 
 This project will use React, Sass and D3
-<img src="./public/mocks/landing-mock.png>" alt="app mock" />
 ![App Mock](./public/mocks/landing-mock.png?raw=true)
 
 ### To run:
@@ -16,4 +15,7 @@ This project will use React, Sass and D3
 2) cd treasury-of-weary-souls
 3) switch to a branch for the issue you are working on
 4) Open in your preferred text editor
+
+### Resources:
+http://map.reactd3.org/
 
