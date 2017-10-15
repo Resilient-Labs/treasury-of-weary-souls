@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './Components/shared/styles/App.css';
-import Intro from './Components/Intro';
-import About from './Components/About';
-import Map from './Components/Map';
-import Blog from './Components/Blog';
-import Navigation from './Components/shared/navigation/navigation';
+import Intro from './Layouts/Intro';
+import About from './Layouts/About';
+import Blog from './Layouts/Blog';
+import Map from './Maps';
+import Navigation from './Shared/Navigation';
 
 class App extends Component {
   render() {

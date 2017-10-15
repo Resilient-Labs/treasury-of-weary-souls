@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "d3": "^4.11.0",
+    "d3-queue": "^3.0.7",
+    "google-spreadsheet": "^2.0.4",
     "node-sass-chokidar": "^0.0.3",
     "npm-run-all": "^4.1.1",
     "react": "^16.0.0",
@@ -13,7 +16,8 @@
     "react-scripts": "1.0.14",
     "react-scrollchor": "^4.0.0",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "topojson": "^3.0.2"
   },
   "scripts": {
     "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
