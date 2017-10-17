@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import * as d3 from 'd3';
 import * as topojson from 'topojson';
-// import * as queue from 'd3-queue';
 import './HeatMap.css';
+import axios from 'axios';
 
 class HeatMapView extends Component {
     // constructor(props) {
@@ -10,6 +10,9 @@ class HeatMapView extends Component {
     //     // this.state = {date: new Date()};
     //     this.renderMap = this.renderMap.bind(this);
     // }
+    getSpreadsheet() {
+
+    }
     renderMap() {
         let width = '960',
             height = '600';
@@ -18,13 +21,12 @@ class HeatMapView extends Component {
             .attr('class', 'heatmap-svg')
             .attr('preserveAspectRatio', 'xMidYMid')
             .attr('viewBox', '0 0 ' + width + ' ' + height);
-            // .attr('width', width)
-            // .attr('height', height);
+
         let projection = d3.geoAlbersUsa()
-            // .scale(1000)
-            // .translate([width / 2, height / 2]);
+        // .scale(1000)
+        // .translate([width / 2, height / 2]);
         var path = d3.geoPath();
-            // .projection(projection);
+        // .projection(projection);
         let q = d3.queue();
         q.defer(d3.json, 'https://d3js.org/us-10m.v1.json')
             .await(function (error, data) {
@@ -47,6 +49,7 @@ class HeatMapView extends Component {
 
     }
     componentDidMount() {
+        this.getSpreadsheet();
         this.renderMap();
     }
     render() {
