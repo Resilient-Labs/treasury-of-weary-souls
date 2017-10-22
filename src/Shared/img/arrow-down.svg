@@ -1,0 +1,18 @@
+<svg width="24" height="25" viewBox="0 0 24 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>arrow-down</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-1986 -558)">
+<g id="arrow-down">
+<g id="Line 2">
+<use xlink:href="#path0_stroke" transform="translate(1997 559.32)" fill="#F3F3F3"/>
+</g>
+<g id="Path 2">
+<use xlink:href="#path1_stroke" transform="translate(1987 570)" fill="#F3F3F3"/>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_stroke" d="M 0 21.35L 0 22.35L 2 22.35L 2 21.35L 0 21.35ZM 2 0L 2 -1L 0 -1L 0 0L 2 0ZM 2 21.35L 2 0L 0 0L 0 21.35L 2 21.35Z"/>
+<path id="path1_stroke" d="M 10.8788 11L 10.1756 11.711L 10.8788 12.4065L 11.582 11.711L 10.8788 11ZM -0.703222 0.95074L 10.1756 11.711L 11.582 10.289L 0.703222 -0.471201L -0.703222 0.95074ZM 11.582 11.711L 22.7032 0.71097L 21.2968 -0.71097L 10.1756 10.289L 11.582 11.711Z"/>
+</defs>
+</svg>

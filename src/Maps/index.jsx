@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import HeatMapView from './Components/HeatMap/HeatMapView';
 import SidePanel from './Components/SidePanel/SidePanel'
-import './styles/Maps.css';
+import './Maps.css';
 
 class Map extends Component {
   render() {

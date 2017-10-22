@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import AboutProject from './project.jsx';
-import AboutMichael from './michael.jsx';
+import AboutProject from './AboutTheProject.jsx';
+import AboutMichael from './MeetMichael.jsx';
+import './About.css';
 
 class About extends Component {
   render() {
