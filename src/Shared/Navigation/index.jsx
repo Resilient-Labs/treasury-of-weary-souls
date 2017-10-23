@@ -8,7 +8,7 @@ class Navigation extends Component {
     // }
     render() {
         return (
-            <aside>
+            <aside className="navigation">
                 <span className="navigation-line-break" />
                 <nav>
                     <Scrollchor to="intro">Intro</Scrollchor>
