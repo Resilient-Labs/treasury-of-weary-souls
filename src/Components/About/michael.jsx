@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import michael from './img/michael.jpg';
+import './styles/about.css'
 
 class AboutMichael extends Component {
   render() {
