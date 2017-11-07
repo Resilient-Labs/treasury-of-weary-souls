@@ -28,7 +28,6 @@ class App extends Component {
     };
 
     return (
-      // <div className="App">
       <SectionsContainer className="App" {...options}>
         <Section>
           <Intro />
