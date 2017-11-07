@@ -1,0 +1,39 @@
+{
+  "name": "treasury-of-weary-souls",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.16.2",
+    "body-parser": "^1.18.2",
+    "concurrently": "^3.5.0",
+    "d3": "^4.11.0",
+    "d3-queue": "^3.0.7",
+    "express": "^4.16.2",
+    "google-spreadsheet": "^2.0.4",
+    "morgan": "^1.9.0",
+    "node-sass-chokidar": "^0.0.3",
+    "nodemon": "^1.12.1",
+    "npm-run-all": "^4.1.1",
+    "react": "^16.0.0",
+    "react-d3-map": "^0.8.3",
+    "react-dom": "^16.0.0",
+    "react-fullpage": "^0.1.18",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.14",
+    "react-scrollchor": "^4.0.0",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "topojson": "^3.0.2"
+  },
+  "scripts": {
+    "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build": "npm run build-css && react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "proxy": "http://localhost:5001"
+}

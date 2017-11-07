@@ -1,0 +1,15 @@
+#heatmap-wrapper {
+  height: 100%;
+  width: 80%;
+  display: inline-block;
+  display: inline-block;
+  margin: 0;
+  top: 0;
+  position: absolute; }
+  #heatmap-wrapper .heatmap-svg {
+    fill: transparent; }
+    #heatmap-wrapper .heatmap-svg .state {
+      stroke: #B5B5B5; }
+      #heatmap-wrapper .heatmap-svg .state:hover {
+        stroke: #FFD462;
+        stroke-width: 2px; }

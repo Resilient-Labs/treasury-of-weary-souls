@@ -1,0 +1,39 @@
+.arrow-down {
+  width: 30px;
+  max-height: 40px;
+  display: inline-block; }
+  .arrow-down path {
+    stroke: white;
+    fill: transparent;
+    stroke-width: 2px;
+    animation: arrow 2s infinite;
+    -webkit-animation: arrow 2s infinite; }
+    .arrow-down path.a1 {
+      animation-delay: -1s;
+      -webkit-animation-delay: -1s; }
+    .arrow-down path.a2 {
+      animation-delay: -0.5s;
+      -webkit-animation-delay: -0.5s; }
+    .arrow-down path.a3 {
+      animation-delay: 0s;
+      -webkit-animation-delay: 0s; }
+
+@keyframes arrow {
+  0% {
+    opacity: 0; }
+  40% {
+    opacity: 0.8; }
+  80% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+
+@-webkit-keyframes arrow {
+  0% {
+    opacity: 0; }
+  40% {
+    opacity: 0.8; }
+  80% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }

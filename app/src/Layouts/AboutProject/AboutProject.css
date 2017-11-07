@@ -1,0 +1,37 @@
+.about-project-container {
+  background-color: #F2F2F2;
+  align-items: center;
+  color: #5B5B5B;
+  display: flex;
+  flex-flow: column wrap;
+  float: left;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+  width: 100%; }
+  @media only screen and (max-width: 769px) {
+    .about-project-container {
+      align-items: flex-start; } }
+  .about-project-container nav a {
+    color: #7A7272 !important; }
+  .about-project-container div {
+    max-width: 768px;
+    width: 70%; }
+    @media only screen and (min-width: 1920px) {
+      .about-project-container div {
+        max-width: 1024px; } }
+    @media only screen and (max-width: 769px) {
+      .about-project-container div {
+        padding: 1em;
+        width: 100%; } }
+    .about-project-container div img {
+      height: auto; }
+  .about-project-container span {
+    bottom: calc( 30px + 2em);
+    color: #A9A9A9;
+    position: absolute; }
+  .about-project-container svg {
+    position: absolute;
+    bottom: 1em; }
+    .about-project-container svg path {
+      stroke: #B8B8B8; }
