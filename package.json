@@ -12,7 +12,8 @@
     "nodemon": "^1.12.1"
   },
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node backend/index.js",
+    "localStart": "nodemon backend/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "heroku-postbuild": "cd app && yarn --production=false && yarn run build"
   }
