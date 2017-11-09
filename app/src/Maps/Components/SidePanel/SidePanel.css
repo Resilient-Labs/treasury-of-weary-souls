@@ -6,3 +6,15 @@
   position: absolute;
   right: 0;
   color: #797979; }
+  .sidepanel .side-panel-headline {
+    border-bottom: 1px solid white;
+    text-transform: uppercase;
+    width: 90%; }
+  .sidepanel .side-panel-list {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+  .sidepanel .side-panel-listed-name {
+    cursor: pointer; }
+    .sidepanel .side-panel-listed-name:hover {
+      color: #3FB7F7; }

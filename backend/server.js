@@ -80,6 +80,38 @@ app.get('/api/slaves', (req, res) => {
     });
 })
 
+app.get('/api/wearysouls', (req, res) => {
+    GoogleSpreadsheetData.useServiceAccountAuth(GoogleSpreasdheetCredentials, function (err) {
+        // Get all of the rows from the spreadsheet.
+        GoogleSpreadsheetData.getRows(1, function (err, rows) {
+            let data = []
+            for (var row in rows) {
+                var stateObj = States.states.filter(function( state ) {
+                    return state.abbreviation == String(rows[row].slavestate);
+                });
+                let state = function() {
+                    return stateObj.length > 0 ? stateObj[0].state : null
+                }
+                let stateId = function() {
+                    return stateObj.length > 0 ? stateObj[0].id : null
+                }
+
+                let wearySoul = {
+                    name: rows[row].slave,
+                    city: rows[row].slavecity,
+                    state_abbreviated: rows[row].slavestate,
+                    state: state(),
+                    state_id: stateId(),
+                    insurancefirm: rows[row].insurancefirm,
+                    owner: rows[row].slaveowners,
+                }
+                data.push(wearySoul);
+            }
+            res.json(data);
+        });
+    });
+})
+
 app.get('/api/slaveowners', (req, res) => {
     GoogleSpreadsheetData.useServiceAccountAuth(GoogleSpreasdheetCredentials, function (err) {
         // Get all of the rows from the spreadsheet.

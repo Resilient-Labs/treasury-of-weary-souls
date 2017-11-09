@@ -5,43 +5,39 @@ import AboutProject from './Layouts/AboutProject';
 import MeetMichael from './Layouts/MeetMichael';
 import Blog from './Layouts/Blog';
 import Map from './Maps';
-import axios from 'axios';
 import {SectionsContainer, Section} from 'react-fullpage';
 
 class App extends Component {
-  state = {
-    slaves: [],
-  }
-  componentDidMount() {
 
-  }
-  
   render() {
     let options = {
       sectionClassName:     'section',
-      anchors:              ['intro', 'about', 'meet-michael', 'blog'],
-      scrollBar:            false,
+      anchors:              ['intro', 'about', 'meet-michael', 'map', 'blog'],
+      scrollBar:            true,
       navigation:           true,
+      navigationPosition:   'left',
+      normalScrollElements: '.sidepanel, .map-container',
+      autoScrolling:        false,
       verticalAlign:        false,
       arrowNavigation:      true,
-      scrollingSpeed: 200
+      scrollingSpeed: 500
     };
 
     return (
       <SectionsContainer className="App" {...options}>
-        <Section>
+        <Section data-type="Intro">
           <Intro />
         </Section>
-        <Section>
+        <Section data-type="About">
           <AboutProject />
         </Section>
-        <Section>
+        <Section data-type="Meet Michael">
           <MeetMichael />
         </Section>
-        <Section>
+        <Section data-type="Map">
           <Map />
         </Section>
-        <Section>
+        <Section data-type="Blog">
           <Blog />
         </Section>
       </SectionsContainer>

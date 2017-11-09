@@ -1,14 +1,50 @@
 .insurers-chart {
   display: flex;
   justify-content: center;
-  align-items: flex-end; }
-  .insurers-chart div {
+  align-items: flex-end;
+  position: absolute;
+  bottom: 2em;
+  left: 2em; }
+  .insurers-chart div,
+  .insurers-chart .chart-bar {
     font: 10px sans-serif;
     background-color: steelblue;
     text-align: right;
-    padding: 3px;
-    margin: 1px;
+    margin: 0.5em;
+    position: relative;
     color: white;
-    width: 40px;
+    width: 2em;
     display: inline-block;
     bottom: 0; }
+    .insurers-chart div:first-of-type,
+    .insurers-chart .chart-bar:first-of-type {
+      background-color: #FFD462; }
+    .insurers-chart div:nth-of-type(2),
+    .insurers-chart .chart-bar:nth-of-type(2) {
+      background-color: #FC7D49; }
+    .insurers-chart div:nth-of-type(3),
+    .insurers-chart .chart-bar:nth-of-type(3) {
+      background-color: #AD2D5C; }
+    .insurers-chart div:nth-of-type(4),
+    .insurers-chart .chart-bar:nth-of-type(4) {
+      background-color: #CF423C; }
+    .insurers-chart div label,
+    .insurers-chart div .chart-bar-label,
+    .insurers-chart .chart-bar label,
+    .insurers-chart .chart-bar .chart-bar-label {
+      text-align: center;
+      margin: 0 auto;
+      bottom: -2em;
+      position: absolute;
+      left: 0;
+      right: 0; }
+    .insurers-chart div text,
+    .insurers-chart div .chart-bar-text,
+    .insurers-chart .chart-bar text,
+    .insurers-chart .chart-bar .chart-bar-text {
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+      position: absolute;
+      text-align: center;
+      top: -2em; }

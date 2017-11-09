@@ -2,14 +2,9 @@ import React, { Component } from 'react';
 import * as d3 from 'd3';
 import * as topojson from 'topojson';
 import './HeatMap.css';
-import axios from 'axios';
 
 class HeatMapView extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     // this.state = {date: new Date()};
-    //     this.renderMap = this.renderMap.bind(this);
-    // }
+
     renderMap() {
         let width = '960',
             height = '600';
@@ -19,29 +14,55 @@ class HeatMapView extends Component {
             .attr('preserveAspectRatio', 'xMidYMid')
             .attr('viewBox', '0 0 ' + width + ' ' + height);
 
-        let projection = d3.geoAlbersUsa()
-        // .scale(1000)
-        // .translate([width / 2, height / 2]);
+        // let projection = d3.geoAlbersUsa()
         var path = d3.geoPath();
-        // .projection(projection);
         let q = d3.queue();
         q.defer(d3.json, 'https://d3js.org/us-10m.v1.json')
             .await(function (error, data) {
                 if (error) {
                     throw error;
                 }
-                console.log(data);
+                // console.log(data);
                 let states = topojson.feature(data, data.objects.states).features;
-                console.log(states);
-                states.map((state) => {
-                    console.log(state.properties.name);
-                })
+                // console.log(states);
+                // let bef = states.filter((state) => {
+                //     console.log(parseInt(state.id));
+                //     return parseInt(state.id) > 25
+                // })
                 // add paths for each state
                 heatmap.selectAll('.state')
                     .data(states)
                     .enter().append('path')
                     .attr('class', 'state')
-                    .attr('d', path)
+                    .attr('d', path);
+
+                heatmap.selectAll('.state-points')
+                    .data(states)
+                    .enter()
+                    .append("circle")
+                    .attr("r", "4")
+                    .attr("cx", function (d) {
+                        return path.centroid(d)[0];
+                    })
+                    .attr("cy", function (d) {
+                        return path.centroid(d)[1];
+                    })
+                    .style("fill", "red")
+
+                // heatmap.selectAll('.stateText')
+                //     .data(states)
+                //     .enter().append("text")
+                //     .attr("x", function (d) {
+                //         return path.centroid(d)[0];
+                //     })
+                //     .attr("y", function (d) {
+                //         return path.centroid(d)[1];
+                //     })
+                //     .attr("text-anchor", "middle")
+                //     .attr("font-size", "12px")
+                //     .style("fill", "red")
+                //     .append("circle")
+                //     .attr("r", "4")
             });
 
     }
