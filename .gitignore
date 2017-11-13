@@ -64,5 +64,3 @@ typings/
 
 # production css
 src/**/*.css
-app/src/**/*.css
-

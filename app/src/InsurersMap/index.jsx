@@ -159,6 +159,7 @@ class InsurersMap extends Component {
         .attr("container-stateId", (state) => {
           return state.id
         })
+        
 
       // add paths for each state
       stateContainer.append('path')

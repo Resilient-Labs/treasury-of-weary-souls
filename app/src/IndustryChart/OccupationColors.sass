@@ -42,20 +42,32 @@ $color-cobbler: #32B67A
 $color-sailor: #FFD462
 $color-ironworker: #FFD101
 $color-femaleslave: #B7E3E4
+@mixin $glow-box($color)
+    box-shadow: 0 0 8px $color, inset 0 0 8px white
 
 .industry-chart-bar-section,
 .industry-chart-view-point
     background-color: $color-not-listed
     &[occupation="NL"]
         background-color: $color-not-listed
+        &:hover
+            @include $glow-box($color-not-listed)
     &[occupation*="Steam"], &[occupation*="boat"]
         background-color: $color-steamboat-worker
+        &:hover
+            @include $glow-box($color-steamboat-worker)
     &[occupation*="Domestic"]
         background-color: $color-domestic-worker
+        &:hover
+            @include $glow-box($color-domestic-worker)
     &[occupation*="Carpenter"]
         background-color: $color-carpenter
+        &:hover
+            @include $glow-box($color-carpenter)
     &[occupation*="Blacksmith"]
         background-color: $color-blacksmith
+        &:hover
+            @include $glow-box($color-blacksmith)
     &[occupation*="Stevedore"]
         background-color: $color-stevedore
     &[occupation*="Servant"]

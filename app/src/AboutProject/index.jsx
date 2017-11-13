@@ -17,7 +17,10 @@ const AboutProject = props => {
                 <p>{aboutText2}</p>
             </div>
             <span>Meet Michael</span>
-            <ArrowDown />
+            <a href="#meet-michael" className="arrow-down-link">
+                <span>Meet Michael</span>
+                <ArrowDown />
+            </a>
         </section>
     )
 }

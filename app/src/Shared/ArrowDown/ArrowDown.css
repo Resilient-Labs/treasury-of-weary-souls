@@ -3,6 +3,8 @@
   justify-content: center;
   align-items: center;
   width: 100%; }
+  .arrow-down-link:hover span {
+    color: #5B5B5B; }
 
 .arrow-down {
   width: 30px;

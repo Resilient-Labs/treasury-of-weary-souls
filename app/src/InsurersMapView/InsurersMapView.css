@@ -16,5 +16,5 @@
       stroke: #B5B5B5;
       stroke-width: 0.25px; }
       #insurers-map-wrapper .insurers-map-svg .state:hover {
-        stroke: #FFD462;
-        stroke-width: 2px; }
+        stroke: white;
+        stroke-width: 0.7px; }

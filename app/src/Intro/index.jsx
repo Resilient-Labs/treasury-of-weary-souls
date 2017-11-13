@@ -1,7 +1,6 @@
 import React from 'react';
 import './Intro.css';
 import ArrowDown from '../Shared/ArrowDown';
-//import Navigation from '../Shared/Navigation';
 
 const introSubHeadline = 'Treasury of';
 const introHeadline = 'WEARY SOULS';
@@ -16,7 +15,9 @@ const Intro = props => {
                 <h1>{introHeadline}</h1>
                 <p>{introText}</p>
             </div>
-            <ArrowDown />
+            <a href="#about" className="arrow-down-link">
+                <ArrowDown />   
+            </a>
         </section>
     )
 }
