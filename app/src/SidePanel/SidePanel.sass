@@ -1,24 +1,47 @@
 $color-accent: #3FB7F7
+$color-sidepanel: #2F2E2E
+$height-side-panel-header: 70px
 
-.sidepanel 
-    width: 20%
+.side-panel 
+    background-color: $color-sidepanel
+    color: #797979
+    display: inline-block
     height: 100%
     overflow-y: scroll
-    display: inline-block
     position: absolute
     right: 0
-    color: #797979
-    .side-panel-headline 
+    width: 20%
+    .side-panel-header
+        align-items: center
+        background-color: $color-sidepanel
+        border-bottom: 1px solid #353535
+        color: white
+        display: flex
+        position: fixed
+        width: 20%
+    .side-panel-header-link
+        height: $height-side-panel-header
+        line-height: $height-side-panel-header
+        padding: 0 10px
+        text-align: center
+        text-decoration: none
+        width: 50%
+        &:hover
+            background-color: $color-accent
+        &:visited, &:hover
+            color: white
+    .side-panel-column
+        padding-left: 2em
+        &:first-of-type
+            margin-top: calc ( #{$height-side-panel-header} + 1em )
+    .side-panel-column-headline 
         border-bottom: 1px solid white
         text-transform: uppercase
         width: 90%
-    // .state-side-panel-column 
-
     .side-panel-list 
         list-style: none
         margin: 0
         padding: 0
-        
     .side-panel-listed-name 
         cursor: pointer
         &:hover 

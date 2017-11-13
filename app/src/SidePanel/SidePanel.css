@@ -1,20 +1,44 @@
-.sidepanel {
-  width: 20%;
+.side-panel {
+  background-color: #2F2E2E;
+  color: #797979;
+  display: inline-block;
   height: 100%;
   overflow-y: scroll;
-  display: inline-block;
   position: absolute;
   right: 0;
-  color: #797979; }
-  .sidepanel .side-panel-headline {
+  width: 20%; }
+  .side-panel .side-panel-header {
+    align-items: center;
+    background-color: #2F2E2E;
+    border-bottom: 1px solid #353535;
+    color: white;
+    display: flex;
+    position: fixed;
+    width: 20%; }
+  .side-panel .side-panel-header-link {
+    height: 70px;
+    line-height: 70px;
+    padding: 0 10px;
+    text-align: center;
+    text-decoration: none;
+    width: 50%; }
+    .side-panel .side-panel-header-link:hover {
+      background-color: #3FB7F7; }
+    .side-panel .side-panel-header-link:visited, .side-panel .side-panel-header-link:hover {
+      color: white; }
+  .side-panel .side-panel-column {
+    padding-left: 2em; }
+    .side-panel .side-panel-column:first-of-type {
+      margin-top: calc 70px + 1em; }
+  .side-panel .side-panel-column-headline {
     border-bottom: 1px solid white;
     text-transform: uppercase;
     width: 90%; }
-  .sidepanel .side-panel-list {
+  .side-panel .side-panel-list {
     list-style: none;
     margin: 0;
     padding: 0; }
-  .sidepanel .side-panel-listed-name {
+  .side-panel .side-panel-listed-name {
     cursor: pointer; }
-    .sidepanel .side-panel-listed-name:hover {
+    .side-panel .side-panel-listed-name:hover {
       color: #3FB7F7; }
