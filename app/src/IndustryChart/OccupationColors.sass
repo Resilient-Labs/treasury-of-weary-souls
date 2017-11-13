@@ -42,8 +42,8 @@ $color-cobbler: #32B67A
 $color-sailor: #FFD462
 $color-ironworker: #FFD101
 $color-femaleslave: #B7E3E4
-@mixin $glow-box($color)
-    box-shadow: 0 0 8px $color, inset 0 0 8px white
+@mixin glow-box($color)
+    box-shadow: 0 0 8px $color, inset 0 0 8px $color
 
 .industry-chart-bar-section,
 .industry-chart-view-point
@@ -51,94 +51,168 @@ $color-femaleslave: #B7E3E4
     &[occupation="NL"]
         background-color: $color-not-listed
         &:hover
-            @include $glow-box($color-not-listed)
+            @include glow-box($color-not-listed)
     &[occupation*="Steam"], &[occupation*="boat"]
         background-color: $color-steamboat-worker
         &:hover
-            @include $glow-box($color-steamboat-worker)
+            @include glow-box($color-steamboat-worker)
     &[occupation*="Domestic"]
         background-color: $color-domestic-worker
         &:hover
-            @include $glow-box($color-domestic-worker)
+            @include glow-box($color-domestic-worker)
     &[occupation*="Carpenter"]
         background-color: $color-carpenter
         &:hover
-            @include $glow-box($color-carpenter)
+            @include glow-box($color-carpenter)
     &[occupation*="Blacksmith"]
         background-color: $color-blacksmith
         &:hover
-            @include $glow-box($color-blacksmith)
+            @include glow-box($color-blacksmith)
     &[occupation*="Stevedore"]
         background-color: $color-stevedore
+        &:hover
+            @include glow-box($color-stevedore)
     &[occupation*="Servant"]
         background-color: $color-servant
+        &:hover
+            @include glow-box($color-servant)
     &[occupation*="Agriculturalist"]
         background-color: $color-agriculturalist
+        &:hover
+            @include glow-box($color-agriculturalist)
     &[occupation*="Mason"]
         background-color: $color-mason
+        &:hover
+            @include glow-box($color-mason)
     &[occupation*="Coach"]
         background-color: $color-coach
+        &:hover
+            @include glow-box($color-coach)
     &[occupation*="Wheelwright"]
         background-color: $color-wheelwright
+        &:hover
+            @include glow-box($color-wheelwright)
     &[occupation*="Merchant"]
         background-color: $color-merchant
+        &:hover
+            @include glow-box($color-merchant)
     &[occupation*="Painter"]
         background-color: $color-painter
+        &:hover
+            @include glow-box($color-painter)
     &[occupation*="Cook"]
         background-color: $color-cook
+        &:hover
+            @include glow-box($color-cook)
     &[occupation*="Clerk"]
         background-color: $color-clerk
+        &:hover
+            @include glow-box($color-clerk)
     &[occupation*="Seamstress"]
         background-color: $color-seamstress
+        &:hover
+            @include glow-box($color-seamstress)
     &[occupation*="Barber"]
         background-color: $color-barber
+        &:hover
+            @include glow-box($color-barber)
     &[occupation*="Miner"]
         background-color: $color-miner
+        &:hover
+            @include glow-box($color-miner)
     &[occupation*="Hemp"]
         background-color: $color-hemp
+        &:hover
+            @include glow-box($color-hemp)
     &[occupation*="Fireman"]
         background-color: $color-fireman
+        &:hover
+            @include glow-box($color-fireman)
     &[occupation*="Widow"]
         background-color: $color-widow
+        &:hover
+            @include glow-box($color-widow)
     &[occupation*="Mill"]
         background-color: $color-millworker
+        &:hover
+            @include glow-box($color-millworker)
     &[occupation*="Nurse"]
         background-color: $color-nurse
+        &:hover
+            @include glow-box($color-nurse)
     &[occupation*="Butcher"]
         background-color: $color-butcher
+        &:hover
+            @include glow-box($color-butcher)
     &[occupation*="Bricklayer"]
         background-color: $color-bricklayer
+        &:hover
+            @include glow-box($color-bricklayer)
     &[occupation*="Drayman"]
         background-color: $color-drayman
+        &:hover
+            @include glow-box($color-drayman)
     &[occupation*="Laborer"]
         background-color: $color-laborer
+        &:hover
+            @include glow-box($color-laborer)
     &[occupation*="Engineer"]
         background-color: $color-engineer
+        &:hover
+            @include glow-box($color-engineer)
     &[occupation*="Washer"]
         background-color: $color-washer
+        &:hover
+            @include glow-box($color-washer)
     &[occupation*="Cigar"]
         background-color: $color-cigarmaker
+        &:hover
+            @include glow-box($color-cigarmaker)
     &[occupation*="Tailor"]
         background-color: $color-tailor
+        &:hover
+            @include glow-box($color-tailor)
     &[occupation*="Baker"]
         background-color: $color-baker
+        &:hover
+            @include glow-box($color-baker)
     &[occupation*="Tobacco"]
         background-color: $color-tobaccoworker
+        &:hover
+            @include glow-box($color-tobaccoworker)
     &[occupation*="Machine"]
         background-color: $color-machinebuilder
+        &:hover
+            @include glow-box($color-machinebuilder)
     &[occupation*="Railroad"]
         background-color: $color-railroadworker
+        &:hover
+            @include glow-box($color-railroadworker)
     &[occupation*="Cooper"]
         background-color: $color-cooper
+        &:hover
+            @include glow-box($color-cooper)
     &[occupation*="Farmer"]
         background-color: $color-farmer
+        &:hover
+            @include glow-box($color-farmer)
     &[occupation="Factory worker"]
         background-color: $color-factoryworker
+        &:hover
+            @include glow-box($color-factoryworker)
     &[occupation="Cobbler"]
         background-color: $color-cobbler
+        &:hover
+            @include glow-box($color-cobbler)
     &[occupation="Sailor"]
         background-color: $color-sailor
+        &:hover
+            @include glow-box($color-sailor)
     &[occupation="Iron"]
         background-color: $color-ironworker
+        &:hover
+            @include glow-box($color-ironworker)
     &[occupation="female slave"]
         background-color: $color-femaleslave
+        &:hover
+            @include glow-box($color-femaleslave)
