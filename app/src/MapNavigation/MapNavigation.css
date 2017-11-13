@@ -1,0 +1,12 @@
+.map-navigation {
+  position: absolute;
+  top: 0;
+  z-index: 11; }
+  .map-navigation a {
+    color: white;
+    margin: 1em;
+    text-decoration: none; }
+    .map-navigation a:hover {
+      text-decoration: underline; }
+    .map-navigation a:hover, .map-navigation a:visited {
+      color: white; }

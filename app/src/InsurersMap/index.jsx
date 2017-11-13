@@ -3,6 +3,7 @@ import InsurersMapView from '../InsurersMapView/InsurersMapView';
 import SidePanel from '../SidePanel/SidePanel';
 import InsurersMapKey from '../InsurersMapKey/InsurersMapKey';
 import MapNavigation from '../MapNavigation/MapNavigation';
+import Loading from '../Loading'
 import * as d3 from 'd3';
 import * as topojson from 'topojson';
 import './InsurersMap.css';
@@ -18,7 +19,8 @@ class InsurersMap extends Component {
       namesByState: [],
       countByInsurer: [],
       stateIds: [],
-      soulsByStateId: {}
+      soulsByStateId: {},
+      loading: true
     }
     this.renderMap = this.renderMap.bind(this);
     this.renderChart = this.renderChart.bind(this);
@@ -97,9 +99,13 @@ class InsurersMap extends Component {
         ref.setState({ stateIds: stateIds })
         ref.setState({ soulsByStateId: ref.objectSoulsById(wearysouls) })
         //console.log(ref.objectSoulsById(wearysouls));
+        
+      })
+      .then(function () {
+        ref.setState({ loading: false });
         ref.renderMap();
         ref.renderChart();
-      })
+    })
       .catch(function (error) {
         console.log(error);
       })
@@ -214,15 +220,19 @@ class InsurersMap extends Component {
   }
 
   render() {
-    return (
-      <section className="insurers-map-container">
-        <MapNavigation />
-        <InsurersMapView souls={this.state.statesNew} />
-        <SidePanel states={this.state.statesNew} namesByState={this.state.namesByState} />
-        <InsurersMapKey />
-      </section>
+    if (this.state.loading) {
+      return <Loading />;
+    } else {
+      return (
+        <section className="insurers-map-container">
+          <MapNavigation />
+          <InsurersMapView souls={this.state.statesNew} />
+          <SidePanel states={this.state.statesNew} namesByState={this.state.namesByState} />
+          <InsurersMapKey />
+        </section>
 
-    );
+      );
+    }
   }
 }
 

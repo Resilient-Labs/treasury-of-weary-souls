@@ -3,8 +3,11 @@ import * as d3 from 'd3';
 import SidePanel from '../SidePanel/SidePanel';
 import MapNavigation from '../MapNavigation/MapNavigation';
 import axios from 'axios';
+import Loading from '../Loading'
 import './IndustryChart.css';
+import './IndustryChartView.css';
 import './Tooltip.css';
+import './OccupationColors.css';
 
 class IndustryChart extends Component {
     constructor(props) {
@@ -18,7 +21,8 @@ class IndustryChart extends Component {
             stateIds: [],
             soulsByStateId: {},
             soulsByOccupation: {},
-            soulsByState: {}
+            soulsByState: {},
+            loading: true
         }
         this.renderChartBar = this.renderChartBar.bind(this);
         this.filterInsurers = this.filterInsurers.bind(this);
@@ -127,6 +131,7 @@ class IndustryChart extends Component {
                 //console.log(ref.objectSoulsByState(wearysouls));
             })
             .then(function () {
+                ref.setState({ loading: false });
                 ref.renderChartBar();
                 ref.renderIndustryChart();
             })
@@ -154,13 +159,99 @@ class IndustryChart extends Component {
 
     renderIndustryChart() {
         let obj = this.state.soulsByState;
-        console.log(obj);
+        let total = 0;
 
         let objCopy = Object.assign({}, obj);
         delete objCopy["not listed"];
         delete objCopy[""];
         delete objCopy.NL;
+        var keys = Object.keys(objCopy);
+
         console.log(objCopy);
+        let chartView = d3.select(".industry-chart-view")
+            .selectAll("div")
+            .data(Object.keys(objCopy).map((soul) => {
+                return objCopy[soul]
+            }))
+            .enter()
+            .append("div")
+            .attr("class", "industry-chart-view-column")
+            .attr("state", (data) => {
+                return data[0].state_abbreviated
+            })
+            .attr("total-known-states", Object.keys(objCopy).length)
+            .style("width", (data, idx) => {
+                return (100 / Object.keys(objCopy).length) + "%";
+            })
+        // local helper method to sort the souls by occupation
+        function compareByOccupation(a, b) {
+            if (a.occupation < b.occupation)
+                return -1;
+            if (a.occupation > b.occupation)
+                return 1;
+            return 0;
+        }
+        // loop through all of the states and each soul to display a point for every soul
+        //let tooltip = d3.selectAll(".industry-chart-view-tooltip");
+        let count = 0;
+        for (var i = 0; i < keys.length; i++) {
+            var val = obj[keys[i]];
+            var stateAbbr = keys[i];
+            val.sort(compareByOccupation);
+            for (var m = 0; m < val.length; m++) {
+                count++
+                let currentSoul = val[m];
+                let location = currentSoul.city + ", " + stateAbbr;
+                d3.select("[state='" + stateAbbr + "']")
+                    .append("span")
+                    .attr("class", "industry-chart-view-point")
+                    .attr("occupation", currentSoul.occupation)
+                    .attr("owner", currentSoul.owner)
+                    .attr("name", currentSoul.name)
+                    .attr("location", location)
+                    .attr("city", currentSoul.city)
+                    .append("div")
+                    .attr("class", "industry-chart-view-tooltip")
+
+            }
+        }
+
+        let itrCount = 0; // reset this count itr below after appending each node
+        d3.selectAll('.industry-chart-view-tooltip')
+            .each(function (data, idx) {
+                d3.select(this).append("span")
+                    .attr("class", "industry-chart-view-tooltip-name")
+                    .text(data[itrCount].name ? data[itrCount].name : "Unknown Name")
+
+                d3.select(this).append("span")
+                    .attr("class", "industry-chart-view-tooltip-location")
+                    .text(
+                    data[itrCount].city ?
+                        data[itrCount].city + ", " + data[itrCount].state_abbreviated : data[itrCount].state_abbreviated
+                    )
+
+                d3.select(this).append("label")
+                    .attr("class", "industry-chart-view-tooltip-owner-label")
+                    .text("Owner")
+
+                d3.select(this).append("span")
+                    .attr("class", "industry-chart-view-tooltip-owner")
+                    .text(data[itrCount].owner)
+
+                d3.select(this).append("label")
+                    .attr("class", "industry-chart-view-tooltip-occupation-label")
+                    .text("Occupation")
+
+                d3.select(this).append("span")
+                    .attr("class", "industry-chart-view-tooltip-occupation")
+                    .text(data[itrCount].occupation)
+
+                // count through iterations of each tooltip and reset the count once it is the end of the array
+                itrCount++;
+                if (data.length <= itrCount) {
+                    itrCount = 0;
+                }
+            });
     }
 
     renderChartBar() {
@@ -222,44 +313,49 @@ class IndustryChart extends Component {
         // })
 
         chartBar.append("div")
-            .attr("class", "tooltip")
+            .attr("class", "industry-chart-bar-tooltip")
 
         // Set tooltip for showing data associated with a portion of the bar
-        let tooltip = d3.selectAll(".tooltip");
+        let tooltip = d3.selectAll(".industry-chart-bar-tooltip");
 
-        tooltip.append("label")
-            .attr("class", "tooltip-occupation")
+        tooltip.append("span")
+            .attr("class", "industry-chart-bar-tooltip-occupation")
             .text((data) => data[0].occupation);
 
         tooltip.append("span")
-            .attr("class", "tooltip-record")
+            .attr("class", "industry-chart-bar-tooltip-record")
             .text((data) => data.length)
             .append("label")
-            .attr("class", "tooltip-record-label")
+            .attr("class", "industry-chart-bar-tooltip-record-label")
             .text("records");
 
         tooltip.append("span")
-            .attr("class", "tooltip-percentage")
+            .attr("class", "industry-chart-bar-tooltip-percentage")
             .text((data) => "%" + ((data.length / total) * 100).toFixed(1))
             .append("label")
-            .attr("class", "tooltip-percentage-label")
+            .attr("class", "industry-chart-bar-tooltip-percentage-label")
             .text("of workforce");
     }
 
     render() {
-        return (
-            <section className="industry-chart-container">
-                <MapNavigation />
-                <div className="industry-chart-view"></div>
-                <div className="industry-chart-bar-container">
-                    <p className="industry-chart-bar-title">Industry Breakdown</p>
-                    <div className="industry-chart-bar"></div>
-                    <div className="industr-char-bar-axis"></div>
-                </div>
-                <SidePanel states={this.state.statesNew} namesByState={this.state.namesByState} />
-            </section>
-
-        );
+        if (this.state.loading) {
+            return <Loading />;
+        } else {
+            return (
+                <section className="industry-chart-container">
+                    <MapNavigation />
+                    <div className="industry-chart-view-container">
+                        <div className="industry-chart-view"></div>
+                    </div>
+                    <div className="industry-chart-bar-container">
+                        <p className="industry-chart-bar-title">Industry Breakdown</p>
+                        <div className="industry-chart-bar"></div>
+                        <div className="industr-char-bar-axis"></div>
+                    </div>
+                    <SidePanel states={this.state.statesNew} namesByState={this.state.namesByState} />
+                </section>
+            );
+        }
     }
 }
 
