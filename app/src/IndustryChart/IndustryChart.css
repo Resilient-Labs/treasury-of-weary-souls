@@ -1,0 +1,27 @@
+.industry-chart-container {
+  background-color: #282828;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  width: 100%; }
+  .industry-chart-container .industry-chart-bar-container {
+    bottom: 100px;
+    margin-left: 1em;
+    position: absolute;
+    width: calc( 80% - 2em); }
+    @media only screen and (max-width: 769px) {
+      .industry-chart-container .industry-chart-bar-container {
+        width: calc( 100% - 2em); } }
+  .industry-chart-container .industry-chart-bar-title {
+    color: #A6A6A6;
+    display: block;
+    font-size: 14px;
+    position: relative;
+    text-align: center;
+    top: -10px; }
+  .industry-chart-container .industry-chart-bar {
+    display: flex;
+    z-index: 10; }
+    .industry-chart-container .industry-chart-bar .industry-chart-bar-section {
+      height: 20px;
+      display: inline-block; }
