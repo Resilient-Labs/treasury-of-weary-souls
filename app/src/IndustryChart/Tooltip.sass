@@ -1,0 +1,35 @@
+$color-tooltip: #DEDEDE
+$color-tooltip-label: #9B9B9B
+$tooltip-zindex: 10
+
+.tooltip
+    background-color: $color-tooltip
+    font-size: 14px
+    min-width: 200px
+    padding: 1em
+    position: relative
+    top: 20px
+    z-index: $tooltip-zindex
+.tooltip-occupation, .tooltip-record-label, .tooltip-percentage-label
+    display: block
+    text-align: center
+.tooltip-record, .tooltip-percentage, 
+    display: inline-block
+    text-align: center
+    width: 50%
+.tooltip-occupation
+    margin-bottom: 10px
+    width: 100%
+
+.tooltip-record-label,
+.tooltip-percentage-label
+    color: $color-tooltip-label
+
+.industry-chart-bar-section > .tooltip
+    visibility: hidden
+    opacity: 0
+    transition: visibility 0s linear 100ms,opacity 100ms linear
+.industry-chart-bar-section:hover > .tooltip 
+    visibility: visible
+    opacity: 1
+    transition-delay: 0s

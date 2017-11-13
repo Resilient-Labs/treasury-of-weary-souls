@@ -1,0 +1,50 @@
+.insurers-map-key {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: absolute;
+  bottom: 2em;
+  left: 2em; }
+  .insurers-map-key div,
+  .insurers-map-key .chart-bar {
+    font: 10px sans-serif;
+    background-color: steelblue;
+    text-align: right;
+    margin: 0.5em;
+    position: relative;
+    color: white;
+    width: 2em;
+    display: inline-block;
+    bottom: 0; }
+    .insurers-map-key div:first-of-type,
+    .insurers-map-key .chart-bar:first-of-type {
+      background-color: #FFD462; }
+    .insurers-map-key div:nth-of-type(2),
+    .insurers-map-key .chart-bar:nth-of-type(2) {
+      background-color: #FC7D49; }
+    .insurers-map-key div:nth-of-type(3),
+    .insurers-map-key .chart-bar:nth-of-type(3) {
+      background-color: #AD2D5C; }
+    .insurers-map-key div:nth-of-type(4),
+    .insurers-map-key .chart-bar:nth-of-type(4) {
+      background-color: #CF423C; }
+    .insurers-map-key div label,
+    .insurers-map-key div .chart-bar-label,
+    .insurers-map-key .chart-bar label,
+    .insurers-map-key .chart-bar .chart-bar-label {
+      text-align: center;
+      margin: 0 auto;
+      bottom: -2em;
+      position: absolute;
+      left: 0;
+      right: 0; }
+    .insurers-map-key div text,
+    .insurers-map-key div .chart-bar-text,
+    .insurers-map-key .chart-bar text,
+    .insurers-map-key .chart-bar .chart-bar-text {
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+      position: absolute;
+      text-align: center;
+      top: -2em; }

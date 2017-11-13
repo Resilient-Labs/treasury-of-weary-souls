@@ -104,6 +104,7 @@ app.get('/api/wearysouls', (req, res) => {
                     state_id: stateId(),
                     insurancefirm: rows[row].insurancefirm,
                     owner: rows[row].slaveowners,
+                    occupation: rows[row].occupation == "" ? "NL" : rows[row].occupation
                 }
                 data.push(wearySoul);
             }

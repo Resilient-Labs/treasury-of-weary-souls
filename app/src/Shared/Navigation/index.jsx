@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Scrollchor from 'react-scrollchor';
+import Scrollchor from 'react-scrollchor'; // TODO: Remove Scrollchor from dependencies
+import { Link } from 'react-router-dom';
 import './Navigation.css';
 
 class Navigation extends Component {
@@ -11,10 +12,10 @@ class Navigation extends Component {
             <aside className="navigation">
                 <span className="navigation-line-break" />
                 <nav>
-                    <Scrollchor to="intro">Intro</Scrollchor>
-                    <Scrollchor to="about">About</Scrollchor>
-                    <Scrollchor to="map">Map</Scrollchor>
-                    <Scrollchor to="blog">Blog</Scrollchor>
+                    <Link to="#intro">Intro</Link>
+                    <Scrollchor to="#about">About</Scrollchor>
+                    <Link to="/map">Map</Link>
+                    <Link to="blog">Blog</Link>
                 </nav>
                 <a className="contribute">
                     <h6>Contribute to the Project</h6>

@@ -8,19 +8,19 @@ const SidePanel = (props) => (
 )
 
 function renderList(states, names) {
-    console.log("function running");
     return states.map( (state) => {
         let filteredNames = names.filter( (soul) => {
             return soul.state === state;
         })
 
         return (
-            <div className="state-side-panel-column">
+            <div className="state-side-panel-column" key={ state == null ? 'unknown' : state }>
                 <h5 className="side-panel-headline">{ state == null ? 'Unknown Location' : state }</h5>
                 <ul className={ `side-panel-list` } key={ state }>
-                { filteredNames.map( (soul) => { 
+                { filteredNames.map( (soul, index) => { 
                     if (soul.name !== '') {
-                        return <li className={ `side-panel-listed-name soul-named-` + soul.name }>{ soul.name } </li>; } 
+                        return <li className={ `side-panel-listed-name soul-named-` + soul.name }
+                        key={ index }>{ soul.name } </li>; } 
                     })
                 }
                 </ul>

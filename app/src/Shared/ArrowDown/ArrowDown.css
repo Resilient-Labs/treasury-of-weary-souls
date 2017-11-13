@@ -1,3 +1,9 @@
+.arrow-down-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; }
+
 .arrow-down {
   width: 30px;
   max-height: 40px;

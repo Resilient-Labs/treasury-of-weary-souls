@@ -1,0 +1,104 @@
+.industry-chart-container {
+  background-color: #282828;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  width: 100%; }
+  .industry-chart-container .industry-chart-bar-container {
+    bottom: 100px;
+    margin-left: 1em;
+    position: absolute;
+    width: calc( 80% - 2em); }
+  .industry-chart-container .industry-chart-bar-title {
+    color: #A6A6A6;
+    text-align: center; }
+  .industry-chart-container .industry-chart-bar {
+    display: flex;
+    z-index: 10; }
+    .industry-chart-container .industry-chart-bar .industry-chart-bar-section {
+      height: 20px;
+      display: inline-block; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation="NL"] {
+        background-color: #DDD; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Steam"], .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="boat"] {
+        background-color: #AD2D5C; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Domestic"] {
+        background-color: #FF9B96; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Carpenter"] {
+        background-color: #821D19; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Blacksmith"] {
+        background-color: #96F4FF; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Stevedore"] {
+        background-color: #197782; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Servant"] {
+        background-color: #FF6F69; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Agriculturalist"] {
+        background-color: #FFEEAD; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Mason"] {
+        background-color: #3F5666; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Coach"] {
+        background-color: #56D9CD; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Wheelwright"] {
+        background-color: #C6E070; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Merchant"] {
+        background-color: #91C46C; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Painter"] {
+        background-color: #F5E5C0; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Cook"] {
+        background-color: #FF9320; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Clerk"] {
+        background-color: #D17C78; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Seamstress"] {
+        background-color: #2E3B64; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Barber"] {
+        background-color: #FFD101; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Miner"] {
+        background-color: #F6F3EB; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Hemp"] {
+        background-color: #97B8A3; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Fireman"] {
+        background-color: #EF3E4A; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Widow"] {
+        background-color: #C02A1B; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Mill"] {
+        background-color: #B32A48; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Nurse"] {
+        background-color: #CF2F89; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Butcher"] {
+        background-color: #96CBD1; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Bricklayer"] {
+        background-color: #008FD3; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Drayman"] {
+        background-color: #F4C7EE; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Laborer"] {
+        background-color: #FE667B; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Engineer"] {
+        background-color: #FF5035; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Washer"] {
+        background-color: #A39AB4; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Cigar"] {
+        background-color: #BF1361; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Tailor"] {
+        background-color: #FBECCF; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Baker"] {
+        background-color: #112378; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Tobacco"] {
+        background-color: #BB828B; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Machine"] {
+        background-color: #CF423C; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Railroad"] {
+        background-color: #F79E7C; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Cooper"] {
+        background-color: #012F63; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation*="Farmer"] {
+        background-color: #14A19B; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation="Factory worker"] {
+        background-color: #FC7D49; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation="Cobbler"] {
+        background-color: #32B67A; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation="Sailor"] {
+        background-color: #FFD462; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation="Iron"] {
+        background-color: #FFD101; }
+      .industry-chart-container .industry-chart-bar .industry-chart-bar-section[occupation="female slave"] {
+        background-color: #B7E3E4; }

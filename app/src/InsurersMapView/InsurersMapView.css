@@ -1,0 +1,16 @@
+#insurersmap-wrapper {
+  height: auto;
+  width: 80%;
+  display: inline-block;
+  margin: 0 auto;
+  top: 0;
+  position: absolute; }
+  #insurersmap-wrapper .insurersmap-svg {
+    fill: transparent;
+    max-height: 100vh; }
+    #insurersmap-wrapper .insurersmap-svg .state {
+      stroke: #B5B5B5;
+      stroke-width: 0.25px; }
+      #insurersmap-wrapper .insurersmap-svg .state:hover {
+        stroke: #FFD462;
+        stroke-width: 2px; }
