@@ -7,6 +7,7 @@ import Loading from '../Loading'
 import * as d3 from 'd3';
 import * as topojson from 'topojson';
 import './InsurersMap.css';
+import './InsurersColors.css';
 import axios from 'axios';
 
 class InsurersMap extends Component {
@@ -99,13 +100,12 @@ class InsurersMap extends Component {
         ref.setState({ stateIds: stateIds })
         ref.setState({ soulsByStateId: ref.objectSoulsById(wearysouls) })
         //console.log(ref.objectSoulsById(wearysouls));
-        
       })
       .then(function () {
         ref.setState({ loading: false });
         ref.renderMap();
         ref.renderChart();
-    })
+      })
       .catch(function (error) {
         console.log(error);
       })
@@ -133,62 +133,92 @@ class InsurersMap extends Component {
     let width = '500',
       height = '500';
 
-    let insurersMap = d3.select('#insurersmap-wrapper')
+    let insurersMap = d3.select('#insurers-map-wrapper')
       .append('svg')
-      .attr('class', 'insurersmap-svg')
+      .attr('class', 'insurers-map-svg')
       .attr('preserveAspectRatio', 'xMidYMid meet')
       .attr('viewBox', '450 150 ' + width + ' ' + height);
 
     // let projection = d3.geoAlbersUsa()
     var path = d3.geoPath();
-    let q = d3.queue();
-    q.defer(d3.json, 'https://d3js.org/us-10m.v1.json')
-      .await(function (error, data) {
-        if (error) {
-          throw error;
-        }
-        let states = topojson.feature(data, data.objects.states).features;
+    d3.json("https://d3js.org/us-10m.v1.json", function (error, data) {
+      if (error) throw error;
+      let states = topojson.feature(data, data.objects.states).features;
+      console.log(states);
 
-        let stateIds = ['01', '05', '10', '12', '13', '17', '18', '19', '21', '22', '24', '28', '29', '34', '37', '39', '42', '45', '47', '51', '54'];
-        let filteredStates = states.filter((state) => {
-          return stateIds.includes(state.id);
+      let stateIds = ['01', '05', '10', '12', '13', '17', '18', '19', '21', '22', '24', '28', '29', '34', '37', '39', '42', '45', '47', '51', '54'];
+      let filteredStates = states.filter((state) => {
+        return stateIds.includes(state.id);
+      })
+      console.log(filteredStates);
+      let stateContainer = insurersMap.selectAll('state-container')
+        .data(filteredStates)
+        .enter()
+        .append('g')
+        .attr('class', 'state-container')
+        .attr("container-stateId", (state) => {
+          return state.id
         })
-        let stateContainer = insurersMap.selectAll('state-container')
-          .data(filteredStates)
-          .enter()
-          .append('g')
-          .attr('class', 'state-container')
 
-        // add paths for each state
-        stateContainer.append('path')
-          .attr('class', 'state')
-          .attr('stateId', (state) => {
-            return state.id
-          })
-          .attr('state', (state) => {
-            return 'state-' + state.id
-          })
-          .attr('d', path);
+      // add paths for each state
+      stateContainer.append('path')
+        .attr('class', 'state')
+        .attr('stateId', (state) => {
+          return state.id
+        })
+        .attr('state', (state) => {
+          return 'state-' + state.id
+        })
+        .attr('d', path);
 
-        for (var i = 0; i < Object.keys(ref.state.soulsByStateId).length; i++) {
-          let objKey = Object.keys(ref.state.soulsByStateId)[i];
-          let objValue = ref.state.soulsByStateId[objKey];
-          console.log(objValue);
-          for (var m = 0; m < objValue.length; m++) {
+      function compareByInsurer(a, b) {
+        if (a.insurancefirm < b.insurancefirm)
+          return -1;
+        if (a.insurancefirm > b.insurancefirm)
+          return 1;
+        return 0;
+      }
+      let obj = ref.state.soulsByStateId;
 
+      // loop through all of the states and each soul to display a point for every soul
+      let count = 0;
+      let objCopy = Object.assign({}, obj);
+      var keys = Object.keys(objCopy);
+      for (var i = 0; i < keys.length; i++) {
+        var val = obj[keys[i]];
+        var stateId = keys[i];
+        val.sort(compareByInsurer);
+        for (var m = 0; m < val.length; m++) {
+          count++
+          let currentSoul = val[m];
+          let location = currentSoul.city + ", " + stateId;
+
+          if (stateId == null) {
+            // do nothing 
+          } else {
+            d3.select("[container-stateId='" + stateId + "']")
+              .append("circle")
+              .attr("class", "insurer-map-point")
+              .attr("name", currentSoul.name)
+              .attr("occupation", currentSoul.occupation)
+              .attr("owner", currentSoul.owner)
+              .attr("location", location)
+              .attr("city", currentSoul.city)
+              .attr("stateId", currentSoul.state_id)
+              .attr("insurer", currentSoul.insurancefirm)
+              .attr("r", 2)
+              .attr("cx", (d) => {
+                return path.centroid(d)[0];
+              })
+              .attr("cy", (d) => {
+                return path.centroid(d)[1];
+              })
+              //.append("div")
+              //.attr("class", "industry-chart-view-tooltip")
           }
         }
-        stateContainer
-          .append("circle")
-          .attr("r", "2.5")
-          .attr("cx", (d) => {
-            return path.centroid(d)[0];
-          })
-          .attr("cy", (d) => {
-            return path.centroid(d)[1];
-          })
-          .style("fill", "red")
-      });
+      }
+    });
   }
 
   renderChart() {
@@ -207,7 +237,12 @@ class InsurersMap extends Component {
       .enter()
       .append("div")
       .attr("class", "chart-bar")
-      .style("height", function (d) { return y(d.count) + "px"; });
+      .attr("insurer", (data) => {
+        return data.insurer
+      })
+      .style("height",  (data) => { 
+        return y(data.count) + "px"; 
+      });
 
     chart.append("text")
       .text((d) => d.count)

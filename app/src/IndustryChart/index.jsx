@@ -183,6 +183,13 @@ class IndustryChart extends Component {
             .style("width", (data, idx) => {
                 return (100 / Object.keys(objCopy).length) + "%";
             })
+            .append("label")
+            .attr("class", "industry-chart-view-column-label")
+            .text((data, idx) => {
+                let stateAbbr = data[0].state_abbreviated;
+                console.log(stateAbbr);
+                return stateAbbr;
+            })
         // local helper method to sort the souls by occupation
         function compareByOccupation(a, b) {
             if (a.occupation < b.occupation)
@@ -255,6 +262,7 @@ class IndustryChart extends Component {
     }
 
     renderChartBar() {
+        // Industry Breakdown Chart Bar
         let obj = this.state.soulsByOccupation;
         var keys = Object.keys(obj);
         let total = 0;
@@ -297,20 +305,6 @@ class IndustryChart extends Component {
             .style("width", (data) => {
                 return ((data.length / total) * 100) + "%";
             })
-        // .on("mouseover", function (data, idx) {
-        //     // let currentTooltip = d3.selectAll('.tooltip')._groups[0][idx];
-        //     // d3.select(currentTooltip)
-        //     // .transition()
-        //     // .duration(200)
-        //     // .style("visibility", "visible");
-        // })
-        // .on("mouseout", function (data, idx) {
-        //     // let currentTooltip = d3.selectAll('.tooltip')._groups[0][idx];
-        //     // d3.select(currentTooltip)
-        //     // .transition()
-        //     // .duration(200)
-        //     // .style("visibility", "hidden");
-        // })
 
         chartBar.append("div")
             .attr("class", "industry-chart-bar-tooltip")
@@ -348,7 +342,7 @@ class IndustryChart extends Component {
                         <div className="industry-chart-view"></div>
                     </div>
                     <div className="industry-chart-bar-container">
-                        <p className="industry-chart-bar-title">Industry Breakdown</p>
+                        <small className="industry-chart-bar-title">Industry Breakdown</small>
                         <div className="industry-chart-bar"></div>
                         <div className="industr-char-bar-axis"></div>
                     </div>

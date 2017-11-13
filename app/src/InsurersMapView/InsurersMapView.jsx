@@ -3,7 +3,7 @@ import './InsurersMapView.css';
 
 const InsurersMapView = (props) => {
     return ( 
-        <div id='insurersmap-wrapper'></div>
+        <div id='insurers-map-wrapper'></div>
     )
 }
 

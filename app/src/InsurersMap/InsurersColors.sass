@@ -1,0 +1,27 @@
+$color-aig: #FFD462
+$color-aetna: #FC7D49
+$color-blic: #AD2D5C
+$color-nyli: #CF423C
+$color-other: #d3d3d3
+
+.chart-bar
+    background-color: $color-other
+    &[insurer*="Aig"], &[insurer*="AIG"], &[insurer*="aig"]
+        background-color: $color-aig
+    &[insurer*="Aetna"], &[insurer*="AETNA"], &[insurer*="aetna"]
+        background-color: $color-aetna
+    &[insurer*="blic"], &[insurer*="BLIC"], &[insurer*="Blic"]
+        background-color: $color-blic
+    &[insurer*="nyli"], &[insurer*="NYLI"], &[insurer*="Nyli"]
+        background-color: $color-nyli
+
+.insurer-map-point
+    fill: $color-other
+    &[insurer*="Aig"], &[insurer*="AIG"], &[insurer*="aig"]
+        fill: $color-aig
+    &[insurer*="Aetna"], &[insurer*="AETNA"], &[insurer*="aetna"]
+        fill: $color-aetna
+    &[insurer*="blic"], &[insurer*="BLIC"], &[insurer*="Blic"]
+        fill: $color-blic
+    &[insurer*="nyli"], &[insurer*="NYLI"], &[insurer*="Nyli"]
+        fill: $color-nyli
