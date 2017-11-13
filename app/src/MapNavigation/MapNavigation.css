@@ -1,0 +1,18 @@
+.map-navigation {
+  position: absolute;
+  top: 1em;
+  z-index: 11;
+  width: calc( 80% - 2em);
+  text-align: center;
+  margin-left: 1em; }
+  @media only screen and (max-width: 769px) {
+    .map-navigation {
+      width: calc( 100% - 2em); } }
+  .map-navigation a {
+    color: white;
+    margin: 1em;
+    text-decoration: none; }
+    .map-navigation a:hover {
+      text-decoration: underline; }
+    .map-navigation a:hover, .map-navigation a:visited {
+      color: white; }

@@ -1,0 +1,49 @@
+.industry-chart-view-container {
+  position: absolute;
+  bottom: 200px; }
+
+.industry-chart-view {
+  align-items: flex-end;
+  display: flex;
+  flex-flow: row;
+  margin-left: 1em;
+  width: calc( 80% - 2em); }
+  @media only screen and (max-width: 769px) {
+    .industry-chart-view {
+      width: calc( 100% - 2em); } }
+
+.industry-chart-view-column {
+  align-items: flex-end;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 0 10px;
+  position: relative; }
+  @media only screen and (max-width: 1072px) {
+    .industry-chart-view-column {
+      padding: 0 4px; } }
+  @media only screen and (max-width: 769px) {
+    .industry-chart-view-column {
+      padding: 0 2px; } }
+
+.industry-chart-view-column-label {
+  position: absolute;
+  text-align: center;
+  bottom: -2em;
+  font-size: 14px;
+  color: #A6A6A6; }
+
+.industry-chart-view-point {
+  border-radius: 50%;
+  display: inline-block;
+  height: 0.3em;
+  margin: 0.75px;
+  width: 0.3em; }
+  @media only screen and (max-width: 1072px) {
+    .industry-chart-view-point {
+      height: 0.25em;
+      width: 0.25em; } }
+  @media only screen and (max-width: 769px) {
+    .industry-chart-view-point {
+      height: 0.2em;
+      width: 0.2em; } }

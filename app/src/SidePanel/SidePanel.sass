@@ -1,0 +1,59 @@
+$color-accent: #3FB7F7
+$color-sidepanel: #2F2E2E
+$height-side-panel-header: 70px
+$width-side-panel: 20%
+$width-side-panel-mobile: 100%
+
+.side-panel 
+    background-color: $color-sidepanel
+    color: #797979
+    display: inline-block
+    height: 100%
+    overflow-y: scroll
+    position: absolute
+    right: 0
+    width: $width-side-panel
+    @media only screen and (max-width: 769px) 
+        bottom: 0
+        max-height: 70px
+        width: $width-side-panel-mobile
+        //max-height: 100%
+        //z-index: 11
+    .side-panel-header
+        align-items: center
+        background-color: $color-sidepanel
+        border-bottom: 1px solid #353535
+        color: white
+        display: flex
+        position: fixed
+        width: $width-side-panel
+        @media only screen and (max-width: 769px) 
+            width: $width-side-panel-mobile
+    .side-panel-header-link
+        color: white
+        height: $height-side-panel-header
+        line-height: $height-side-panel-header
+        padding: 0 10px
+        text-align: center
+        text-decoration: none
+        width: 50%
+        &:hover
+            background-color: $color-accent
+        &:visited, &:hover
+            color: white
+    .side-panel-column
+        padding-left: 2em
+        &:first-of-type
+            margin-top: calc( #{$height-side-panel-header} + 1em )
+    .side-panel-column-headline 
+        border-bottom: 1px solid white
+        text-transform: uppercase
+        width: 90%
+    .side-panel-list 
+        list-style: none
+        margin: 0
+        padding: 0
+    .side-panel-listed-name 
+        cursor: pointer
+        &:hover 
+            color: $color-accent

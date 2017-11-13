@@ -1,0 +1,47 @@
+.arrow-down-link
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 100%
+    &:hover
+        span
+            color: #5B5B5B
+.arrow-down 
+    width: 30px
+    max-height: 40px
+    display: inline-block
+    path 
+        stroke: white
+        fill: transparent
+        stroke-width: 2px	
+        animation: arrow 2s infinite
+        -webkit-animation: arrow 2s infinite 
+        &.a1
+            animation-delay: -1s
+            -webkit-animation-delay: -1s // Safari 和 Chrome 
+        &.a2
+            animation-delay: -0.5s
+            -webkit-animation-delay: -0.5s // Safari 和 Chrome 
+        &.a3
+            animation-delay: 0s
+            -webkit-animation-delay: 0s // Safari 和 Chrome 
+
+@keyframes arrow
+    0% 
+        opacity: 0
+    40% 
+        opacity: 0.8
+    80% 
+        opacity: 0
+    100% 
+        opacity: 0
+
+@-webkit-keyframes arrow // Safari and Chrome
+    0% 
+        opacity: 0
+    40% 
+        opacity: 0.8
+    80% 
+        opacity: 0
+    100% 
+        opacity: 0

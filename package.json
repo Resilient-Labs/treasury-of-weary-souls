@@ -1,27 +1,20 @@
 {
-  "name": "treasury-of-weary-souls",
-  "version": "0.1.0",
-  "private": true,
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
   "dependencies": {
-    "node-sass-chokidar": "^0.0.3",
-    "npm-run-all": "^4.1.1",
-    "react": "^16.0.0",
-    "react-d3-map": "^0.8.3",
-    "react-dom": "^16.0.0",
-    "react-router": "^4.2.0",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.14",
-    "react-scrollchor": "^4.0.0",
-    "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "google-spreadsheet": "^2.0.4",
+    "json-stringify-pretty-compact": "^1.0.4",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.12.1"
   },
   "scripts": {
-    "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
-    "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
-    "start-js": "react-scripts start",
-    "start": "npm-run-all -p watch-css start-js",
-    "build": "npm run build-css && react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "node backend/server.js",
+    "watch": "nodemon backend/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "cd app && yarn --production=false && yarn run build"
   }
 }

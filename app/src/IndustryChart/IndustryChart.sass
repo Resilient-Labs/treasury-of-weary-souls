@@ -1,0 +1,29 @@
+$industry-chart-bar-zindex: 10
+$color-base: #282828
+
+.industry-chart-container 
+    background-color: $color-base
+    height: 100vh
+    overflow: hidden
+    position: relative
+    width: 100%
+    .industry-chart-bar-container
+        bottom: 100px
+        margin-left: 1em
+        position: absolute
+        width: calc( 80% - 2em )
+        @media only screen and (max-width: 769px)
+            width: calc( 100% - 2em)
+    .industry-chart-bar-title
+        color: #A6A6A6
+        display: block
+        font-size: 14px
+        position: relative
+        text-align: center
+        top: -10px
+    .industry-chart-bar
+        display: flex
+        z-index: $industry-chart-bar-zindex
+        .industry-chart-bar-section
+            height: 20px
+            display: inline-block

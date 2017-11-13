@@ -1,0 +1,20 @@
+#insurers-map-wrapper {
+  height: auto;
+  width: 80%;
+  display: inline-block;
+  margin: 0 auto;
+  top: 0;
+  position: absolute; }
+  @media only screen and (max-width: 769px) {
+    #insurers-map-wrapper {
+      top: 2em;
+      width: 100%; } }
+  #insurers-map-wrapper .insurers-map-svg {
+    fill: transparent;
+    max-height: 100vh; }
+    #insurers-map-wrapper .insurers-map-svg .state {
+      stroke: #B5B5B5;
+      stroke-width: 0.25px; }
+      #insurers-map-wrapper .insurers-map-svg .state:hover {
+        stroke: white;
+        stroke-width: 0.7px; }

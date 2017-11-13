@@ -1,0 +1,32 @@
+.intro-container {
+  align-items: center;
+  background-image: url("./img/landing-banner.jpg");
+  background-size: cover;
+  color: white;
+  display: flex;
+  flex-flow: column wrap;
+  float: left;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+  width: 100%; }
+  .intro-container div {
+    display: block;
+    max-width: 768px;
+    width: 60%; }
+    @media only screen and (min-width: 1920px) {
+      .intro-container div {
+        max-width: 1024px; } }
+    @media only screen and (max-width: 769px) {
+      .intro-container div {
+        padding: 1em;
+        width: 100%; } }
+    .intro-container div h2 {
+      margin: 0 auto; }
+    .intro-container div h1 {
+      margin: 0 auto; }
+    .intro-container div p {
+      margin: 2em auto; }
+  .intro-container svg {
+    position: absolute;
+    bottom: 1em; }

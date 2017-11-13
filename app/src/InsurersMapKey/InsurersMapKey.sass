@@ -1,0 +1,51 @@
+// reference variables.sass
+$color-yellow: #FFD462
+$color-orange: #FC7D49
+$color-maroon: #AD2D5C
+$color-red: #CF423C
+
+.insurers-map-key 
+  display: flex
+  justify-content: center
+  align-items: flex-end
+  position: absolute
+  bottom: 2em
+  left: 2em
+  @media only screen and (max-width: 769px)
+    bottom: 100px
+  div,
+  .chart-bar
+    font: 10px sans-serif
+    //background-color: steelblue
+    text-align: right
+    margin: 0.5em
+    position: relative
+    color: white
+    width: 2em
+    display: inline-block
+    bottom: 0
+    // &:first-of-type
+    //   background-color: $color-yellow
+    // &:nth-of-type(2)
+    //   background-color: $color-orange
+    // &:nth-of-type(3)
+    //   background-color: $color-maroon
+    // &:nth-of-type(4)
+    //   background-color: $color-red
+
+    label,
+    .chart-bar-label
+      text-align: center
+      margin: 0 auto
+      bottom: -2em
+      position: absolute
+      left: 0
+      right: 0
+    text,
+    .chart-bar-text
+      margin: 0 auto
+      left: 0
+      right: 0
+      position: absolute
+      text-align: center
+      top: -2em

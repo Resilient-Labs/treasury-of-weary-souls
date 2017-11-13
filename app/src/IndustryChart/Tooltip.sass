@@ -1,0 +1,58 @@
+$color-tooltip: #DEDEDE
+$color-tooltip-label: #9B9B9B
+$tooltip-zindex: 10
+
+.industry-chart-bar-tooltip
+    background-color: $color-tooltip
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+    font-size: 14px
+    min-width: 200px
+    padding: 1em
+    position: relative
+    top: 20px
+    z-index: $tooltip-zindex
+.industry-chart-bar-tooltip-occupation, 
+.industry-chart-bar-tooltip-record-label, 
+.industry-chart-bar-tooltip-percentage-label
+    display: block
+    text-align: center
+.industry-chart-bar-tooltip-record, 
+.industry-chart-bar-tooltip-percentage, 
+    display: inline-block
+    text-align: center
+    width: 50%
+.industry-chart-bar-tooltip-occupation
+    margin-bottom: 10px
+    width: 100%
+.industry-chart-bar-tooltip-record-label,
+.industry-chart-bar-tooltip-percentage-label
+    color: $color-tooltip-label
+
+.industry-chart-view-point > .industry-chart-view-tooltip,
+.industry-chart-bar-section > .industry-chart-bar-tooltip
+    visibility: hidden
+    opacity: 0
+    transition: visibility 0s linear 150ms,opacity 150ms linear
+.industry-chart-view-point:hover > .industry-chart-view-tooltip,
+.industry-chart-bar-section:hover > .industry-chart-bar-tooltip 
+    visibility: visible
+    opacity: 1
+    transition-delay: 100ms
+
+.industry-chart-view-tooltip
+    background-color: $color-tooltip
+    font-size: 14px
+    display: flex
+    flex-flow: column
+    float: left
+    left: 1em
+    min-width: 200px
+    padding: 1em
+    position: relative
+    width: auto
+    z-index: $tooltip-zindex
+
+.industry-chart-view-tooltip-owner-label,
+.industry-chart-view-tooltip-occupation-label
+    color: $color-tooltip-label
+    margin-top: 1em

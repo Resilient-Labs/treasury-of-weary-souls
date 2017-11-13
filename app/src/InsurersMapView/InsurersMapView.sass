@@ -1,0 +1,19 @@
+#insurers-map-wrapper 
+    height: auto
+    width: 80%
+    display: inline-block
+    margin: 0 auto
+    top: 0
+    position: absolute
+    @media only screen and (max-width: 769px)
+        top: 2em
+        width: 100%
+    .insurers-map-svg
+        fill: transparent
+        max-height: 100vh
+        .state
+            stroke: #B5B5B5
+            stroke-width: 0.25px
+            &:hover
+                stroke: white
+                stroke-width: 0.7px

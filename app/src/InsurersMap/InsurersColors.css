@@ -1,0 +1,21 @@
+.chart-bar {
+  background-color: #d3d3d3; }
+  .chart-bar[insurer*="Aig"], .chart-bar[insurer*="AIG"], .chart-bar[insurer*="aig"] {
+    background-color: #FFD462; }
+  .chart-bar[insurer*="Aetna"], .chart-bar[insurer*="AETNA"], .chart-bar[insurer*="aetna"] {
+    background-color: #FC7D49; }
+  .chart-bar[insurer*="blic"], .chart-bar[insurer*="BLIC"], .chart-bar[insurer*="Blic"] {
+    background-color: #AD2D5C; }
+  .chart-bar[insurer*="nyli"], .chart-bar[insurer*="NYLI"], .chart-bar[insurer*="Nyli"] {
+    background-color: #CF423C; }
+
+.insurer-map-point {
+  fill: #d3d3d3; }
+  .insurer-map-point[insurer*="Aig"], .insurer-map-point[insurer*="AIG"], .insurer-map-point[insurer*="aig"] {
+    fill: #FFD462; }
+  .insurer-map-point[insurer*="Aetna"], .insurer-map-point[insurer*="AETNA"], .insurer-map-point[insurer*="aetna"] {
+    fill: #FC7D49; }
+  .insurer-map-point[insurer*="blic"], .insurer-map-point[insurer*="BLIC"], .insurer-map-point[insurer*="Blic"] {
+    fill: #AD2D5C; }
+  .insurer-map-point[insurer*="nyli"], .insurer-map-point[insurer*="NYLI"], .insurer-map-point[insurer*="Nyli"] {
+    fill: #CF423C; }
