@@ -19,3 +19,25 @@
     fill: #FFD462; }
   .insurer-map-point[insurer*="nyli"], .insurer-map-point[insurer*="NYLI"], .insurer-map-point[insurer*="Nyli"] {
     fill: #CF423C; }
+
+.insurer-map-point-tooltip-insurer:before {
+  content: "";
+  display: block;
+  position: relative;
+  border-radius: 50%;
+  text-align: center;
+  margin: 0 auto;
+  width: 14px;
+  height: 14px; }
+
+.insurer-map-point-tooltip-insurer[insurer*="Aig"]:before, .insurer-map-point-tooltip-insurer[insurer*="AIG"]:before, .insurer-map-point-tooltip-insurer[insurer*="aig"]:before {
+  background-color: #3FB7F7; }
+
+.insurer-map-point-tooltip-insurer[insurer*="Aetna"]:before, .insurer-map-point-tooltip-insurer[insurer*="AETNA"]:before, .insurer-map-point-tooltip-insurer[insurer*="aetna"]:before {
+  background-color: #FC7D49; }
+
+.insurer-map-point-tooltip-insurer[insurer*="blic"]:before, .insurer-map-point-tooltip-insurer[insurer*="BLIC"]:before, .insurer-map-point-tooltip-insurer[insurer*="Blic"]:before {
+  background-color: #FFD462; }
+
+.insurer-map-point-tooltip-insurer[insurer*="nyli"]:before, .insurer-map-point-tooltip-insurer[insurer*="NYLI"]:before, .insurer-map-point-tooltip-insurer[insurer*="Nyli"]:before {
+  background-color: #CF423C; }
