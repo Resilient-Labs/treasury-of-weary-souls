@@ -82,7 +82,7 @@ class InsurersMap extends Component {
     axios.get("/api/wearysouls/")
       .then(function (response) {
         let wearysouls = response.data;
-        
+
         let insurers = wearysouls.map((soul) => {
           return soul.insurancefirm;
         })
@@ -155,7 +155,7 @@ class InsurersMap extends Component {
       let filteredStates = states.filter((state) => {
         return stateIds.includes(state.id);
       })
-      
+
       let stateContainer = insurersMap.selectAll('state-container')
         .data(filteredStates)
         .enter()
@@ -178,7 +178,7 @@ class InsurersMap extends Component {
         // .on('click', function(d) {
         //   var stateX, stateY, k;
         //   // FIXME: Leon here's the shit
-        //   var centroid = path.centroid(d); 
+        //   var centroid = path.centroid(d);
         //   stateX = centroid[0];
         //   stateY = centroid[1];
         //   console.log(stateX, stateY);
@@ -195,32 +195,95 @@ class InsurersMap extends Component {
         //     .duration(750)
         //     .attr("transform", "translate("+(-stateX)+","+(-stateY)+")scale(2,2)")
         //   }
-        
+
         // })
-      //   .on("click", function (d) {
-      //     var x, y, k;
-        
-      //   if (d && centered !== d) {
-      //     var centroid = path.centroid(d);
-      //     x = centroid[0];
-      //     y = centroid[1];
-      //     k = 2;
-      //     centered = d;
-      //   } else {
-      //     x = width / 2;
-      //     y = height / 2;
-      //     k = 1;
-      //     centered = null;
-      //   }
-      
-      //   d3.select(".insurers-map-svg").selectAll("path")
-      //       .classed("active", centered && function(d) { return d === centered; });
-      
-      //       d3.select(".insurers-map-svg").transition()
-      //       .duration(750)
-      //       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
-      //       .style("stroke-width", 1.5 / k + "px");
-      // })
+        .on("click", function (d) {
+          var x, y, k;
+
+        if (d && centered !== d) {
+          var centroid = path.centroid(d);
+          x = centroid[0];
+          y = centroid[1];
+          k = 2;
+          centered = d;
+        } else {
+          x = width / 2;
+          y = height / 2;
+          k = 1;
+          centered = null;
+        }
+
+        d3.select(".insurers-map-svg").selectAll("path")
+            .classed("active", centered && function(d) { return d === centered; });
+
+        if( d.id == 29){
+          d3.select(".insurers-map-svg").transition()
+          .duration(750)
+          .attr("transform", "translate(" + 425 + "," + 400 + ")scale(" + k + ")translate(" + -0 + "," + -100 + ")")
+          .style("stroke-width", 1.5 / k + "px");
+        }else if (d.id == 21){
+          d3.select(".insurers-map-svg").transition()
+          .duration(750)
+          .attr("transform", "translate(" + 425 + "," + 400 + ")scale(" + k + ")translate(" + -200 + "," + -100 + ")")
+          .style("stroke-width", 1.5 / k + "px");
+        }else if (d.id == 51){
+          d3.select(".insurers-map-svg").transition()
+          .duration(750)
+          .attr("transform", "translate(" + 425 + "," + 400 + ")scale(" + k + ")translate(" + -400 + "," + -100 + ")")
+          .style("stroke-width", 1.5 / k + "px");
+        }else if (d.id == 24){
+          d3.select(".insurers-map-svg").transition()
+          .duration(750)
+          .attr("transform", "translate(" + 425 + "," + 400 + ")scale(" + k + ")translate(" + -550 + "," + -50 + ")")
+          .style("stroke-width", 1.5 / k + "px");
+        }else if (d.id == 5){
+          d3.select(".insurers-map-svg").transition()
+          .duration(750)
+          .attr("transform", "translate(" + 425 + "," + 400 + ")scale(" + k + ")translate(" + -0 + "," + -275 + ")")
+          .style("stroke-width", 1.5 / k + "px");
+        }else if (d.id == 47){
+          d3.select(".insurers-map-svg").transition()
+          .duration(750)
+          .attr("transform", "translate(" + 425 + "," + 400 + ")scale(" + k + ")translate(" + -200 + "," + -200 + ")")
+          .style("stroke-width", 1.5 / k + "px");
+        }else if (d.id == 37){
+          d3.select(".insurers-map-svg").transition()
+          .duration(750)
+          .attr("transform", "translate(" + 425 + "," + 400 + ")scale(" + k + ")translate(" + -400 + "," + -200 + ")")
+          .style("stroke-width", 1.5 / k + "px");
+        }else if (d.id == 22){
+          d3.select(".insurers-map-svg").transition()
+          .duration(750)
+          .attr("transform", "translate(" + 425 + "," + 400 + ")scale(" + k + ")translate(" + -0 + "," + -400 + ")")
+          .style("stroke-width", 1.5 / k + "px");
+        }else if (d.id == 28){
+          d3.select(".insurers-map-svg").transition()
+          .duration(750)
+          .attr("transform", "translate(" + 425 + "," + 400 + ")scale(" + k + ")translate(" + -50 + "," + -300 + ")")
+          .style("stroke-width", 1.5 / k + "px");
+        }else if (d.id == 1){
+          d3.select(".insurers-map-svg").transition()
+          .duration(750)
+          .attr("transform", "translate(" + 425 + "," + 400 + ")scale(" + k + ")translate(" + -150 + "," + -300 + ")")
+          .style("stroke-width", 1.5 / k + "px");
+        }else if (d.id == 13){
+          d3.select(".insurers-map-svg").transition()
+          .duration(750)
+          .attr("transform", "translate(" + 425 + "," + 400 + ")scale(" + k + ")translate(" + -250 + "," + -300 + ")")
+          .style("stroke-width", 1.5 / k + "px");
+        }else if (d.id == 45){
+          d3.select(".insurers-map-svg").transition()
+          .duration(750)
+          .attr("transform", "translate(" + 425 + "," + 400 + ")scale(" + k + ")translate(" + -400 + "," + -200 + ")")
+          .style("stroke-width", 1.5 / k + "px");
+        }else if (d.id == 12){
+          d3.select(".insurers-map-svg").transition()
+          .duration(750)
+          .attr("transform", "translate(" + 425 + "," + 400 + ")scale(" + k + ")translate(" + -400 + "," + -425 + ")")
+          .style("stroke-width", 1.5 / k + "px");
+        }
+        console.log(d.id)
+      })
 
 
       let obj = ref.state.soulsByStateId;
@@ -244,7 +307,7 @@ class InsurersMap extends Component {
   appendAllSouls(keys, path, obj) {
     // console.log(keys); // keys => each state's id
     // console.log(obj); // obj => all souls by each state
-    
+
     for (var i = 0; i < keys.length; i++) {
       var val = obj[keys[i]];
       var stateId = keys[i];
@@ -274,10 +337,10 @@ class InsurersMap extends Component {
           }));
       var currentSoul;
       if (stateId == null) {
-        // do nothing 
+        // do nothing
       } else {
         console.log(obj[i])
-        
+
         var punto = d3.select("[container-stateId='" + stateId + "']")
           .selectAll("circle")
           .data(circles)
@@ -296,7 +359,7 @@ class InsurersMap extends Component {
           .attr("cx", function (d) { return d.x + pathCX; })
           .attr("cy", function (d) { return d.y + pathCY; })
           .on('mouseover', function(d, i) {
-            
+
             var name = d3.select(this).attr('name');
             var owner = d3.select(this).attr('owner');
             var city = d3.select(this).attr('city');
@@ -332,7 +395,7 @@ class InsurersMap extends Component {
             tooltip.insert("span")
               .attr("class", "insurer-map-point-tooltip-occupation")
               .text( occupation )
-            
+
             tooltip.insert("span")
               .attr("class", "insurer-map-point-tooltip-insurer")
               .attr("insurer", insurer)
