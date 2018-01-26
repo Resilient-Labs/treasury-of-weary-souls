@@ -136,6 +136,7 @@ class InsurersMap extends Component {
     let ref = this;
     let width = '425',
       height = '400';
+      let centered;
 
     let insurersMap = d3.select('#insurers-map-wrapper')
       .append('svg')
@@ -173,7 +174,54 @@ class InsurersMap extends Component {
         .attr('state', (state) => {
           return 'state-' + state.id
         })
-        .attr('d', path);
+        .attr('d', path)
+        // .on('click', function(d) {
+        //   var stateX, stateY, k;
+        //   // FIXME: Leon here's the shit
+        //   var centroid = path.centroid(d); 
+        //   stateX = centroid[0];
+        //   stateY = centroid[1];
+        //   console.log(stateX, stateY);
+
+        //   if(stateX <= 600){
+        //     d3.select(".insurers-map-svg")
+        //     .transition()
+        //     .duration(750)
+        //     //.attr("transform", "translate("+(stateX)+","+(stateY)+")scale(2,2)")
+        //     .attr("transform", "translate(" +400+ "," + 425 + ")scale(" + 2 + ")translate(" + -stateX  +"," + -stateY+ ")")
+        //   }else{
+        //     d3.select(".insurers-map-svg")
+        //     .transition()
+        //     .duration(750)
+        //     .attr("transform", "translate("+(-stateX)+","+(-stateY)+")scale(2,2)")
+        //   }
+        
+        // })
+      //   .on("click", function (d) {
+      //     var x, y, k;
+        
+      //   if (d && centered !== d) {
+      //     var centroid = path.centroid(d);
+      //     x = centroid[0];
+      //     y = centroid[1];
+      //     k = 2;
+      //     centered = d;
+      //   } else {
+      //     x = width / 2;
+      //     y = height / 2;
+      //     k = 1;
+      //     centered = null;
+      //   }
+      
+      //   d3.select(".insurers-map-svg").selectAll("path")
+      //       .classed("active", centered && function(d) { return d === centered; });
+      
+      //       d3.select(".insurers-map-svg").transition()
+      //       .duration(750)
+      //       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+      //       .style("stroke-width", 1.5 / k + "px");
+      // })
+
 
       let obj = ref.state.soulsByStateId;
 
@@ -210,10 +258,12 @@ class InsurersMap extends Component {
         .attr('r', 30)
         .attr("cx", (d) => {
           pathCX = path.centroid(d)[0];
+          console.log(pathCX)
           return path.centroid(d)[0];
         })
         .attr("cy", (d) => {
           pathCY = path.centroid(d)[1];
+          console.log(pathCY)
           return path.centroid(d)[1];
         })
 
@@ -295,7 +345,6 @@ class InsurersMap extends Component {
             d3.select('.tooltip')
             .style("left", (d3.event.pageX  < window.innerWidth - 200 ? d3.event.pageX + 20 : window.innerWidth - 200)  + "px" )
             .style("top", (d3.event.pageY + 20) + "px")
-            console.log(window.innerWidth)
           })
       }
     }
