@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import * as ReactDOM from 'react-dom';
 import InsurersMapView from '../InsurersMapView/InsurersMapView';
 import SidePanel from '../SidePanel/SidePanel';
 import InsurersMapKey from '../InsurersMapKey/InsurersMapKey';
@@ -8,6 +9,7 @@ import * as d3 from 'd3';
 import * as topojson from 'topojson';
 import './InsurersMap.css';
 import './InsurersColors.css';
+import './Tooltip.css';
 import axios from 'axios';
 
 class InsurersMap extends Component {
@@ -28,6 +30,8 @@ class InsurersMap extends Component {
     this.filterInsurers = this.filterInsurers.bind(this);
     this.getAllWearySouls = this.getAllWearySouls.bind(this);
     this.filterOutDuplicates = this.filterOutDuplicates.bind(this);
+    this.appendAllSouls = this.appendAllSouls.bind(this);
+    this.compareByInsurer = this.compareByInsurer.bind(this);
   }
   componentDidMount() {
     this.init();
@@ -78,7 +82,7 @@ class InsurersMap extends Component {
     axios.get("/api/wearysouls/")
       .then(function (response) {
         let wearysouls = response.data;
-        // console.log(wearysouls);
+        
         let insurers = wearysouls.map((soul) => {
           return soul.insurancefirm;
         })
@@ -130,14 +134,15 @@ class InsurersMap extends Component {
 
   renderMap() {
     let ref = this;
-    let width = '500',
-      height = '500';
+    let width = '425',
+      height = '400';
+      let centered;
 
     let insurersMap = d3.select('#insurers-map-wrapper')
       .append('svg')
       .attr('class', 'insurers-map-svg')
       .attr('preserveAspectRatio', 'xMidYMid meet')
-      .attr('viewBox', '450 150 ' + width + ' ' + height);
+      .attr('viewBox', '450 175 ' + width + ' ' + height);
 
     // let projection = d3.geoAlbersUsa()
     var path = d3.geoPath();
@@ -150,7 +155,7 @@ class InsurersMap extends Component {
       let filteredStates = states.filter((state) => {
         return stateIds.includes(state.id);
       })
-      console.log(filteredStates);
+      
       let stateContainer = insurersMap.selectAll('state-container')
         .data(filteredStates)
         .enter()
@@ -159,7 +164,6 @@ class InsurersMap extends Component {
         .attr("container-stateId", (state) => {
           return state.id
         })
-        
 
       // add paths for each state
       stateContainer.append('path')
@@ -170,61 +174,184 @@ class InsurersMap extends Component {
         .attr('state', (state) => {
           return 'state-' + state.id
         })
-        .attr('d', path);
+        .attr('d', path)
+        // .on('click', function(d) {
+        //   var stateX, stateY, k;
+        //   // FIXME: Leon here's the shit
+        //   var centroid = path.centroid(d); 
+        //   stateX = centroid[0];
+        //   stateY = centroid[1];
+        //   console.log(stateX, stateY);
 
-      function compareByInsurer(a, b) {
-        if (a.insurancefirm < b.insurancefirm)
-          return -1;
-        if (a.insurancefirm > b.insurancefirm)
-          return 1;
-        return 0;
-      }
+        //   if(stateX <= 600){
+        //     d3.select(".insurers-map-svg")
+        //     .transition()
+        //     .duration(750)
+        //     //.attr("transform", "translate("+(stateX)+","+(stateY)+")scale(2,2)")
+        //     .attr("transform", "translate(" +400+ "," + 425 + ")scale(" + 2 + ")translate(" + -stateX  +"," + -stateY+ ")")
+        //   }else{
+        //     d3.select(".insurers-map-svg")
+        //     .transition()
+        //     .duration(750)
+        //     .attr("transform", "translate("+(-stateX)+","+(-stateY)+")scale(2,2)")
+        //   }
+        
+        // })
+      //   .on("click", function (d) {
+      //     var x, y, k;
+        
+      //   if (d && centered !== d) {
+      //     var centroid = path.centroid(d);
+      //     x = centroid[0];
+      //     y = centroid[1];
+      //     k = 2;
+      //     centered = d;
+      //   } else {
+      //     x = width / 2;
+      //     y = height / 2;
+      //     k = 1;
+      //     centered = null;
+      //   }
+      
+      //   d3.select(".insurers-map-svg").selectAll("path")
+      //       .classed("active", centered && function(d) { return d === centered; });
+      
+      //       d3.select(".insurers-map-svg").transition()
+      //       .duration(750)
+      //       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+      //       .style("stroke-width", 1.5 / k + "px");
+      // })
+
+
       let obj = ref.state.soulsByStateId;
 
       // loop through all of the states and each soul to display a point for every soul
-      let count = 0;
       let objCopy = Object.assign({}, obj);
       var keys = Object.keys(objCopy);
-      for (var i = 0; i < keys.length; i++) {
-        var val = obj[keys[i]];
-        var stateId = keys[i];
-        val.sort(compareByInsurer);
-        for (var m = 0; m < val.length; m++) {
-          count++
-          let currentSoul = val[m];
-          let location = currentSoul.city + ", " + stateId;
-
-          if (stateId == null) {
-            // do nothing 
-          } else {
-            d3.select("[container-stateId='" + stateId + "']")
-              .append("circle")
-              .attr("class", "insurer-map-point")
-              .attr("name", currentSoul.name)
-              .attr("occupation", currentSoul.occupation)
-              .attr("owner", currentSoul.owner)
-              .attr("location", location)
-              .attr("city", currentSoul.city)
-              .attr("stateId", currentSoul.state_id)
-              .attr("insurer", currentSoul.insurancefirm)
-              .attr("r", 2)
-              .attr("cx", (d) => {
-                return path.centroid(d)[0];
-              })
-              .attr("cy", (d) => {
-                return path.centroid(d)[1];
-              })
-              //.append("div")
-              //.attr("class", "industry-chart-view-tooltip")
-          }
-        }
-      }
+      ref.appendAllSouls(keys, path, obj);
     });
+  }
+
+  // comparator function to compare insurers
+  compareByInsurer(a, b) {
+    if (a.insurancefirm < b.insurancefirm)
+      return -1;
+    if (a.insurancefirm > b.insurancefirm)
+      return 1;
+    return 0;
+  }
+
+  appendAllSouls(keys, path, obj) {
+    // console.log(keys); // keys => each state's id
+    // console.log(obj); // obj => all souls by each state
+    
+    for (var i = 0; i < keys.length; i++) {
+      var val = obj[keys[i]];
+      var stateId = keys[i];
+      val.sort(this.compareByInsurer);
+
+      var pathCX = 0;
+      var pathCY = 0;
+      d3.select("[container-stateId='" + stateId + "']")
+        .append('circle')
+        .attr('class', 'pack')
+        .attr('r', 30)
+        .attr("cx", (d) => {
+          pathCX = path.centroid(d)[0];
+          console.log(pathCX)
+          return path.centroid(d)[0];
+        })
+        .attr("cy", (d) => {
+          pathCY = path.centroid(d)[1];
+          console.log(pathCY)
+          return path.centroid(d)[1];
+        })
+
+      var circles = d3.packSiblings(
+        d3.range(val.length)
+          .map(function (r) {
+            return { r: 1.5 };
+          }));
+      var currentSoul;
+      if (stateId == null) {
+        // do nothing 
+      } else {
+        console.log(obj[i])
+        
+        var punto = d3.select("[container-stateId='" + stateId + "']")
+          .selectAll("circle")
+          .data(circles)
+          .enter()
+          .append("circle")
+          .attr("order", function (d, i) { currentSoul = val[i - 1]; return i })
+          .attr("class", "insurer-map-point")
+          .attr("name", function (d, i) { return val[i - 1].name })
+          .attr("occupation", function (d, i) { return val[i - 1].occupation })
+          .attr("owner", function (d, i) { return val[i - 1].owner })
+          .attr("city", function (d, i) { return val[i - 1].city })
+          .attr("insurer", function (d, i) { return val[i - 1].insurancefirm })
+          .attr("stateId", function (d, i) { return val[i - 1].state_id })
+          .attr("state", function (d, i) { return val[i - 1].state })
+          .attr("r", function (d) { return d.r - 0.25; })
+          .attr("cx", function (d) { return d.x + pathCX; })
+          .attr("cy", function (d) { return d.y + pathCY; })
+          .on('mouseover', function(d, i) {
+            
+            var name = d3.select(this).attr('name');
+            var owner = d3.select(this).attr('owner');
+            var city = d3.select(this).attr('city');
+            var state = d3.select(this).attr('state');
+            var occupation = d3.select(this).attr('occupation');
+            var insurer = d3.select(this).attr('insurer');
+
+            var tooltip = d3.select(".insurers-map-container")
+            .append("div")
+            .attr("class", "tooltip")
+            .insert("div")
+            .attr("class", "insurer-map-point-tooltip")
+
+            tooltip.insert("span")
+            .attr("class", "insurer-map-point-tooltip-name")
+            .text(name ? name : "Unknown Name" )
+
+            tooltip.insert("span")
+            .attr("class", "insurer-map-point-tooltip-location")
+            .text( city ? city + ", " + state : state )
+
+            tooltip.insert("label")
+            .attr("class", "insurer-map-point-tooltip-owner-label")
+            .text("Owner")
+
+            tooltip.insert("span")
+            .text( owner )
+
+            tooltip.insert("label")
+            .attr("class", "insurer-map-point-tooltip-occupation-label")
+            .text("Occupation")
+
+            tooltip.insert("span")
+              .attr("class", "insurer-map-point-tooltip-occupation")
+              .text( occupation )
+            
+            tooltip.insert("span")
+              .attr("class", "insurer-map-point-tooltip-insurer")
+              .attr("insurer", insurer)
+              .text( insurer )
+          })
+          .on('mouseout', function() {
+            d3.selectAll('.tooltip').remove();
+          })
+          .on('mousemove', function() {
+            d3.select('.tooltip')
+            .style("left", (d3.event.pageX  < window.innerWidth - 200 ? d3.event.pageX + 20 : window.innerWidth - 200)  + "px" )
+            .style("top", (d3.event.pageY + 20) + "px")
+          })
+      }
+    }
   }
 
   renderChart() {
     let filteredInsurers = this.filterInsurers();
-    // let countsArr = [];
     var insurers = filteredInsurers.map(data => {
       return data.count;
     })
@@ -241,8 +368,8 @@ class InsurersMap extends Component {
       .attr("insurer", (data) => {
         return data.insurer
       })
-      .style("height",  (data) => { 
-        return y(data.count) + "px"; 
+      .style("height", (data) => {
+        return y(data.count) + "px";
       });
 
     chart.append("text")
@@ -266,7 +393,6 @@ class InsurersMap extends Component {
           <SidePanel states={this.state.statesNew} namesByState={this.state.namesByState} />
           <InsurersMapKey />
         </section>
-
       );
     }
   }

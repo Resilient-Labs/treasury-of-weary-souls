@@ -17,7 +17,8 @@
     color: white;
     width: 2em;
     display: inline-block;
-    bottom: 0; }
+    bottom: 0;
+    transition: height 2s ease; }
     .insurers-map-key div label,
     .insurers-map-key div .chart-bar-label,
     .insurers-map-key .chart-bar label,

@@ -1,21 +1,43 @@
 .chart-bar {
   background-color: #d3d3d3; }
   .chart-bar[insurer*="Aig"], .chart-bar[insurer*="AIG"], .chart-bar[insurer*="aig"] {
-    background-color: #FFD462; }
+    background-color: #3FB7F7; }
   .chart-bar[insurer*="Aetna"], .chart-bar[insurer*="AETNA"], .chart-bar[insurer*="aetna"] {
     background-color: #FC7D49; }
   .chart-bar[insurer*="blic"], .chart-bar[insurer*="BLIC"], .chart-bar[insurer*="Blic"] {
-    background-color: #AD2D5C; }
+    background-color: #FFD462; }
   .chart-bar[insurer*="nyli"], .chart-bar[insurer*="NYLI"], .chart-bar[insurer*="Nyli"] {
     background-color: #CF423C; }
 
 .insurer-map-point {
   fill: #d3d3d3; }
   .insurer-map-point[insurer*="Aig"], .insurer-map-point[insurer*="AIG"], .insurer-map-point[insurer*="aig"] {
-    fill: #FFD462; }
+    fill: #3FB7F7; }
   .insurer-map-point[insurer*="Aetna"], .insurer-map-point[insurer*="AETNA"], .insurer-map-point[insurer*="aetna"] {
     fill: #FC7D49; }
   .insurer-map-point[insurer*="blic"], .insurer-map-point[insurer*="BLIC"], .insurer-map-point[insurer*="Blic"] {
-    fill: #AD2D5C; }
+    fill: #FFD462; }
   .insurer-map-point[insurer*="nyli"], .insurer-map-point[insurer*="NYLI"], .insurer-map-point[insurer*="Nyli"] {
     fill: #CF423C; }
+
+.insurer-map-point-tooltip-insurer:before {
+  content: "";
+  display: block;
+  position: relative;
+  border-radius: 50%;
+  text-align: center;
+  margin: 0 auto;
+  width: 14px;
+  height: 14px; }
+
+.insurer-map-point-tooltip-insurer[insurer*="Aig"]:before, .insurer-map-point-tooltip-insurer[insurer*="AIG"]:before, .insurer-map-point-tooltip-insurer[insurer*="aig"]:before {
+  background-color: #3FB7F7; }
+
+.insurer-map-point-tooltip-insurer[insurer*="Aetna"]:before, .insurer-map-point-tooltip-insurer[insurer*="AETNA"]:before, .insurer-map-point-tooltip-insurer[insurer*="aetna"]:before {
+  background-color: #FC7D49; }
+
+.insurer-map-point-tooltip-insurer[insurer*="blic"]:before, .insurer-map-point-tooltip-insurer[insurer*="BLIC"]:before, .insurer-map-point-tooltip-insurer[insurer*="Blic"]:before {
+  background-color: #FFD462; }
+
+.insurer-map-point-tooltip-insurer[insurer*="nyli"]:before, .insurer-map-point-tooltip-insurer[insurer*="NYLI"]:before, .insurer-map-point-tooltip-insurer[insurer*="Nyli"]:before {
+  background-color: #CF423C; }

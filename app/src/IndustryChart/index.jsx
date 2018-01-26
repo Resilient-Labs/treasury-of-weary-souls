@@ -167,7 +167,7 @@ class IndustryChart extends Component {
         delete objCopy.NL;
         var keys = Object.keys(objCopy);
 
-        console.log(objCopy);
+        // console.log(objCopy);
         let chartView = d3.select(".industry-chart-view")
             .selectAll("div")
             .data(Object.keys(objCopy).map((soul) => {
@@ -187,7 +187,7 @@ class IndustryChart extends Component {
             .attr("class", "industry-chart-view-column-label")
             .text((data, idx) => {
                 let stateAbbr = data[0].state_abbreviated;
-                console.log(stateAbbr);
+                // console.log(stateAbbr);
                 return stateAbbr;
             })
         // local helper method to sort the souls by occupation

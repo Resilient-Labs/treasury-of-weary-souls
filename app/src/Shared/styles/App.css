@@ -38,6 +38,9 @@ h5 {
 p {
   font-size: 1em;
   line-height: 1.5; }
+  @media only screen and (max-width: 769px) {
+    p {
+      font-size: 0.9em; } }
 
 blockquote {
   line-height: 1.3; }

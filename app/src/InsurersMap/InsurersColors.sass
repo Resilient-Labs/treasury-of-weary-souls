@@ -1,8 +1,9 @@
-$color-aig: #FFD462
+$color-aig: #3FB7F7//#AD2D5C
 $color-aetna: #FC7D49
-$color-blic: #AD2D5C
+$color-blic: #FFD462
 $color-nyli: #CF423C
 $color-other: #d3d3d3
+// NOTE: switched BLIC & AIG colors 01.10.2018
 
 .chart-bar
     background-color: $color-other
@@ -16,7 +17,10 @@ $color-other: #d3d3d3
         background-color: $color-nyli
 
 .insurer-map-point
+    // transition: fill 0.5s ease
     fill: $color-other
+    // animation-name: color-change 
+    // animation-duration: 4s
     &[insurer*="Aig"], &[insurer*="AIG"], &[insurer*="aig"]
         fill: $color-aig
     &[insurer*="Aetna"], &[insurer*="AETNA"], &[insurer*="aetna"]
@@ -25,3 +29,30 @@ $color-other: #d3d3d3
         fill: $color-blic
     &[insurer*="nyli"], &[insurer*="NYLI"], &[insurer*="Nyli"]
         fill: $color-nyli
+
+.insurer-map-point-tooltip-insurer
+    &:before
+        content: ""
+        display: block
+        position: relative
+        border-radius: 50%
+        text-align: center
+        margin: 0 auto
+        width: 14px
+        height: 14px
+    &[insurer*="Aig"], &[insurer*="AIG"], &[insurer*="aig"]
+        &:before
+            background-color: $color-aig
+    &[insurer*="Aetna"], &[insurer*="AETNA"], &[insurer*="aetna"]
+        &:before
+            background-color: $color-aetna
+    &[insurer*="blic"], &[insurer*="BLIC"], &[insurer*="Blic"]
+        &:before
+            background-color: $color-blic
+    &[insurer*="nyli"], &[insurer*="NYLI"], &[insurer*="Nyli"]
+        &:before
+            background-color: $color-nyli
+
+// @keyframes color-change 
+//     from fill: red
+//     to background-color: yellow

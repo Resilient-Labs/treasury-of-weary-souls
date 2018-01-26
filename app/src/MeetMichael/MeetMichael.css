@@ -19,11 +19,11 @@
     display: flex;
     flex-flow: row;
     justify-content: space-between;
-    max-width: 768px;
-    width: 70%; }
+    max-width: 768px; }
     @media only screen and (min-width: 1920px) {
       .about-michael-container div {
-        max-width: 1024px; } }
+        max-width: 1024px;
+        width: 70%; } }
     @media only screen and (max-width: 769px) {
       .about-michael-container div {
         padding: 1em;
@@ -35,6 +35,7 @@
       width: 40%; }
       @media only screen and (max-width: 769px) {
         .about-michael-container div img {
+          max-width: 360px;
           padding: 0;
           width: 100%; } }
     .about-michael-container div p {
