@@ -53,7 +53,6 @@ const SidePanel = (props) => (
 )
 
 function renderStatesInformation(states) {
-    console.log(states);
     return states.map((state) => {
         return (
             <li className="side-panel-states-list-item" key={state.id}>

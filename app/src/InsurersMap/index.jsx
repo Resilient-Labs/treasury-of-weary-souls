@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as ReactDOM from 'react-dom';
 import InsurersMapView from '../InsurersMapView/InsurersMapView';
 import SidePanel from '../SidePanel/SidePanel';
+import LegendPanel from '../LegendPanel/LegendPanel'
 import InsurersMapKey from '../InsurersMapKey/InsurersMapKey';
 import MapNavigation from '../MapNavigation/MapNavigation';
 import Loading from '../Loading'
@@ -188,6 +189,8 @@ class InsurersMap extends Component {
           stateY = centroid[1];
           var containerW = d3.select("#insurers-map-wrapper").node().getBoundingClientRect().width;
           var containerH = d3.select("#insurers-map-wrapper").node().getBoundingClientRect().height;
+          d3.select(this)
+            .classed("active", true);
 
           var adjustedWidthMult = containerW / width;
           var adjustedHeightMult = containerH / height;
@@ -256,8 +259,10 @@ class InsurersMap extends Component {
             return { r: 1.25 };
           }));
       var currentSoul;
-      if (stateId == null) {
+      if (stateId == null || stateId == 'null') {
         // do nothing 
+        console.log("unknown")
+        console.log(currentSoul = val[i - 1])
       } else {
         
         var punto = d3.select("[container-stateId='" + stateId + "']")
@@ -370,7 +375,8 @@ class InsurersMap extends Component {
     // } else {
       return (
         <section className="insurers-map-container">
-          <MapNavigation />
+          {/* <MapNavigation /> */}
+          <LegendPanel />
           { this.state.loading ? <Loading /> : <InsurersMapView souls={this.state.statesNew} /> }
           <SidePanel states={this.state.statesNew} namesByState={this.state.namesByState} />
           <InsurersMapKey />
