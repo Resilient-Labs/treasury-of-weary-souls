@@ -134,22 +134,26 @@ class InsurersMap extends Component {
 
   renderMap() {
     let ref = this;
-    let width = '425',
-      height = '400';
+    let width = 425,
+      height = 400,
+      minX = 450,
+      minY = 175;
       let centered;
 
     let insurersMap = d3.select('#insurers-map-wrapper')
       .append('svg')
       .attr('class', 'insurers-map-svg')
+      .attr('width', '100%')
+      .attr('height', '100%')
       .attr('preserveAspectRatio', 'xMidYMid meet')
-      .attr('viewBox', '450 175 ' + width + ' ' + height);
+      .attr('viewBox', ''+minX+' '+minY+' '+width+' '+height+'')
+      .append('g')
+      .attr('class', 'map-contain');
 
-    // let projection = d3.geoAlbersUsa()
     var path = d3.geoPath();
     d3.json("https://d3js.org/us-10m.v1.json", function (error, data) {
       if (error) throw error;
       let states = topojson.feature(data, data.objects.states).features;
-      console.log(states);
 
       let stateIds = ['01', '05', '10', '12', '13', '17', '18', '19', '21', '22', '24', '28', '29', '34', '37', '39', '42', '45', '47', '51', '54'];
       let filteredStates = states.filter((state) => {
@@ -164,10 +168,11 @@ class InsurersMap extends Component {
         .attr("container-stateId", (state) => {
           return state.id
         })
+        
 
       // add paths for each state
       stateContainer.append('path')
-        .attr('class', 'state')
+        .attr('class', 'state hover')
         .attr('stateId', (state) => {
           return state.id
         })
@@ -175,53 +180,31 @@ class InsurersMap extends Component {
           return 'state-' + state.id
         })
         .attr('d', path)
-        // .on('click', function(d) {
-        //   var stateX, stateY, k;
-        //   // FIXME: Leon here's the shit
-        //   var centroid = path.centroid(d); 
-        //   stateX = centroid[0];
-        //   stateY = centroid[1];
-        //   console.log(stateX, stateY);
+        .on('click', function(d) {
+          var stateX, stateY, k;
+          var centroid = path.centroid(d); 
+          var k = 4;
+          stateX = centroid[0];
+          stateY = centroid[1];
+          var containerW = d3.select("#insurers-map-wrapper").node().getBoundingClientRect().width;
+          var containerH = d3.select("#insurers-map-wrapper").node().getBoundingClientRect().height;
 
-        //   if(stateX <= 600){
-        //     d3.select(".insurers-map-svg")
-        //     .transition()
-        //     .duration(750)
-        //     //.attr("transform", "translate("+(stateX)+","+(stateY)+")scale(2,2)")
-        //     .attr("transform", "translate(" +400+ "," + 425 + ")scale(" + 2 + ")translate(" + -stateX  +"," + -stateY+ ")")
-        //   }else{
-        //     d3.select(".insurers-map-svg")
-        //     .transition()
-        //     .duration(750)
-        //     .attr("transform", "translate("+(-stateX)+","+(-stateY)+")scale(2,2)")
-        //   }
-        
-        // })
-      //   .on("click", function (d) {
-      //     var x, y, k;
-        
-      //   if (d && centered !== d) {
-      //     var centroid = path.centroid(d);
-      //     x = centroid[0];
-      //     y = centroid[1];
-      //     k = 2;
-      //     centered = d;
-      //   } else {
-      //     x = width / 2;
-      //     y = height / 2;
-      //     k = 1;
-      //     centered = null;
-      //   }
-      
-      //   d3.select(".insurers-map-svg").selectAll("path")
-      //       .classed("active", centered && function(d) { return d === centered; });
-      
-      //       d3.select(".insurers-map-svg").transition()
-      //       .duration(750)
-      //       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
-      //       .style("stroke-width", 1.5 / k + "px");
-      // })
+          var adjustedWidthMult = containerW / width;
+          var adjustedHeightMult = containerH / height;
+          console.log("logged");
+          console.log(stateX, stateY);
+          console.log(containerW, containerH);
+          console.log(adjustedWidthMult, adjustedHeightMult);
+          
 
+          d3.select(".map-contain")
+            .transition()
+            .duration(750)
+            // .attr("transform", "translate(" + ( ( ( (containerW * adjustedWidthMult) - 450) / 2 )) + "," + ( (containerH / 2 )) + ")scale(" + k + ")translate(" + -stateX + "," + -stateY + ")")
+            .attr("transform", "translate(" + ( (containerW / 2 )) + "," + ( (containerH / 2 )) + ")scale(" + k + ")translate(" + -stateX + "," + -stateY + ")")
+            // .attr("transform", "translate(" +400+ "," + 0 + ")scale(" + 1 + ")translate(" + -stateX  +"," + -0+ ")")
+            // .attr("transform", "translate(" +( ((containerW * adjustedWidthMult)/2 ) + 450)+ "," + ( 0 ) + ")scale(" + 1 + ")translate(" + (-stateX)  + "," + (-0) + ")")
+        })
 
       let obj = ref.state.soulsByStateId;
 
@@ -229,6 +212,8 @@ class InsurersMap extends Component {
       let objCopy = Object.assign({}, obj);
       var keys = Object.keys(objCopy);
       ref.appendAllSouls(keys, path, obj);
+
+      var widthX = d3.select('.insurers-map-svg').node().getBBox();
     });
   }
 
@@ -255,28 +240,25 @@ class InsurersMap extends Component {
       d3.select("[container-stateId='" + stateId + "']")
         .append('circle')
         .attr('class', 'pack')
-        .attr('r', 30)
+        .attr('r', 1)
         .attr("cx", (d) => {
           pathCX = path.centroid(d)[0];
-          console.log(pathCX)
           return path.centroid(d)[0];
         })
         .attr("cy", (d) => {
           pathCY = path.centroid(d)[1];
-          console.log(pathCY)
           return path.centroid(d)[1];
         })
 
       var circles = d3.packSiblings(
         d3.range(val.length)
           .map(function (r) {
-            return { r: 1.5 };
+            return { r: 1.25 };
           }));
       var currentSoul;
       if (stateId == null) {
         // do nothing 
       } else {
-        console.log(obj[i])
         
         var punto = d3.select("[container-stateId='" + stateId + "']")
           .selectAll("circle")
@@ -383,18 +365,18 @@ class InsurersMap extends Component {
   }
 
   render() {
-    if (this.state.loading) {
-      return <Loading />;
-    } else {
+    // if (this.state.loading) {
+    //   return <Loading />;
+    // } else {
       return (
         <section className="insurers-map-container">
           <MapNavigation />
-          <InsurersMapView souls={this.state.statesNew} />
+          { this.state.loading ? <Loading /> : <InsurersMapView souls={this.state.statesNew} /> }
           <SidePanel states={this.state.statesNew} namesByState={this.state.namesByState} />
           <InsurersMapKey />
         </section>
       );
-    }
+    // }
   }
 }
 

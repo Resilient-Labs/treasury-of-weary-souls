@@ -1,11 +1,12 @@
 .loading-container {
   align-items: center;
-  background-color: #282828;
+  background-color: transparent;
   display: flex;
   flex-flow: column;
   justify-content: center;
   height: 100vh;
-  width: 100vw; }
+  position: absolute;
+  width: 75%; }
 
 @keyframes spin {
   0% {

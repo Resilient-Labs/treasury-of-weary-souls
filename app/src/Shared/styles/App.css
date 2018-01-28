@@ -42,5 +42,9 @@ p {
     p {
       font-size: 0.9em; } }
 
+small {
+  display: block;
+  font-size: 0.7em; }
+
 blockquote {
   line-height: 1.3; }
