@@ -1,6 +1,7 @@
 .legend-panel
     color: #FFF
     z-index: 9999
+    padding: 10px
     position: absolute
     // opacity: 0
     // animation: fadein 0.5s forwards
@@ -11,33 +12,59 @@
     .legend-panel-button
         border: 0.5px solid #FFF
         cursor: pointer
-        padding: 5px
-        min-width: 60px
-        border-radius: 4px
-        margin: 5px
-        font-size: 0.6em
-        text-align: center
+        padding: 4px
         display: inline-block
         opacity: 0
+        font-size: 10px
+        text-align: center
+        border-radius: 4px
         animation: fadein 0.5s forwards
-        &:hover
+        &:hover, &.active
             background-color: #FFF
             color: #191919
         &:nth-of-type(1)
-            animation-delay: 1.5s
+            animation-delay: 1.25s
         &:nth-of-type(2)
-            animation-delay: 2s
+            animation-delay: 1.75s
         &:nth-of-type(3)
-            animation-delay: 2.5s
+            animation-delay: 2.25s
         &:nth-of-type(4)
-            animation-delay: 3s
-        @keyframes fadein  
-            0% 
-                opacity: 0
-                transform: scale(.1)
-            85% 
-                opacity: 1
-                transform: scale(1.05)
-            100% 
-                opacity: 1
-                transform: scale(1)
+            animation-delay: 2.75s
+        &:nth-of-type(5)
+            animation-delay: 3.25s
+    .legend-panel-filter-button
+        min-width: 70px
+        &:nth-of-type(1)
+            border-top-right-radius: 0
+            border-bottom-right-radius: 0
+        &:nth-of-type(2)
+            border-top-left-radius: 0
+            border-bottom-left-radius: 0
+    .legend-panel-insurer-button
+        min-width: 60px
+        margin: 2px
+        &.active:before
+            content: ""
+            height: 40px
+            width: 40px
+            // animation: pulse 0s normal
+            // @keyframes pulse 
+            //     0% 
+            //         box-shadow: 0 0 0 0 rgba(204,169,44, 0.4)
+            //         border-radius: 50%
+            //     70%  
+            //         box-shadow: 0 0 0 20px rgba(204,169,44, 0)
+            //         border-radius: 50%
+            //     100% 
+            //         box-shadow: 0 0 0 0 rgba(204,169,44, 0)
+            //         border-radius: 50%
+@keyframes fadein  
+    0% 
+        opacity: 0
+        transform: scale(.1)
+    85% 
+        opacity: 1
+        transform: scale(1.05)
+    100% 
+        opacity: 1
+        transform: scale(1)

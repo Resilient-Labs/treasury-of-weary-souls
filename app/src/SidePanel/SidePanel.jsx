@@ -16,8 +16,8 @@ import virginiaIcon from './../Shared/img/state-logos/virginia-icon.svg';
 
 // import { Link } from 'react-router-dom';
 
-const introSubHeadline = 'Treasury of';
-const introHeadline = 'WEARY SOULS';
+// const introSubHeadline = 'Treasury of';
+// const introHeadline = 'WEARY SOULS';
     
 const alabama = {id: "01", abbreviation: "AL", state: "Alabama", icon: alabamaIcon, insurer: "NYLI"}
 const arkansas = {id: "05", abbreviation: "AR", state: "Arkansas", icon: arkansasIcon, insurer: "NYLI"}
@@ -43,7 +43,7 @@ const SidePanel = (props) => (
         </div>
         <header>
             <small>Slavery Data Collection & Analysis: Michael Ralph</small>
-            <small>Code: <a href="http://www.resilientcoders.org" target="_blank">Resilient Coders</a></small>
+            <small>Code: <a href="http://www.resilientcoders.org" target="_blank" rel="noopener noreferrer">Resilient Coders</a></small>
             <small>Design: Emily O'Brien</small>
         </header>
         <ul className="side-panel-states-list">
@@ -58,6 +58,7 @@ function renderStatesInformation(states) {
             <li className="side-panel-states-list-item" key={state.id}>
                 <h4 className="side-panel-states-list-headline">{ state.state }</h4>
                 <img className="side-panel-states-list-icon" src={ state.icon } />
+                {/* { $( state.icon )} */}
                 <p className="side-panel-states-list-text">
                     In {state.state}, the biggest insurer of slaves was insurance company { state.insurer }. On average, slaves paid a policy premium of $XX. Accounting for inflatation, in today's economy, that amounts to $XXXX per slave.
                 </p>
@@ -66,27 +67,27 @@ function renderStatesInformation(states) {
     })    
 }
 
-function renderList(states, names) {
-    return states.map((state) => {
-        let filteredNames = names.filter((soul) => {
-            return soul.state === state;
-        })
+// function renderList(states, names) {
+//     return states.map((state) => {
+//         let filteredNames = names.filter((soul) => {
+//             return soul.state === state;
+//         })
 
-        return (
-            <div className="side-panel-column" key={state == null ? 'unknown' : state}>
-                <h5 className="side-panel-column-headline">{state == null ? 'Unknown Location' : state}</h5>
-                <ul className={`side-panel-list`} key={state}>
-                    {filteredNames.map((soul, index) => {
-                        if (soul.name !== '') {
-                            return <li className={`side-panel-listed-name soul-named-` + soul.name}
-                                key={index}>{soul.name} </li>;
-                        }
-                    })
-                    }
-                </ul>
-            </div>
-        )
-    });
-}
+//         return (
+//             <div className="side-panel-column" key={state == null ? 'unknown' : state}>
+//                 <h5 className="side-panel-column-headline">{state == null ? 'Unknown Location' : state}</h5>
+//                 <ul className={`side-panel-list`} key={state}>
+//                     {filteredNames.map((soul, index) => {
+//                         if (soul.name !== '') {
+//                             return <li className={`side-panel-listed-name soul-named-` + soul.name}
+//                                 key={index}>{soul.name} </li>;
+//                         }
+//                     })
+//                     }
+//                 </ul>
+//             </div>
+//         )
+//     });
+// }
 
 export default SidePanel;

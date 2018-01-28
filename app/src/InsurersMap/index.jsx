@@ -36,6 +36,21 @@ class InsurersMap extends Component {
   }
   componentDidMount() {
     this.init();
+    d3.selectAll('.legend-panel-insurer-button')
+    .on('click', function() { 
+      // NOTE: DO NOT USE ARROW FUNCTION, LOSE CONTEXT OF THIS ,
+      // https://stackoverflow.com/questions/48015265/errors-using-d3-legend-uncaught-typeerror-node-getattribute-is-not-a-functio 
+      d3.selectAll('.legend-panel-insurer-button').classed("active", false);
+      d3.select(this).classed("active", !d3.select(this).classed("active"));
+    })
+
+    d3.selectAll('.legend-panel-filter-button')
+    .on('click', function() { 
+      // NOTE: DO NOT USE ARROW FUNCTION, LOSE CONTEXT OF THIS ,
+      // https://stackoverflow.com/questions/48015265/errors-using-d3-legend-uncaught-typeerror-node-getattribute-is-not-a-functio 
+      d3.selectAll('.legend-panel-filter-button').classed("active", false);
+      d3.select(this).classed("active", !d3.select(this).classed("active"));
+    })
   }
 
   init() {

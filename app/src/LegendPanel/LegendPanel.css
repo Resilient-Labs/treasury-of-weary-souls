@@ -1,30 +1,46 @@
 .legend-panel {
   color: #FFF;
   z-index: 9999;
+  padding: 10px;
   position: absolute; }
   .legend-panel .legend-panel-button {
     border: 0.5px solid #FFF;
     cursor: pointer;
-    padding: 5px;
-    min-width: 60px;
-    border-radius: 4px;
-    margin: 5px;
-    font-size: 0.6em;
-    text-align: center;
+    padding: 4px;
     display: inline-block;
     opacity: 0;
+    font-size: 10px;
+    text-align: center;
+    border-radius: 4px;
     animation: fadein 0.5s forwards; }
-    .legend-panel .legend-panel-button:hover {
+    .legend-panel .legend-panel-button:hover, .legend-panel .legend-panel-button.active {
       background-color: #FFF;
       color: #191919; }
     .legend-panel .legend-panel-button:nth-of-type(1) {
-      animation-delay: 1.5s; }
+      animation-delay: 1.25s; }
     .legend-panel .legend-panel-button:nth-of-type(2) {
-      animation-delay: 2s; }
+      animation-delay: 1.75s; }
     .legend-panel .legend-panel-button:nth-of-type(3) {
-      animation-delay: 2.5s; }
+      animation-delay: 2.25s; }
     .legend-panel .legend-panel-button:nth-of-type(4) {
-      animation-delay: 3s; }
+      animation-delay: 2.75s; }
+    .legend-panel .legend-panel-button:nth-of-type(5) {
+      animation-delay: 3.25s; }
+  .legend-panel .legend-panel-filter-button {
+    min-width: 70px; }
+    .legend-panel .legend-panel-filter-button:nth-of-type(1) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0; }
+    .legend-panel .legend-panel-filter-button:nth-of-type(2) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0; }
+  .legend-panel .legend-panel-insurer-button {
+    min-width: 60px;
+    margin: 2px; }
+    .legend-panel .legend-panel-insurer-button.active:before {
+      content: "";
+      height: 40px;
+      width: 40px; }
 
 @keyframes fadein {
   0% {
