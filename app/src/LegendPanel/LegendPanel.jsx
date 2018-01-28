@@ -3,18 +3,22 @@ import './LegendPanel.css';
 
 const LegendPanel = (props) => (
     <div className="legend-panel">
-        { insurers.map((insurer) => {
-            return <span className="legend-panel-button legend-panel-insurer-button" data-filter={insurer}>{ insurer }</span>
-        }) }
-
+        <div>
+            <label>
+                <small>Filter by:</small>
+            </label>
+            { insurers.map((insurer, index) => {
+                var className = index === 0 ? "active legend-panel-button legend-panel-insurer-button" : "legend-panel-button legend-panel-insurer-button";
+                return <span className={className} data-filter={insurer} key={insurer}>{ insurer }</span>
+            }) }
+        </div>
         <div>
             <label>
                 <small>Filter by:</small>
             </label>
             { filters.map((filter, index) => {
-                console.log(index);
-                var className = index === 0 ? "active legend-panel-button legend-panel-filter-button" : "legend-panel-button legend-panel-filter-button"
-                return <span className={className} onClick={ () => switchFilter() } data-filter={filter}>{ filter }</span>
+                var className = index === 0 ? "active legend-panel-button legend-panel-filter-button" : "legend-panel-button legend-panel-filter-button";
+                return <span className={className} onClick={ () => switchFilter() } data-filter={filter} key={filter}>{ filter }</span>
             }) }
         </div>
     </div>

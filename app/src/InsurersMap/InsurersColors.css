@@ -10,7 +10,39 @@
     background-color: #CF423C; }
 
 .insurer-map-point {
-  fill: #d3d3d3; }
+  fill: #d3d3d3;
+  opacity: 0;
+  animation: fillColors 0.25s forwards; }
+  .insurer-map-point:nth-of-type(-n+12) {
+    animation-delay: 0.5s; }
+  .insurer-map-point:nth-of-type(n+12):nth-of-type(-n+24) {
+    animation-delay: 0.75s; }
+  .insurer-map-point:nth-of-type(n+24) {
+    animation-delay: 1s; }
+  .insurer-map-point:nth-of-type(n+36) {
+    animation-delay: 1.25s; }
+  .insurer-map-point:nth-of-type(n+48) {
+    animation-delay: 1.5s; }
+  .insurer-map-point:nth-of-type(n+60) {
+    animation-delay: 1.75s; }
+  .insurer-map-point:nth-of-type(n+72) {
+    animation-delay: 2s; }
+  .insurer-map-point:nth-of-type(n+84) {
+    animation-delay: 2.25s; }
+  .insurer-map-point:nth-of-type(n+96) {
+    animation-delay: 2.5s; }
+  .insurer-map-point:nth-of-type(n+108) {
+    animation-delay: 2.75s; }
+  .insurer-map-point:nth-of-type(n+120) {
+    animation-delay: 3s; }
+  .insurer-map-point:nth-of-type(n+132) {
+    animation-delay: 3.25s; }
+  .insurer-map-point:nth-of-type(n+144) {
+    animation-delay: 3.5s; }
+  .insurer-map-point:nth-of-type(n+156) {
+    animation-delay: 3.75s; }
+  .insurer-map-point:nth-of-type(n+168) {
+    animation-delay: 4s; }
   .insurer-map-point[insurer*="Aig"], .insurer-map-point[insurer*="AIG"], .insurer-map-point[insurer*="aig"] {
     fill: #3FB7F7; }
   .insurer-map-point[insurer*="Aetna"], .insurer-map-point[insurer*="AETNA"], .insurer-map-point[insurer*="aetna"] {
@@ -41,3 +73,11 @@
 
 .insurer-map-point-tooltip-insurer[insurer*="nyli"]:before, .insurer-map-point-tooltip-insurer[insurer*="NYLI"]:before, .insurer-map-point-tooltip-insurer[insurer*="Nyli"]:before {
   background-color: #CF423C; }
+
+@keyframes fillColors {
+  0% {
+    opacity: 0; }
+  80% {
+    opacity: 0.7; }
+  100% {
+    opacity: 1; } }

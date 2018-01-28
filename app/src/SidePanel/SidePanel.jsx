@@ -46,6 +46,15 @@ const SidePanel = (props) => (
             <small>Code: <a href="http://www.resilientcoders.org" target="_blank" rel="noopener noreferrer">Resilient Coders</a></small>
             <small>Design: Emily O'Brien</small>
         </header>
+        <h4>About the Project</h4>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum placerat nibh, vitae auctor justo. 
+            Phasellus ut magna ligula. Nam suscipit eleifend feugiat. Aenean tellus mauris, elementum eu interdum id, lacinia 
+            a tortor. Cras eu accumsan mauris, nec auctor quam. Etiam dapibus risus enim, a vulputate felis tincidunt et. 
+            Cras sollicitudin justo vitae scelerisque sagittis. Sed molestie elit turpis, non volutpat purus scelerisque eget. 
+            In scelerisque nunc sem, sed varius ipsum condimentum sollicitudin. Maecenas a arcu augue. Quisque tincidunt fringilla 
+            ante, sed tempor dolor dignissim sagittis. Vivamus nec nunc sit amet dolor accumsan tempus
+        </p>
         <ul className="side-panel-states-list">
             {renderStatesInformation(states)}
         </ul>
@@ -56,9 +65,9 @@ function renderStatesInformation(states) {
     return states.map((state) => {
         return (
             <li className="side-panel-states-list-item" key={state.id}>
-                <h4 className="side-panel-states-list-headline">{ state.state }</h4>
+                <h6 className="side-panel-states-list-headline">{ state.state }</h6>
                 <img className="side-panel-states-list-icon" src={ state.icon } />
-                {/* { $( state.icon )} */}
+                
                 <p className="side-panel-states-list-text">
                     In {state.state}, the biggest insurer of slaves was insurance company { state.insurer }. On average, slaves paid a policy premium of $XX. Accounting for inflatation, in today's economy, that amounts to $XXXX per slave.
                 </p>
