@@ -19,6 +19,7 @@ $color-other: #d3d3d3
 
 .insurer-map-point
     // transition: fill 0.5s ease
+    transition: fill 0.5s ease
     fill: $color-other
     opacity: 0
     animation: fillColors 0.25s forwards
@@ -52,14 +53,16 @@ $color-other: #d3d3d3
         animation-delay: 3.75s
     &:nth-of-type(n+168)
         animation-delay: 4s
-    &[insurer*="Aig"], &[insurer*="AIG"], &[insurer*="aig"]
-        fill: $color-aig
-    &[insurer*="Aetna"], &[insurer*="AETNA"], &[insurer*="aetna"]
-        fill: $color-aetna
-    &[insurer*="blic"], &[insurer*="BLIC"], &[insurer*="Blic"]
-        fill: $color-blic
-    &[insurer*="nyli"], &[insurer*="NYLI"], &[insurer*="Nyli"]
-        fill: $color-nyli
+.filter-insurer
+    .insurer-map-point
+        &[insurer*="Aig"], &[insurer*="AIG"], &[insurer*="aig"]
+            fill: $color-aig
+        &[insurer*="Aetna"], &[insurer*="AETNA"], &[insurer*="aetna"]
+            fill: $color-aetna
+        &[insurer*="blic"], &[insurer*="BLIC"], &[insurer*="Blic"]
+            fill: $color-blic
+        &[insurer*="nyli"], &[insurer*="NYLI"], &[insurer*="Nyli"]
+            fill: $color-nyli
 
 .insurer-map-point-tooltip-insurer
     &:before

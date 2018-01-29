@@ -10,6 +10,7 @@ import * as d3 from 'd3';
 import * as topojson from 'topojson';
 import './InsurersMap.css';
 import './InsurersColors.css';
+import './IndustryColors.css';
 import './Tooltip.css';
 import axios from 'axios';
 
@@ -433,7 +434,6 @@ class InsurersMap extends Component {
   render() {
     return (
       <section className="insurers-map-container">
-        {/* <MapNavigation /> */}
         <LegendPanel />
         {this.state.loading ? <Loading /> : <InsurersMapView souls={this.state.statesNew} />}
         <SidePanel states={this.state.statesNew} namesByState={this.state.namesByState} />
