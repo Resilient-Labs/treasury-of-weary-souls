@@ -1,13 +1,19 @@
+$width-insurer-map: 75%
+$width-insurer-map-tablet: 65%
+$width-insurer-map-mobile: 100%
+
 #insurers-map-wrapper 
     height: auto
-    width: 75%
+    width: $width-insurer-map
     display: inline-block
     margin: 0 auto
     top: 0
     position: absolute
+    @media only screen and (max-width: 1024px)
+        width: $width-insurer-map-tablet
     @media only screen and (max-width: 769px)
         top: 2em
-        width: 100%
+        width: $width-insurer-map-mobile
     .insurers-map-svg
         fill: transparent
         max-height: 100vh

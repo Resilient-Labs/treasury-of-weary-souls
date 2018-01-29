@@ -4,7 +4,6 @@
   display: inline-block;
   height: 100%;
   overflow-y: scroll;
-  padding: 1em;
   position: absolute;
   right: -50%;
   width: 25%;
@@ -14,11 +13,31 @@
 @keyframes slide {
   100% {
     right: 0; } }
+  @media only screen and (max-width: 1024px) {
+    .side-panel {
+      width: 35%; } }
   @media only screen and (max-width: 769px) {
     .side-panel {
       bottom: 0;
       max-height: 70px;
       width: 100%; } }
+  .side-panel .side-panel-image-header {
+    overflow: hidden;
+    position: relative;
+    width: 100%; }
+    .side-panel .side-panel-image-header:before {
+      content: "";
+      height: 100%;
+      width: 100%;
+      background-color: rgba(71, 70, 70, 0.74);
+      position: absolute;
+      z-index: 2; }
+    .side-panel .side-panel-image-header img {
+      display: block;
+      height: auto;
+      width: 100%; }
+  .side-panel .side-panel-article {
+    padding: 1em; }
   .side-panel .logo {
     margin: 1em auto; }
   .side-panel .side-panel-states-list {

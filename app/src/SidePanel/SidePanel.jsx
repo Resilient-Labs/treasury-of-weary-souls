@@ -1,6 +1,7 @@
 import React from 'react';
 import './SidePanel.css';
 import logo from './../Shared/img/logo-blk.svg';
+import slaveryHeader from './../Shared/img/slavery-header.svg';
 import alabamaIcon from './../Shared/img/state-logos/alabama-icon.svg';
 import arkansasIcon from './../Shared/img/state-logos/arkansas-icon.svg';
 import georgiaIcon from './../Shared/img/state-logos/georgia-icon.svg';
@@ -38,26 +39,31 @@ var states = [alabama, arkansas, georgia, kentucky, louisiana, maryland, mississ
 
 const SidePanel = (props) => (
     <aside className='side-panel'>
-        <div className="logo">
-            <img src={logo} alt="logo" />
-        </div>
-        <header>
-            <small>Slavery Data Collection & Analysis: Michael Ralph</small>
-            <small>Code: <a href="http://www.resilientcoders.org" target="_blank" rel="noopener noreferrer">Resilient Coders</a></small>
-            <small>Design: Emily O'Brien</small>
-        </header>
-        <h4>About the Project</h4>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum placerat nibh, vitae auctor justo. 
-            Phasellus ut magna ligula. Nam suscipit eleifend feugiat. Aenean tellus mauris, elementum eu interdum id, lacinia 
-            a tortor. Cras eu accumsan mauris, nec auctor quam. Etiam dapibus risus enim, a vulputate felis tincidunt et. 
-            Cras sollicitudin justo vitae scelerisque sagittis. Sed molestie elit turpis, non volutpat purus scelerisque eget. 
-            In scelerisque nunc sem, sed varius ipsum condimentum sollicitudin. Maecenas a arcu augue. Quisque tincidunt fringilla 
-            ante, sed tempor dolor dignissim sagittis. Vivamus nec nunc sit amet dolor accumsan tempus
-        </p>
-        <ul className="side-panel-states-list">
-            {renderStatesInformation(states)}
-        </ul>
+        {/* <header className="side-panel-image-header">
+            <img src={slaveryHeader} alt="slavery header image" />
+        </header> */}
+        <article className="side-panel-article">
+            <div className="logo">
+                <img src={logo} alt="logo" />
+            </div>
+            <header>
+                <small>Slavery Data Collection & Analysis: Michael Ralph</small>
+                <small>Code: <a href="http://www.resilientcoders.org" target="_blank" rel="noopener noreferrer">Resilient Coders</a></small>
+                <small>Design: Emily O'Brien</small>
+            </header>
+            <h4>About the Project</h4>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum placerat nibh, vitae auctor justo. 
+                Phasellus ut magna ligula. Nam suscipit eleifend feugiat. Aenean tellus mauris, elementum eu interdum id, lacinia 
+                a tortor. Cras eu accumsan mauris, nec auctor quam. Etiam dapibus risus enim, a vulputate felis tincidunt et. 
+                Cras sollicitudin justo vitae scelerisque sagittis. Sed molestie elit turpis, non volutpat purus scelerisque eget. 
+                In scelerisque nunc sem, sed varius ipsum condimentum sollicitudin. Maecenas a arcu augue. Quisque tincidunt fringilla 
+                ante, sed tempor dolor dignissim sagittis. Vivamus nec nunc sit amet dolor accumsan tempus
+            </p>
+            <ul className="side-panel-states-list">
+                {renderStatesInformation(states)}
+            </ul>
+        </article>
     </aside>
 )
 
