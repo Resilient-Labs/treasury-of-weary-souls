@@ -159,7 +159,6 @@ class IndustryChart extends Component {
 
     renderIndustryChart() {
         let obj = this.state.soulsByState;
-        let total = 0;
 
         let objCopy = Object.assign({}, obj);
         delete objCopy["not listed"];
@@ -167,7 +166,6 @@ class IndustryChart extends Component {
         delete objCopy.NL;
         var keys = Object.keys(objCopy);
 
-        // console.log(objCopy);
         let chartView = d3.select(".industry-chart-view")
             .selectAll("div")
             .data(Object.keys(objCopy).map((soul) => {

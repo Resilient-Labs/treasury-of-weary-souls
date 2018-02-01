@@ -4,7 +4,7 @@ import InsurersMapView from '../InsurersMapView/InsurersMapView';
 import SidePanel from '../SidePanel/SidePanel';
 import LegendPanel from '../LegendPanel/LegendPanel'
 import InsurersMapKey from '../InsurersMapKey/InsurersMapKey';
-import MapNavigation from '../MapNavigation/MapNavigation';
+// import MapNavigation from '../MapNavigation/MapNavigation';
 import Loading from '../Loading'
 import * as d3 from 'd3';
 import * as topojson from 'topojson';
@@ -12,6 +12,7 @@ import './InsurersMap.css';
 import './InsurersColors.css';
 import './IndustryColors.css';
 import './Tooltip.css';
+import './IndustryTooltip.css';
 import axios from 'axios';
 
 class InsurersMap extends Component {
@@ -25,6 +26,8 @@ class InsurersMap extends Component {
       countByInsurer: [],
       stateIds: [],
       soulsByStateId: {},
+      soulsByOccupation: {},
+      filter: 'insurer',
       loading: true
     }
     this.renderMap = this.renderMap.bind(this);
@@ -35,6 +38,7 @@ class InsurersMap extends Component {
     this.appendAllSouls = this.appendAllSouls.bind(this);
     this.compareByInsurer = this.compareByInsurer.bind(this);
     this.configureButtons = this.configureButtons.bind(this);
+    this.renderChartBar = this.renderChartBar.bind(this);
   }
   componentDidMount() {
     this.init();
@@ -46,6 +50,8 @@ class InsurersMap extends Component {
   }
 
   configureButtons() {
+    let ref = this;
+
     d3.selectAll('.legend-panel-insurer-button')
       .on('click', function () {
         // NOTE: DO NOT USE ARROW FUNCTION, LOSE CONTEXT OF THIS ,
@@ -60,26 +66,22 @@ class InsurersMap extends Component {
         // https://stackoverflow.com/questions/48015265/errors-using-d3-legend-uncaught-typeerror-node-getattribute-is-not-a-functio 
         d3.selectAll('.legend-panel-filter-button').classed("active", false);
         d3.select(this).classed("active", !d3.select(this).classed("active"));
-        // d3.selectAll('.insurer-map-point').classed("active", false);
         d3.select('.insurers-map-wrapper').classed("filter-insurer", !d3.select(this).classed("filter-insurer"));
-        // d3.select(this).attr("insurer", null)
         var filter = d3.select(this).text();
         var filterAttr = filter.toLowerCase().toString()
-        // console.log(filter.toLowerCase().toString());
 
-
-        if (filterAttr == "insurer") {
-          // d3.selectAll(".insurer-map-point").attr("insurer", null)
-          // d3.select(this).attr("industry", null)
-          // console.log("insurer clicked");
+        if (filterAttr === "insurer") {
+          
           console.log("insurer")
           d3.select('#insurers-map-wrapper').classed("filter-industry", false);
           d3.select('#insurers-map-wrapper').classed("filter-insurer", true);
-        } else if (filterAttr == "industry") {
-          // d3.select(this).attr("industry", null)
+          ref.setState({ filter: "insurer" })
+        } else if (filterAttr === "industry") {
+          
           console.log("industry")
           d3.select('#insurers-map-wrapper').classed("filter-insurer", false);
           d3.select('#insurers-map-wrapper').classed("filter-industry", true);
+          ref.setState({ filter: "industry" })
         }
 
       })
@@ -121,6 +123,20 @@ class InsurersMap extends Component {
     return dataObject;
   }
 
+  objectSoulsByOccupation(arr) {
+    let dataObject = {};
+    for (var i = 0; i < arr.length; i++) {
+        if (dataObject[arr[i].occupation] === undefined) {
+            let objectValueArray = [];
+            objectValueArray.push(arr[i])
+            dataObject[arr[i].occupation] = objectValueArray
+        } else {
+            dataObject[arr[i].occupation].push(arr[i]);
+        }
+    }
+    return dataObject;
+}
+
   getAllWearySouls() {
     let ref = this;
     axios.get("/api/wearysouls/")
@@ -147,12 +163,13 @@ class InsurersMap extends Component {
         ref.setState({ countByInsurer: ref.mapArrValuesToCount(insurers) });
         ref.setState({ stateIds: stateIds })
         ref.setState({ soulsByStateId: ref.objectSoulsById(wearysouls) })
-        //console.log(ref.objectSoulsById(wearysouls));
+        ref.setState({ soulsByOccupation: ref.objectSoulsByOccupation(wearysouls) })
       })
       .then(function () {
         ref.setState({ loading: false });
         ref.renderMap();
         ref.renderChart();
+        ref.renderChartBar();
       })
       .catch(function (error) {
         console.log(error);
@@ -182,7 +199,6 @@ class InsurersMap extends Component {
       height = 400,
       minX = 450,
       minY = 175;
-    let centered;
 
     let insurersMap = d3.select('#insurers-map-wrapper')
       .append('svg')
@@ -224,17 +240,14 @@ class InsurersMap extends Component {
         })
         .attr('d', path)
         .on('click', function (d) {
-          var stateX, stateY, k;
+          var stateX, stateY;
           var centroid = path.centroid(d);
-          var activeCenteredState;
           var k = 3;
           stateX = centroid[0];
           stateY = centroid[1];
           var containerW = d3.select("#insurers-map-wrapper").node().getBoundingClientRect().width;
           var containerH = d3.select("#insurers-map-wrapper").node().getBoundingClientRect().height;
 
-          var adjustedWidthMult = containerW / width;
-          var adjustedHeightMult = containerH / height;
           var curr = d3.selectAll('.state-container path').classed("active")
 
           if (curr) {
@@ -430,14 +443,96 @@ class InsurersMap extends Component {
       .attr("class", "class-bar-label")
       .text((d) => d.insurer);
   }
+  renderChartBar() {
+    // Industry Breakdown Chart Bar
+    let obj = this.state.soulsByOccupation;
+    var keys = Object.keys(obj);
+    let total = 0;
+
+    for (var i = 0; i < keys.length; i++) {
+        var val = obj[keys[i]];
+        if (keys[i] == "NL") {
+            // do nothing
+        } else {
+            total += val.length;
+        }
+    }
+    // assign a copy as to not mutate the original, then delete NL so that not listed
+    // souls do not appear in the chart
+    let objCopy = Object.assign({}, obj);
+    delete objCopy.NL;
+
+    var x = d3.scaleLinear()
+        .domain([0, total])
+        .range([0, total]);
+
+    let chartBar = d3.select(".industry-chart-bar")
+        .selectAll("div")
+        .data(Object.keys(objCopy).map((soul) => {
+            return objCopy[soul]
+        }))
+        .enter()
+        .append("div")
+        .attr("class", "industry-chart-bar-section")
+        .attr("occupation", (data) => {
+            return data[0].occupation
+        })
+        .attr("records", (data) => {
+            return data.length;
+        })
+        .attr("percent-of-workforce", (data) => {
+            return ((data.length / total) * 100) + "%";
+        })
+        .attr("total-known-records", total)
+        .style("width", (data) => {
+            return ((data.length / total) * 100) + "%";
+        })
+
+    chartBar.append("div")
+        .attr("class", "industry-chart-bar-tooltip")
+
+    // Set tooltip for showing data associated with a portion of the bar
+    let tooltip = d3.selectAll(".industry-chart-bar-tooltip");
+
+    tooltip.append("span")
+        .attr("class", "industry-chart-bar-tooltip-occupation")
+        .text((data) => data[0].occupation);
+
+    tooltip.append("span")
+        .attr("class", "industry-chart-bar-tooltip-record")
+        .text((data) => data.length)
+        .append("label")
+        .attr("class", "industry-chart-bar-tooltip-record-label")
+        .text("records");
+
+    tooltip.append("span")
+        .attr("class", "industry-chart-bar-tooltip-percentage")
+        .text((data) => "%" + ((data.length / total) * 100).toFixed(1))
+        .append("label")
+        .attr("class", "industry-chart-bar-tooltip-percentage-label")
+        .text("of workforce");
+}
 
   render() {
+    let industryChartBar = (
+      <div className={this.state.filter === 'industry' ? "industry-chart-bar-container" : "industry-chart-bar-container hidden lowered"}>
+        <small className="industry-chart-bar-title">Industry Breakdown</small>
+        <div className="industry-chart-bar"></div>
+        <div className="industr-char-bar-axis"></div>
+      </div>
+    )
+    let insurerMapKey = (
+      <div className={this.state.filter === 'insurer' ? "" : "hidden lowered"}>
+        <InsurersMapKey />
+      </div>
+    )
     return (
       <section className="insurers-map-container">
         <LegendPanel />
         {this.state.loading ? <Loading /> : <InsurersMapView souls={this.state.statesNew} />}
         <SidePanel states={this.state.statesNew} namesByState={this.state.namesByState} />
-        <InsurersMapKey />
+        { insurerMapKey }
+        { industryChartBar }
       </section>
     );
   }

@@ -28,6 +28,10 @@
       animation-delay: 2.75s; }
     .legend-panel .legend-panel-button:nth-of-type(5) {
       animation-delay: 3.25s; }
+  .legend-panel .legend-panel-label small {
+    opacity: 0;
+    animation: fadein 0.5s forwards;
+    animation-delay: 1.25s; }
   .legend-panel .legend-panel-filter-button {
     min-width: 70px; }
     .legend-panel .legend-panel-filter-button:nth-of-type(1) {

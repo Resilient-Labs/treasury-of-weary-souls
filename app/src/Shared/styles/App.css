@@ -57,3 +57,10 @@ small {
 
 blockquote {
   line-height: 1.3; }
+
+.hidden {
+  opacity: 0;
+  visibility: hidden; }
+
+.lowered {
+  z-index: -1000; }

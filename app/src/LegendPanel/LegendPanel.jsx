@@ -4,8 +4,8 @@ import './LegendPanel.css';
 const LegendPanel = (props) => (
     <div className="legend-panel">
         <div>
-            <label>
-                <small>Filter by:</small>
+            <label className="legend-panel-label">
+                <small>Filter by insurer:</small>
             </label>
             { insurers.map((insurer, index) => {
                 var className = index === 0 ? "active legend-panel-button legend-panel-insurer-button" : "legend-panel-button legend-panel-insurer-button";
@@ -13,7 +13,7 @@ const LegendPanel = (props) => (
             }) }
         </div>
         <div>
-            <label>
+            <label className="legend-panel-label">
                 <small>Filter by:</small>
             </label>
             { filters.map((filter, index) => {
