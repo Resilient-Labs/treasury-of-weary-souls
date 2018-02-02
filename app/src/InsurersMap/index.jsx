@@ -4,7 +4,6 @@ import InsurersMapView from '../InsurersMapView/InsurersMapView';
 import SidePanel from '../SidePanel/SidePanel';
 import LegendPanel from '../LegendPanel/LegendPanel'
 import InsurersMapKey from '../InsurersMapKey/InsurersMapKey';
-// import MapNavigation from '../MapNavigation/MapNavigation';
 import Loading from '../Loading'
 import * as d3 from 'd3';
 import * as topojson from 'topojson';
@@ -13,7 +12,38 @@ import './InsurersColors.css';
 import './IndustryColors.css';
 import './Tooltip.css';
 import './IndustryTooltip.css';
+import './InteractiveInfoPanel.css';
 import axios from 'axios';
+// State Icons
+import alabamaIcon from './../Shared/img/state-logos/alabama-icon.svg';
+import arkansasIcon from './../Shared/img/state-logos/arkansas-icon.svg';
+import georgiaIcon from './../Shared/img/state-logos/georgia-icon.svg';
+import kentuckyIcon from './../Shared/img/state-logos/kentucky-icon.svg';
+import louisianaIcon from './../Shared/img/state-logos/louisiana-icon.svg';
+import marylandIcon from './../Shared/img/state-logos/maryland-icon.svg';
+import mississippiIcon from './../Shared/img/state-logos/mississippi-icon.svg';
+import missouriIcon from './../Shared/img/state-logos/missouri-icon.svg';
+import northcarolinaIcon from './../Shared/img/state-logos/northcarolina-icon.svg';
+import southcarolinaIcon from './../Shared/img/state-logos/southcarolina-icon.svg';
+import tennesseeIcon from './../Shared/img/state-logos/tennessee-icon.svg';
+import virginiaIcon from './../Shared/img/state-logos/virginia-icon.svg';
+// States
+const alabama = {id: "01", abbreviation: "AL", name: "Alabama", icon: alabamaIcon, insurer: "New York Life"}
+const arkansas = {id: "05", abbreviation: "AR", name: "Arkansas", icon: arkansasIcon, insurer: "New York Life"}
+const georgia = {id: "13", abbreviation: "GA", name: "Georgia", icon: georgiaIcon, insurer: "New York Life"}
+const kentucky = {id: "21", abbreviation: "KY", name: "Kentucky", icon: kentuckyIcon, insurer: "AIG"}
+const louisiana = {id: "22", abbreviation: "LA", name: "Louisiana", icon: louisianaIcon, insurer: "Aetna"}
+const maryland = {id: "24", abbreviation: "MD", name: "Maryland", icon: marylandIcon, insurer: "New York Life"}
+const mississippi = {id: "28", abbreviation: "MS", name: "Mississippi", icon: mississippiIcon, insurer: "New York Life"}
+const missouri = {id: "29", abbreviation: "MO", name: "Missouri", icon: missouriIcon, insurer: "Aetna"}
+const northcarolina = {id: "37", abbreviation: "NC", name: "North Carolina", icon: northcarolinaIcon, insurer: "New York Life"}
+const southcarolina = {id: "45", abbreviation: "SC", name: "South Carolina", icon: southcarolinaIcon, insurer: "New York Life"}
+const tennessee = {id: "47", abbreviation: "TN", name: "Tennessee", icon: tennesseeIcon, insurer: "New York Life"}
+const virginia = {id: "51", abbreviation: "VA", name: "Virginia", icon: virginiaIcon, insurer: "Baltimore Life Insurance"}
+const noRecords = {id: "", abbreviation: "N/A", name: "No Records are Available for this State", icon: null, insurer: "N/A"}
+
+var states = [alabama, arkansas, georgia, kentucky, louisiana, maryland, mississippi, missouri, northcarolina, southcarolina
+    , tennessee, virginia]
 
 class InsurersMap extends Component {
   constructor(props) {
@@ -28,7 +58,9 @@ class InsurersMap extends Component {
       soulsByStateId: {},
       soulsByOccupation: {},
       filter: 'insurer',
-      loading: true
+      loading: true,
+      currentStateId: 0,
+      currentState: {}
     }
     this.renderMap = this.renderMap.bind(this);
     this.renderChart = this.renderChart.bind(this);
@@ -39,6 +71,7 @@ class InsurersMap extends Component {
     this.compareByInsurer = this.compareByInsurer.bind(this);
     this.configureButtons = this.configureButtons.bind(this);
     this.renderChartBar = this.renderChartBar.bind(this);
+    this.setCurrentState = this.setCurrentState.bind(this);
   }
   componentDidMount() {
     this.init();
@@ -269,6 +302,7 @@ class InsurersMap extends Component {
 
               d3.selectAll('.state-container path').classed("active", false);
               console.log("current state centered")
+              ref.setState({ currentStateId: -1 });
             } else {
               d3.selectAll('.state-container path').classed("active", false);
               d3.select(this).classed("active", !d3.select(this).classed("active"));
@@ -278,6 +312,13 @@ class InsurersMap extends Component {
                 .duration(750)
                 .attr("transform", "translate(" + ((containerW / 2)) + "," + ((containerH / 2)) + ")scale(" + k + ")translate(" + -(stateX - 50) + "," + -stateY + ")")
               console.log("current state not centered")
+
+              ref.setState({ currentStateId: d.id });
+              ref.setCurrentState(ref.state.currentStateId)
+              console.log(ref.state.currentStateId);
+
+              //console.log(currentStateId);
+              // Notes: each insurer, per state, percentage of insurerd workers per state population of workers on record that were insured, money they made
             }
           }
 
@@ -512,6 +553,18 @@ class InsurersMap extends Component {
         .attr("class", "industry-chart-bar-tooltip-percentage-label")
         .text("of workforce");
 }
+// UTILS
+setCurrentState(num) {
+  let ref = this;
+  for (var i = 0; i < states.length; i++) {
+    if (num == states[i].id) {
+      console.log(states[i].id);
+      console.log(states[i].name);
+      ref.setState({currentState: states[i] })
+      break;
+    }
+  }
+}
 
   render() {
     let industryChartBar = (
@@ -526,6 +579,19 @@ class InsurersMap extends Component {
         <InsurersMapKey />
       </div>
     )
+    // Notes: each insurer, per state, percentage of insurerd workers per state population of workers on record that were insured, money they made
+    let interactiveInfo = (
+      <div className={this.state.currentStateId <= 0 ? 
+      (this.state.currentStateId == 0 ? 'interactive-info-panel onload' : 'interactive-info-panel slide-up') : 
+      ('interactive-info-panel slide-down') }>
+        { this.state.currentState && <h2 className="interactive-info-panel-state-name">{this.state.currentState.name}</h2> }
+        { this.state.currentState && <img className="interactive-info-panel-state-icon" src={ this.state.currentState.icon } /> }
+        { this.state.currentState && <p className="interactive-info-panel-state-insurer">{this.state.currentState.insurer}</p> }
+        <p>
+          In { this.state.currentState.name} the biggest insurer of slaves in our records was insurance company { this.state.currentState.insurer }
+        </p>
+      </div>
+    )
     return (
       <section className="insurers-map-container">
         <LegendPanel />
@@ -533,6 +599,7 @@ class InsurersMap extends Component {
         <SidePanel states={this.state.statesNew} namesByState={this.state.namesByState} />
         { insurerMapKey }
         { industryChartBar }
+        { interactiveInfo }
       </section>
     );
   }

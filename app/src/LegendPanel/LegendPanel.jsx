@@ -3,7 +3,7 @@ import './LegendPanel.css';
 
 const LegendPanel = (props) => (
     <div className="legend-panel">
-        <div>
+        {/* <div>
             <label className="legend-panel-label">
                 <small>Filter by insurer:</small>
             </label>
@@ -11,7 +11,7 @@ const LegendPanel = (props) => (
                 var className = index === 0 ? "active legend-panel-button legend-panel-insurer-button" : "legend-panel-button legend-panel-insurer-button";
                 return <span className={className} data-filter={insurer} key={insurer}>{ insurer }</span>
             }) }
-        </div>
+        </div> */}
         <div>
             <label className="legend-panel-label">
                 <small>Filter by:</small>

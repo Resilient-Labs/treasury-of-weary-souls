@@ -1,0 +1,35 @@
+$width-side-panel: 25%
+$width-side-panel-tablet: 35%
+$width-side-panel-mobile: 100%
+
+.interactive-info-panel
+    position: absolute
+    right: 0
+    height: 100%
+    background: beige
+    top: -100%
+    width: $width-side-panel
+    @media only screen and (max-width: 1024px)
+        width: $width-side-panel-tablet
+    @media only screen and (max-width: 769px) 
+        width: $width-side-panel-mobile
+    &.onload
+        opacity: 0
+        visibility: hidden
+    &.slide-up
+        top: -100%
+        animation: slidePanelUp 0.5s forwards
+    &.slide-down
+        top: 0
+        animation: slidePanelDown 0.5s forwards
+
+@keyframes slidePanelDown  
+    0%
+        top:  -100%
+    100%
+        top: 0
+@keyframes slidePanelUp
+    0%
+        top: 0
+    100%
+        top: -100%

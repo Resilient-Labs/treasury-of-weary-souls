@@ -4,6 +4,16 @@ $color-orange: #FC7D49
 $color-maroon: #AD2D5C
 $color-red: #CF423C
 
+.insurer
+  .chart-bar
+    animation: openUp 2s forwards
+    animation-delay: 1s
+    transform: scaleY(1)
+.hidden
+  .chart-bar
+    animation: openUp 2s reverse
+    transform: scaleY(0)
+    height: 0
 .insurers-map-key 
   display: flex
   justify-content: center
@@ -16,7 +26,6 @@ $color-red: #CF423C
   div,
   .chart-bar
     font: 10px sans-serif
-    //background-color: steelblue
     text-align: right
     margin: 0.5em
     position: relative
@@ -24,7 +33,11 @@ $color-red: #CF423C
     width: 2em
     display: inline-block
     bottom: 0
-    transition: height 2s ease
+    height: 0
+    // transition: transform 0.5s ease
+    // transform-origin: bottom
+    
+    animation: openUp 2s forwards
     // &:first-of-type
     //   background-color: $color-yellow
     // &:nth-of-type(2)
@@ -50,3 +63,10 @@ $color-red: #CF423C
       position: absolute
       text-align: center
       top: -2em
+
+  @keyframes openUp  
+    0% 
+      height: 0
+    //   max-height: 0
+    // 100% 
+    //   max-height: none

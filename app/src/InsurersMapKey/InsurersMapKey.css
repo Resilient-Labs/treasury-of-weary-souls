@@ -1,3 +1,13 @@
+.insurer .chart-bar {
+  animation: openUp 2s forwards;
+  animation-delay: 1s;
+  transform: scaleY(1); }
+
+.hidden .chart-bar {
+  animation: openUp 2s reverse;
+  transform: scaleY(0);
+  height: 0; }
+
 .insurers-map-key {
   display: flex;
   justify-content: center;
@@ -18,7 +28,8 @@
     width: 2em;
     display: inline-block;
     bottom: 0;
-    transition: height 2s ease; }
+    height: 0;
+    animation: openUp 2s forwards; }
     .insurers-map-key div label,
     .insurers-map-key div .chart-bar-label,
     .insurers-map-key .chart-bar label,
@@ -39,3 +50,7 @@
       position: absolute;
       text-align: center;
       top: -2em; }
+
+@keyframes openUp {
+  0% {
+    height: 0; } }

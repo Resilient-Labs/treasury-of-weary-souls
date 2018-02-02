@@ -1,0 +1,34 @@
+.interactive-info-panel {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  background: beige;
+  top: -100%;
+  width: 25%; }
+  @media only screen and (max-width: 1024px) {
+    .interactive-info-panel {
+      width: 35%; } }
+  @media only screen and (max-width: 769px) {
+    .interactive-info-panel {
+      width: 100%; } }
+  .interactive-info-panel.onload {
+    opacity: 0;
+    visibility: hidden; }
+  .interactive-info-panel.slide-up {
+    top: -100%;
+    animation: slidePanelUp 0.5s forwards; }
+  .interactive-info-panel.slide-down {
+    top: 0;
+    animation: slidePanelDown 0.5s forwards; }
+
+@keyframes slidePanelDown {
+  0% {
+    top: -100%; }
+  100% {
+    top: 0; } }
+
+@keyframes slidePanelUp {
+  0% {
+    top: 0; }
+  100% {
+    top: -100%; } }

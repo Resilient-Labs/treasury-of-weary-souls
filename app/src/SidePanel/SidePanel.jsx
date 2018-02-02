@@ -14,14 +14,8 @@ import logo from './../Shared/img/logo-blk.svg';
 // import tennesseeIcon from './../Shared/img/state-logos/tennessee-icon.svg';
 // import virginiaIcon from './../Shared/img/state-logos/virginia-icon.svg';
 
-// import { Link } from 'react-router-dom';
-
-// const introSubHeadline = 'Treasury of';
-// const introHeadline = 'WEARY SOULS';
-    
 // const alabama = {id: "01", abbreviation: "AL", state: "Alabama", icon: alabamaIcon, insurer: "NYLI"}
 // const arkansas = {id: "05", abbreviation: "AR", state: "Arkansas", icon: arkansasIcon, insurer: "NYLI"}
-// DELETE // const dc = {id: "11", abbreviation: "DC", state: "District Of Columbia", icon: }
 // const georgia = {id: "13", abbreviation: "GA", state: "Georgia", icon: georgiaIcon, insurer: "NYLI"}
 // const kentucky = {id: "21", abbreviation: "KY", state: "Kentucky", icon: kentuckyIcon, insurer: "AIG"}
 // const louisiana = {id: "22", abbreviation: "LA", state: "Louisiana", icon: louisianaIcon, insurer: "Aetna"}
