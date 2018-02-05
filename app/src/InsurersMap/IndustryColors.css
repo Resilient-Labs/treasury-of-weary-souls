@@ -209,3 +209,261 @@
   .industry-chart-bar .industry-chart-bar-section {
     height: 40px;
     display: inline-block; }
+
+.industry-chart-bar-section,
+.industry-chart-view-point {
+  background-color: #DDD; }
+  .industry-chart-bar-section[occupation="NL"],
+  .industry-chart-view-point[occupation="NL"] {
+    background-color: #DDD; }
+    .industry-chart-bar-section[occupation="NL"]:hover,
+    .industry-chart-view-point[occupation="NL"]:hover {
+      box-shadow: 0 0 8px #DDD, inset 0 0 8px #DDD; }
+  .industry-chart-bar-section[occupation*="Steam"], .industry-chart-bar-section[occupation*="boat"],
+  .industry-chart-view-point[occupation*="Steam"],
+  .industry-chart-view-point[occupation*="boat"] {
+    background-color: #AD2D5C; }
+    .industry-chart-bar-section[occupation*="Steam"]:hover, .industry-chart-bar-section[occupation*="boat"]:hover,
+    .industry-chart-view-point[occupation*="Steam"]:hover,
+    .industry-chart-view-point[occupation*="boat"]:hover {
+      box-shadow: 0 0 8px #AD2D5C, inset 0 0 8px #AD2D5C; }
+  .industry-chart-bar-section[occupation*="Domestic"],
+  .industry-chart-view-point[occupation*="Domestic"] {
+    background-color: #FF9B96; }
+    .industry-chart-bar-section[occupation*="Domestic"]:hover,
+    .industry-chart-view-point[occupation*="Domestic"]:hover {
+      box-shadow: 0 0 8px #FF9B96, inset 0 0 8px #FF9B96; }
+  .industry-chart-bar-section[occupation*="Carpenter"],
+  .industry-chart-view-point[occupation*="Carpenter"] {
+    background-color: #821D19; }
+    .industry-chart-bar-section[occupation*="Carpenter"]:hover,
+    .industry-chart-view-point[occupation*="Carpenter"]:hover {
+      box-shadow: 0 0 8px #821D19, inset 0 0 8px #821D19; }
+  .industry-chart-bar-section[occupation*="Blacksmith"],
+  .industry-chart-view-point[occupation*="Blacksmith"] {
+    background-color: #96F4FF; }
+    .industry-chart-bar-section[occupation*="Blacksmith"]:hover,
+    .industry-chart-view-point[occupation*="Blacksmith"]:hover {
+      box-shadow: 0 0 8px #96F4FF, inset 0 0 8px #96F4FF; }
+  .industry-chart-bar-section[occupation*="Stevedore"],
+  .industry-chart-view-point[occupation*="Stevedore"] {
+    background-color: #197782; }
+    .industry-chart-bar-section[occupation*="Stevedore"]:hover,
+    .industry-chart-view-point[occupation*="Stevedore"]:hover {
+      box-shadow: 0 0 8px #197782, inset 0 0 8px #197782; }
+  .industry-chart-bar-section[occupation*="Servant"],
+  .industry-chart-view-point[occupation*="Servant"] {
+    background-color: #FF6F69; }
+    .industry-chart-bar-section[occupation*="Servant"]:hover,
+    .industry-chart-view-point[occupation*="Servant"]:hover {
+      box-shadow: 0 0 8px #FF6F69, inset 0 0 8px #FF6F69; }
+  .industry-chart-bar-section[occupation*="Agriculturalist"],
+  .industry-chart-view-point[occupation*="Agriculturalist"] {
+    background-color: #FFEEAD; }
+    .industry-chart-bar-section[occupation*="Agriculturalist"]:hover,
+    .industry-chart-view-point[occupation*="Agriculturalist"]:hover {
+      box-shadow: 0 0 8px #FFEEAD, inset 0 0 8px #FFEEAD; }
+  .industry-chart-bar-section[occupation*="Mason"],
+  .industry-chart-view-point[occupation*="Mason"] {
+    background-color: #3F5666; }
+    .industry-chart-bar-section[occupation*="Mason"]:hover,
+    .industry-chart-view-point[occupation*="Mason"]:hover {
+      box-shadow: 0 0 8px #3F5666, inset 0 0 8px #3F5666; }
+  .industry-chart-bar-section[occupation*="Coach"],
+  .industry-chart-view-point[occupation*="Coach"] {
+    background-color: #56D9CD; }
+    .industry-chart-bar-section[occupation*="Coach"]:hover,
+    .industry-chart-view-point[occupation*="Coach"]:hover {
+      box-shadow: 0 0 8px #56D9CD, inset 0 0 8px #56D9CD; }
+  .industry-chart-bar-section[occupation*="Wheelwright"],
+  .industry-chart-view-point[occupation*="Wheelwright"] {
+    background-color: #C6E070; }
+    .industry-chart-bar-section[occupation*="Wheelwright"]:hover,
+    .industry-chart-view-point[occupation*="Wheelwright"]:hover {
+      box-shadow: 0 0 8px #C6E070, inset 0 0 8px #C6E070; }
+  .industry-chart-bar-section[occupation*="Merchant"],
+  .industry-chart-view-point[occupation*="Merchant"] {
+    background-color: #91C46C; }
+    .industry-chart-bar-section[occupation*="Merchant"]:hover,
+    .industry-chart-view-point[occupation*="Merchant"]:hover {
+      box-shadow: 0 0 8px #91C46C, inset 0 0 8px #91C46C; }
+  .industry-chart-bar-section[occupation*="Painter"],
+  .industry-chart-view-point[occupation*="Painter"] {
+    background-color: #F5E5C0; }
+    .industry-chart-bar-section[occupation*="Painter"]:hover,
+    .industry-chart-view-point[occupation*="Painter"]:hover {
+      box-shadow: 0 0 8px #F5E5C0, inset 0 0 8px #F5E5C0; }
+  .industry-chart-bar-section[occupation*="Cook"],
+  .industry-chart-view-point[occupation*="Cook"] {
+    background-color: #F6F3EB; }
+    .industry-chart-bar-section[occupation*="Cook"]:hover,
+    .industry-chart-view-point[occupation*="Cook"]:hover {
+      box-shadow: 0 0 8px #F6F3EB, inset 0 0 8px #F6F3EB; }
+  .industry-chart-bar-section[occupation*="Clerk"],
+  .industry-chart-view-point[occupation*="Clerk"] {
+    background-color: #D17C78; }
+    .industry-chart-bar-section[occupation*="Clerk"]:hover,
+    .industry-chart-view-point[occupation*="Clerk"]:hover {
+      box-shadow: 0 0 8px #D17C78, inset 0 0 8px #D17C78; }
+  .industry-chart-bar-section[occupation*="Seamstress"],
+  .industry-chart-view-point[occupation*="Seamstress"] {
+    background-color: #2E3B64; }
+    .industry-chart-bar-section[occupation*="Seamstress"]:hover,
+    .industry-chart-view-point[occupation*="Seamstress"]:hover {
+      box-shadow: 0 0 8px #2E3B64, inset 0 0 8px #2E3B64; }
+  .industry-chart-bar-section[occupation*="Barber"],
+  .industry-chart-view-point[occupation*="Barber"] {
+    background-color: #FFD101; }
+    .industry-chart-bar-section[occupation*="Barber"]:hover,
+    .industry-chart-view-point[occupation*="Barber"]:hover {
+      box-shadow: 0 0 8px #FFD101, inset 0 0 8px #FFD101; }
+  .industry-chart-bar-section[occupation*="Miner"],
+  .industry-chart-view-point[occupation*="Miner"] {
+    background-color: #FF9320; }
+    .industry-chart-bar-section[occupation*="Miner"]:hover,
+    .industry-chart-view-point[occupation*="Miner"]:hover {
+      box-shadow: 0 0 8px #FF9320, inset 0 0 8px #FF9320; }
+  .industry-chart-bar-section[occupation*="Hemp"],
+  .industry-chart-view-point[occupation*="Hemp"] {
+    background-color: #97B8A3; }
+    .industry-chart-bar-section[occupation*="Hemp"]:hover,
+    .industry-chart-view-point[occupation*="Hemp"]:hover {
+      box-shadow: 0 0 8px #97B8A3, inset 0 0 8px #97B8A3; }
+  .industry-chart-bar-section[occupation*="Fireman"],
+  .industry-chart-view-point[occupation*="Fireman"] {
+    background-color: #EF3E4A; }
+    .industry-chart-bar-section[occupation*="Fireman"]:hover,
+    .industry-chart-view-point[occupation*="Fireman"]:hover {
+      box-shadow: 0 0 8px #EF3E4A, inset 0 0 8px #EF3E4A; }
+  .industry-chart-bar-section[occupation*="Widow"],
+  .industry-chart-view-point[occupation*="Widow"] {
+    background-color: #C02A1B; }
+    .industry-chart-bar-section[occupation*="Widow"]:hover,
+    .industry-chart-view-point[occupation*="Widow"]:hover {
+      box-shadow: 0 0 8px #C02A1B, inset 0 0 8px #C02A1B; }
+  .industry-chart-bar-section[occupation*="Mill"],
+  .industry-chart-view-point[occupation*="Mill"] {
+    background-color: #B32A48; }
+    .industry-chart-bar-section[occupation*="Mill"]:hover,
+    .industry-chart-view-point[occupation*="Mill"]:hover {
+      box-shadow: 0 0 8px #B32A48, inset 0 0 8px #B32A48; }
+  .industry-chart-bar-section[occupation*="Nurse"],
+  .industry-chart-view-point[occupation*="Nurse"] {
+    background-color: #CF2F89; }
+    .industry-chart-bar-section[occupation*="Nurse"]:hover,
+    .industry-chart-view-point[occupation*="Nurse"]:hover {
+      box-shadow: 0 0 8px #CF2F89, inset 0 0 8px #CF2F89; }
+  .industry-chart-bar-section[occupation*="Butcher"],
+  .industry-chart-view-point[occupation*="Butcher"] {
+    background-color: #96CBD1; }
+    .industry-chart-bar-section[occupation*="Butcher"]:hover,
+    .industry-chart-view-point[occupation*="Butcher"]:hover {
+      box-shadow: 0 0 8px #96CBD1, inset 0 0 8px #96CBD1; }
+  .industry-chart-bar-section[occupation*="Bricklayer"],
+  .industry-chart-view-point[occupation*="Bricklayer"] {
+    background-color: #008FD3; }
+    .industry-chart-bar-section[occupation*="Bricklayer"]:hover,
+    .industry-chart-view-point[occupation*="Bricklayer"]:hover {
+      box-shadow: 0 0 8px #008FD3, inset 0 0 8px #008FD3; }
+  .industry-chart-bar-section[occupation*="Drayman"],
+  .industry-chart-view-point[occupation*="Drayman"] {
+    background-color: #F4C7EE; }
+    .industry-chart-bar-section[occupation*="Drayman"]:hover,
+    .industry-chart-view-point[occupation*="Drayman"]:hover {
+      box-shadow: 0 0 8px #F4C7EE, inset 0 0 8px #F4C7EE; }
+  .industry-chart-bar-section[occupation*="Laborer"],
+  .industry-chart-view-point[occupation*="Laborer"] {
+    background-color: #FE667B; }
+    .industry-chart-bar-section[occupation*="Laborer"]:hover,
+    .industry-chart-view-point[occupation*="Laborer"]:hover {
+      box-shadow: 0 0 8px #FE667B, inset 0 0 8px #FE667B; }
+  .industry-chart-bar-section[occupation*="Engineer"],
+  .industry-chart-view-point[occupation*="Engineer"] {
+    background-color: #FF5035; }
+    .industry-chart-bar-section[occupation*="Engineer"]:hover,
+    .industry-chart-view-point[occupation*="Engineer"]:hover {
+      box-shadow: 0 0 8px #FF5035, inset 0 0 8px #FF5035; }
+  .industry-chart-bar-section[occupation*="Washer"],
+  .industry-chart-view-point[occupation*="Washer"] {
+    background-color: #A39AB4; }
+    .industry-chart-bar-section[occupation*="Washer"]:hover,
+    .industry-chart-view-point[occupation*="Washer"]:hover {
+      box-shadow: 0 0 8px #A39AB4, inset 0 0 8px #A39AB4; }
+  .industry-chart-bar-section[occupation*="Cigar"],
+  .industry-chart-view-point[occupation*="Cigar"] {
+    background-color: #BF1361; }
+    .industry-chart-bar-section[occupation*="Cigar"]:hover,
+    .industry-chart-view-point[occupation*="Cigar"]:hover {
+      box-shadow: 0 0 8px #BF1361, inset 0 0 8px #BF1361; }
+  .industry-chart-bar-section[occupation*="Tailor"],
+  .industry-chart-view-point[occupation*="Tailor"] {
+    background-color: #FBECCF; }
+    .industry-chart-bar-section[occupation*="Tailor"]:hover,
+    .industry-chart-view-point[occupation*="Tailor"]:hover {
+      box-shadow: 0 0 8px #FBECCF, inset 0 0 8px #FBECCF; }
+  .industry-chart-bar-section[occupation*="Baker"],
+  .industry-chart-view-point[occupation*="Baker"] {
+    background-color: #112378; }
+    .industry-chart-bar-section[occupation*="Baker"]:hover,
+    .industry-chart-view-point[occupation*="Baker"]:hover {
+      box-shadow: 0 0 8px #112378, inset 0 0 8px #112378; }
+  .industry-chart-bar-section[occupation*="Tobacco"],
+  .industry-chart-view-point[occupation*="Tobacco"] {
+    background-color: #BB828B; }
+    .industry-chart-bar-section[occupation*="Tobacco"]:hover,
+    .industry-chart-view-point[occupation*="Tobacco"]:hover {
+      box-shadow: 0 0 8px #BB828B, inset 0 0 8px #BB828B; }
+  .industry-chart-bar-section[occupation*="Machine"],
+  .industry-chart-view-point[occupation*="Machine"] {
+    background-color: #CF423C; }
+    .industry-chart-bar-section[occupation*="Machine"]:hover,
+    .industry-chart-view-point[occupation*="Machine"]:hover {
+      box-shadow: 0 0 8px #CF423C, inset 0 0 8px #CF423C; }
+  .industry-chart-bar-section[occupation*="Railroad"],
+  .industry-chart-view-point[occupation*="Railroad"] {
+    background-color: #F79E7C; }
+    .industry-chart-bar-section[occupation*="Railroad"]:hover,
+    .industry-chart-view-point[occupation*="Railroad"]:hover {
+      box-shadow: 0 0 8px #F79E7C, inset 0 0 8px #F79E7C; }
+  .industry-chart-bar-section[occupation*="Cooper"],
+  .industry-chart-view-point[occupation*="Cooper"] {
+    background-color: #012F63; }
+    .industry-chart-bar-section[occupation*="Cooper"]:hover,
+    .industry-chart-view-point[occupation*="Cooper"]:hover {
+      box-shadow: 0 0 8px #012F63, inset 0 0 8px #012F63; }
+  .industry-chart-bar-section[occupation*="Farmer"],
+  .industry-chart-view-point[occupation*="Farmer"] {
+    background-color: #14A19B; }
+    .industry-chart-bar-section[occupation*="Farmer"]:hover,
+    .industry-chart-view-point[occupation*="Farmer"]:hover {
+      box-shadow: 0 0 8px #14A19B, inset 0 0 8px #14A19B; }
+  .industry-chart-bar-section[occupation="Factory worker"],
+  .industry-chart-view-point[occupation="Factory worker"] {
+    background-color: #FC7D49; }
+    .industry-chart-bar-section[occupation="Factory worker"]:hover,
+    .industry-chart-view-point[occupation="Factory worker"]:hover {
+      box-shadow: 0 0 8px #FC7D49, inset 0 0 8px #FC7D49; }
+  .industry-chart-bar-section[occupation="Cobbler"],
+  .industry-chart-view-point[occupation="Cobbler"] {
+    background-color: #32B67A; }
+    .industry-chart-bar-section[occupation="Cobbler"]:hover,
+    .industry-chart-view-point[occupation="Cobbler"]:hover {
+      box-shadow: 0 0 8px #32B67A, inset 0 0 8px #32B67A; }
+  .industry-chart-bar-section[occupation="Sailor"],
+  .industry-chart-view-point[occupation="Sailor"] {
+    background-color: #FFD462; }
+    .industry-chart-bar-section[occupation="Sailor"]:hover,
+    .industry-chart-view-point[occupation="Sailor"]:hover {
+      box-shadow: 0 0 8px #FFD462, inset 0 0 8px #FFD462; }
+  .industry-chart-bar-section[occupation="Iron"],
+  .industry-chart-view-point[occupation="Iron"] {
+    background-color: #FFD101; }
+    .industry-chart-bar-section[occupation="Iron"]:hover,
+    .industry-chart-view-point[occupation="Iron"]:hover {
+      box-shadow: 0 0 8px #FFD101, inset 0 0 8px #FFD101; }
+  .industry-chart-bar-section[occupation="female slave"],
+  .industry-chart-view-point[occupation="female slave"] {
+    background-color: #B7E3E4; }
+    .industry-chart-bar-section[occupation="female slave"]:hover,
+    .industry-chart-view-point[occupation="female slave"]:hover {
+      box-shadow: 0 0 8px #B7E3E4, inset 0 0 8px #B7E3E4; }

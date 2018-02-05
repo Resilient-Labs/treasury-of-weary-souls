@@ -586,12 +586,18 @@ setCurrentState(num) {
       ('interactive-info-panel slide-down') }>
         { this.state.currentState && <h2 className="interactive-info-panel-state-name">{this.state.currentState.name}</h2> }
         { this.state.currentState && <img className="interactive-info-panel-state-icon" src={ this.state.currentState.icon } /> }
-        { this.state.currentState && <p className="interactive-info-panel-state-insurer">{this.state.currentState.insurer}</p> }
         <p>
-          In { this.state.currentState.name} the biggest insurer of slaves in our records was insurance company { this.state.currentState.insurer }
+          In { this.state.currentState.name} the biggest insurer of slaves in our records was insurance company: { this.state.currentState.insurer }
         </p>
+        <ul>
+          To do:
+          <li>Add industry stats/info</li>
+          <li>Add money info on premiums</li>
+          <li>Add info on cost of premium in today's dollars</li>
+        </ul>
       </div>
     )
+    
     return (
       <section className="insurers-map-container">
         <LegendPanel />

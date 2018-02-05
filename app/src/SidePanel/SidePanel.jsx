@@ -38,11 +38,29 @@ const SidePanel = (props) => (
             </div>
             <h4>About the Project</h4>
             <p>
-            Because a slave did not earn a salary did not mean that he was without commercial value. 
-            Highly skilled slaves were in fact so critical to the development of the antebellum economy of the American South, 
-            that it was common for slave owners to take out life insurance policies on those slaves; 
-            particularly as owners rented their slaves to each other. AIG, Aetna, New York Life Insurance, and BLIC. 
-            Explore the different states to see which life insurance companies profited the most from slave policies, per state.
+            Recent portrayals of American slavery — from 12 Years a Slave and Django Unchained to 
+            Walter Johnson’s River of Dark Dreams and Sven Beckert’s Empire of Cotton — have emphasized 
+            the brutal violence on cotton plantations in the years preceding the Civil War. 
+            What they miss is that during the same period, slaves that were engaged in other 
+            enterprises developed skills that placed them at the heart of industrial capitalism.
+            </p>
+            <p>
+            Especially after the slave trade was outlawed in 1808, planters found ways to keep 
+            human bondage profitable, including smuggling, controlled breeding, and renting slaves 
+            to business owners. This last option became especially pervasive in Virginia and the port 
+            cities of the Ohio River and Atlantic Coast. A slew of industries — from blacksmithing and 
+            carpentry to large-scale railroad construction, coal mining, and steamboat operations 
+            — were fortified by the skilled labor of the enslaved.
+            </p>
+            <p>
+            These men and women became such valuable assets, in fact, that their owners sought to 
+            insure them as such. By the 1840s, the number of slaves insured in the South mirrored 
+            the number of free whites with life insurance in the North — and both kinds of policies 
+            could be issued by the same companies. Slave insurance was one of the earliest forms of 
+            industrial risk management, providing an important source of revenue for some of today’s 
+            largest multinational insurance companies. It also makes clear that the recent economic 
+            crisis, driven by credit default swaps, was not the first time new financial instruments, 
+            utilized by AIG and its peers, shaped the lives of U.S. workers. And it won’t be the last.
             </p>
             <header>
                 <small>Slavery Data Collection & Analysis: Michael Ralph</small>

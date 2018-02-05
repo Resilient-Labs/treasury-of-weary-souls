@@ -2,7 +2,9 @@
   position: absolute;
   right: 0;
   height: 100%;
-  background: beige;
+  background: #282828;
+  padding: 1em;
+  color: white;
   top: -100%;
   width: 25%; }
   @media only screen and (max-width: 1024px) {
