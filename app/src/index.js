@@ -5,7 +5,7 @@ import Routes from './Routes';
 import registerServiceWorker from './registerServiceWorker';
 
 
-if (prompt("Please enter your name:") == "HireResilientCoders") {
+if (prompt("Please enter the password to enter:") == "HireResilientCoders") {
 ReactDOM.render(
 
 <Routes />
