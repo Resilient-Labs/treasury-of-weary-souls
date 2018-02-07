@@ -1,6 +1,7 @@
 import React from 'react';
 import './SidePanel.css';
 import logo from './../Shared/img/logo-blk.svg';
+// FIXME: DELETE
 // import alabamaIcon from './../Shared/img/state-logos/alabama-icon.svg';
 // import arkansasIcon from './../Shared/img/state-logos/arkansas-icon.svg';
 // import georgiaIcon from './../Shared/img/state-logos/georgia-icon.svg';
@@ -67,28 +68,29 @@ const SidePanel = (props) => (
                 <small>Web Development by <a href="http://www.resilientcoders.org" target="_blank" rel="noopener noreferrer">Resilient Coders</a></small>
                 <small>Design: Emily O'Brien</small>
             </header>
-            {/* <ul className="side-panel-states-list">
+            {/* <ul className="side-panel-states-list"> // FIXME: DELETE
                 {renderStatesInformation(states)}
             </ul> */}
         </article>
     </aside>
 )
-
-function renderStatesInformation(states) {
-    return states.map((state) => {
-        return (
-            <li className="side-panel-states-list-item" key={state.id}>
-                <h6 className="side-panel-states-list-headline">{ state.state }</h6>
-                <img className="side-panel-states-list-icon" src={ state.icon } />
+// FIXME: DELETE
+// function renderStatesInformation(states) {
+//     return states.map((state) => {
+//         return (
+//             <li className="side-panel-states-list-item" key={state.id}>
+//                 <h6 className="side-panel-states-list-headline">{ state.state }</h6>
+//                 <img className="side-panel-states-list-icon" src={ state.icon } alt={ state.state }/>
                 
-                <p className="side-panel-states-list-text">
-                    In {state.state}, the biggest insurer of slaves was insurance company { state.insurer }. On average, slaves paid a policy premium of $XX. Accounting for inflatation, in today's economy, that amounts to $XXXX per slave.
-                </p>
-            </li>
-        )
-    })    
-}
+//                 <p className="side-panel-states-list-text">
+//                     In {state.state}, the biggest insurer of slaves was insurance company { state.insurer }. On average, slaves paid a policy premium of $XX. Accounting for inflatation, in today's economy, that amounts to $XXXX per slave.
+//                 </p>
+//             </li>
+//         )
+//     })    
+// }
 
+// FIXME: DELETE
 // function renderList(states, names) {
 //     return states.map((state) => {
 //         let filteredNames = names.filter((soul) => {

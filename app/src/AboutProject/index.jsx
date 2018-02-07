@@ -12,7 +12,7 @@ const AboutProject = props => {
         <section className="about-project-container">
             {/* <Navigation /> */}
             <div>
-                <h3>{aboutHeadline}</h3>
+                <h4>{aboutHeadline}</h4>
                 <p>{aboutText}</p>
                 <p>{aboutText2}</p>
             </div>

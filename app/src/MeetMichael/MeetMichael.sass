@@ -7,7 +7,7 @@ $arrow-down-icon-height: 30px
     color: #5B5B5B
     display: flex
     flex-flow: column wrap
-    float: left
+    // float: left
     justify-content: center
     min-height: 100vh
     position: relative
@@ -30,15 +30,19 @@ $arrow-down-icon-height: 30px
             padding: $mobile-container-padding
             width: 100%
             flex-flow: column
+        @media only screen and (max-width: 769px) and (orientation: landscape)
+            flex-flow: row
+            align-items: flex-start
         img 
             height: auto
-            padding: 1em
+            margin: 1em
             width: 40%
             @media only screen and (max-width: 769px)
-                max-width: 360px
-                padding: 0
+                max-width: 175px
                 width: 100%
-        p 
+            @media only screen and (max-width: 576px)
+                max-width: 150px
+        .text-container 
             width: 60%
             @media only screen and (max-width: 769px)
                 width: 100%

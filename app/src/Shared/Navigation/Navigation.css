@@ -24,3 +24,8 @@ aside.navigation {
     bottom: 0;
     color: red;
     position: absolute; }
+
+@media only screen and (max-width: 769px) {
+  .Navigation {
+    right: 10px !important;
+    top: 90% !important; } }
