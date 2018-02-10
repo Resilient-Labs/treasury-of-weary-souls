@@ -63,6 +63,15 @@ const SidePanel = (props) => (
             crisis, driven by credit default swaps, was not the first time new financial instruments, 
             utilized by AIG and its peers, shaped the lives of U.S. workers. And it won’t be the last.
             </p>
+            <p>
+            Slave insurance was issued by a wide range of companies in the North and South and sold both 
+            to people who owned many slaves and to those who owned just a few. The map here shows about 
+            1,300 antebellum-era policies found in the archives of the world’s largest insurance companies, 
+            including Aetna, AIG, and New York Life. The archives are incomplete, and evidence suggests that 
+            at least 85 percent of policy records may have been lost over time. Yet the available figures 
+            show that the market for slave insurance was mostly urban and especially vibrant in areas where 
+            plantation agriculture was in relative decline.
+            </p>
             <header>
                 <small>Slavery Data Collection & Analysis: Michael Ralph</small>
                 <small>Web Development by <a href="http://www.resilientcoders.org" target="_blank" rel="noopener noreferrer">Resilient Coders</a></small>

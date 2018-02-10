@@ -1,0 +1,64 @@
+.post-card
+    display: inline-flex
+    width: 31%
+    margin: 1%
+    height: 350px
+    overflow: hidden
+    position: relative
+    @media only screen and (max-width: 992px)
+        height: 320px
+    @media only screen and (max-width: 769px)
+        height: 280px
+        width: 100%
+        margin: 1% 0
+    @media only screen and (max-width: 576px)
+        height: 240px
+    &:hover
+        &:before
+            background: #CF423C
+            opacity: 0.9
+            content: ''
+            position: absolute
+            height: 100%
+            width: 100%
+        .post-card-link,
+        .post-card-title
+            visibility: visible
+    @media only screen and (max-width: 769px)
+        &:before
+            background: #CF423C
+            opacity: 0.9
+            content: ''
+            position: absolute
+            height: 100%
+            width: 100%
+    .post-card-title
+        color: white
+        position: absolute
+        padding: 1em
+        font-size: 1.35em
+        visibility: hidden
+        @media only screen and (max-width: 769px)
+            visibility: visible
+    .post-card-link
+        color: white
+        font-family: 'Cabin', sans-serif
+        text-transform: uppercase
+        position: absolute
+        letter-spacing: 3px
+        border: 1px solid white
+        padding: 0.5em 1em
+        text-decoration: none
+        bottom: 1em
+        left: 1em
+        visibility: hidden
+        @media only screen and (max-width: 769px)
+            visibility: visible
+        &:hover
+            background: white
+            color: #CF423C
+    img 
+        height: 100%
+        width: 100%
+        object-fit: cover
+        object-position: center

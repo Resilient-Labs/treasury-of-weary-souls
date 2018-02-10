@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 import SidePanel from '../SidePanel/SidePanel';
 import MapNavigation from '../MapNavigation/MapNavigation';
 import axios from 'axios';
-import Loading from '../Loading'
+import Loading from '../Loading';
 import './IndustryChart.css';
 import './IndustryChartView.css';
 import './Tooltip.css';
@@ -331,7 +331,7 @@ class IndustryChart extends Component {
 
     render() {
         if (this.state.loading) {
-            return <Loading />;
+            return <Loading content="Chart"/>;
         } else {
             return (
                 <section className="industry-chart-container">

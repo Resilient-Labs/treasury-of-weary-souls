@@ -5,7 +5,7 @@ const Loading = props => {
     return (
         <div className="loading-container">
             <div className="loading"/>
-            <p className="loading-text">Loading Data...</p>
+            <p className="loading-text">Loading {props.content}...</p>
         </div>
     )
 }

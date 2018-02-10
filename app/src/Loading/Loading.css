@@ -7,6 +7,9 @@
   height: 100vh;
   position: absolute;
   width: 75%; }
+  @media only screen and (max-width: 769px) {
+    .loading-container {
+      width: 100%; } }
 
 @keyframes spin {
   0% {

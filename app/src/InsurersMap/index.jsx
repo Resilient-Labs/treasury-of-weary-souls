@@ -261,6 +261,27 @@ class InsurersMap extends Component {
           return state.id
         })
 
+      // setup unknown locations
+      let unknownLocationsDiv = d3.select('#insurers-map-wrapper')
+        .append('div')
+        .attr('class', 'unknown-locations')
+
+      unknownLocationsDiv
+        .append('svg')
+        .attr('height', '175px')
+        .attr('width', '175px')
+        .attr('preserveAspectRatio', 'xMidYMid meet')
+        .attr('viewBox', '0 -50 1 100')
+        .attr('class', 'unknown-state-container')
+        .append('g')
+        // .style('transform', 'translate(50%, 50%)')
+        .attr('class', 'unknown-grouping')
+        .attr("container-stateId", "NL")
+
+      unknownLocationsDiv
+        .append('label')
+        .text('Location Unknown')
+
       // add paths for each state
       stateContainer.append('path')
         .attr('class', 'state hover')
@@ -322,8 +343,6 @@ class InsurersMap extends Component {
               // Notes: each insurer, per state, percentage of insurerd workers per state population of workers on record that were insured, money they made
             }
           }
-
-
         })
 
       let obj = ref.state.soulsByStateId;
@@ -332,8 +351,6 @@ class InsurersMap extends Component {
       let objCopy = Object.assign({}, obj);
       var keys = Object.keys(objCopy);
       ref.appendAllSouls(keys, path, obj);
-
-      //var widthX = d3.select('.insurers-map-svg').node().getBBox();
     });
   }
 
@@ -357,28 +374,50 @@ class InsurersMap extends Component {
 
       var pathCX = 0;
       var pathCY = 0;
-      d3.select("[container-stateId='" + stateId + "']")
-        .append('circle')
-        .attr('class', 'pack')
-        .attr('r', 1)
-        .attr("cx", (d) => {
-          pathCX = path.centroid(d)[0];
-          return path.centroid(d)[0];
-        })
-        .attr("cy", (d) => {
-          pathCY = path.centroid(d)[1];
-          return path.centroid(d)[1];
-        })
-
-      var circles = d3.packSiblings(
-        d3.range(val.length)
-          .map(function (r) {
-            return { r: 1.25 };
-          }));
-      var currentSoul;
       if (stateId === null || stateId === 'null') {
-        // do nothing 
+        stateId = 'NL';
+        console.log("range:" + val.length);
+        // set range to the number of unknown location slaves
+        var unknownSlavesCircles = d3.packSiblings(d3.range(val.length).map(function (r) { return { r: 1.5 }; }));
+
+        var size = Math.max('175px', '175px');
+
+        d3.select('.unknown-state-container')
+          .select("g")
+          .selectAll("circle")
+          .data(unknownSlavesCircles)
+          .enter()
+          .append("circle")
+          // .style('fill', 'blue')
+          .attr("class", "insurer-map-point")
+          .attr("insurer", function (d, i) { 
+            if (typeof val[i - 1] != 'undefined') {
+              return val[i - 1].insurancefirm 
+            }
+          })
+          .attr("r", function(d) { return d.r - 0.25; })
+          .attr("cx", function(d) { return d.x; })
+          .attr("cy", function(d) { return d.y; });
       } else {
+        d3.select("[container-stateId='" + stateId + "']")
+          .append('circle')
+          .attr('class', 'pack')
+          .attr('r', 1)
+          .attr("cx", (d) => {
+            pathCX = path.centroid(d)[0];
+            return path.centroid(d)[0];
+          })
+          .attr("cy", (d) => {
+            pathCY = path.centroid(d)[1];
+            return path.centroid(d)[1];
+          })
+
+        var circles = d3.packSiblings(
+          d3.range(val.length)
+            .map(function (r) {
+              return { r: 1.25 };
+            }));
+        var currentSoul;
 
         var punto = d3.select("[container-stateId='" + stateId + "']")
           .selectAll("circle")
@@ -617,7 +656,7 @@ class InsurersMap extends Component {
     return (
       <section className="insurers-map-container">
         <LegendPanel />
-        {this.state.loading ? <Loading /> : <InsurersMapView souls={this.state.statesNew} />}
+        {this.state.loading ? <Loading content="Map"/> : <InsurersMapView souls={this.state.statesNew} />}
         <SidePanel states={this.state.statesNew} namesByState={this.state.namesByState} />
         {insurerMapKey}
         {industryChartBar}
