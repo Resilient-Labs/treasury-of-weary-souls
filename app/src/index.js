@@ -5,23 +5,23 @@ import Routes from './Routes';
 import registerServiceWorker from './registerServiceWorker';
 
 
-// if (prompt("Please enter the password to enter:") == "HireResilientCoders") {
-// ReactDOM.render(
-
-// <Routes />
-// , document.getElementById('root'));
-// registerServiceWorker();
-
-// } else {
-//     ReactDOM.render(
-        
-//     <div>Not Allowed, please contact <a href="mailto:dev@resilientcoders.org">Admin</a> for support.</div>
-//     , document.getElementById('root'));
-//     registerServiceWorker();
-// }
-// Uncomment below and comment above during development
+if (prompt("Please enter the password to enter:") == "HireResilientCoders") {
 ReactDOM.render(
-    
+
 <Routes />
 , document.getElementById('root'));
 registerServiceWorker();
+
+} else {
+    ReactDOM.render(
+        
+    <div>Not Allowed, please contact <a href="mailto:dev@resilientcoders.org">Admin</a> for support.</div>
+    , document.getElementById('root'));
+    registerServiceWorker();
+}
+// Uncomment below and comment above during development
+// ReactDOM.render(
+    
+// <Routes />
+// , document.getElementById('root'));
+// registerServiceWorker();
