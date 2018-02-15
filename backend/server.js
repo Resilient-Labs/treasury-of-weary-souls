@@ -27,8 +27,7 @@ app.use(bodyParser.json());
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-    app.use('/', express.static("app/build"));
-    // app.use(express.static(path.join(__dirname, 'app/build')));
+    app.use('/assets', express.static("app/build"));
 }
 
 // Create a document object using the ID of the spreadsheet - obtained from its URL.
