@@ -1,19 +1,33 @@
+$width-insurer-map: 75%
+$width-insurer-map-tablet: 65%
+$width-insurer-map-mobile: 100%
+
 #insurers-map-wrapper 
     height: auto
-    width: 80%
+    width: $width-insurer-map
     display: inline-block
     margin: 0 auto
     top: 0
     position: absolute
+    @media only screen and (max-width: 1024px)
+        width: $width-insurer-map-tablet
     @media only screen and (max-width: 769px)
+        height: 90vh
+        position: relative
         top: 2em
-        width: 100%
+        width: $width-insurer-map-mobile
     .insurers-map-svg
         fill: transparent
         max-height: 100vh
         .state
             stroke: #B5B5B5
             stroke-width: 0.25px
+            &.active
+                fill: #828282
+                stroke: white
+                stroke-width: 0.5px
+            &.hover
+                cursor: pointer
             &:hover
                 stroke: white
-                stroke-width: 0.7px
+                stroke-width: 0.5px

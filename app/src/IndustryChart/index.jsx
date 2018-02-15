@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 import SidePanel from '../SidePanel/SidePanel';
 import MapNavigation from '../MapNavigation/MapNavigation';
 import axios from 'axios';
-import Loading from '../Loading'
+import Loading from '../Loading';
 import './IndustryChart.css';
 import './IndustryChartView.css';
 import './Tooltip.css';
@@ -159,7 +159,6 @@ class IndustryChart extends Component {
 
     renderIndustryChart() {
         let obj = this.state.soulsByState;
-        let total = 0;
 
         let objCopy = Object.assign({}, obj);
         delete objCopy["not listed"];
@@ -167,7 +166,6 @@ class IndustryChart extends Component {
         delete objCopy.NL;
         var keys = Object.keys(objCopy);
 
-        console.log(objCopy);
         let chartView = d3.select(".industry-chart-view")
             .selectAll("div")
             .data(Object.keys(objCopy).map((soul) => {
@@ -187,7 +185,7 @@ class IndustryChart extends Component {
             .attr("class", "industry-chart-view-column-label")
             .text((data, idx) => {
                 let stateAbbr = data[0].state_abbreviated;
-                console.log(stateAbbr);
+                // console.log(stateAbbr);
                 return stateAbbr;
             })
         // local helper method to sort the souls by occupation
@@ -333,7 +331,7 @@ class IndustryChart extends Component {
 
     render() {
         if (this.state.loading) {
-            return <Loading />;
+            return <Loading content="Chart"/>;
         } else {
             return (
                 <section className="industry-chart-container">

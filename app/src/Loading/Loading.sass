@@ -7,12 +7,15 @@ $color-base: #282828
 
 .loading-container
     align-items: center
-    background-color: $color-base
+    background-color: transparent
     display: flex
     flex-flow: column
     justify-content: center
     height: 100vh
-    width: 100vw
+    position: absolute
+    width: 75%
+    @media only screen and (max-width: 769px)
+        width: 100%
 
 @keyframes spin 
   0% 

@@ -1,0 +1,60 @@
+.legend-panel {
+  color: #FFF;
+  z-index: 4;
+  padding: 10px;
+  position: absolute; }
+  .legend-panel .legend-panel-button {
+    border: 0.5px solid #FFF;
+    cursor: pointer;
+    padding: 4px;
+    display: inline-block;
+    opacity: 0;
+    font-size: 10px;
+    text-align: center;
+    border-radius: 4px;
+    animation: fadein 0.5s forwards; }
+    .legend-panel .legend-panel-button.active {
+      background-color: #FFF;
+      color: #191919; }
+    .legend-panel .legend-panel-button:hover {
+      color: #3FB7F7; }
+    .legend-panel .legend-panel-button:nth-of-type(1) {
+      animation-delay: 1.25s; }
+    .legend-panel .legend-panel-button:nth-of-type(2) {
+      animation-delay: 1.75s; }
+    .legend-panel .legend-panel-button:nth-of-type(3) {
+      animation-delay: 2.25s; }
+    .legend-panel .legend-panel-button:nth-of-type(4) {
+      animation-delay: 2.75s; }
+    .legend-panel .legend-panel-button:nth-of-type(5) {
+      animation-delay: 3.25s; }
+  .legend-panel .legend-panel-label small {
+    opacity: 0;
+    animation: fadein 0.5s forwards;
+    animation-delay: 1.25s; }
+  .legend-panel .legend-panel-filter-button {
+    min-width: 70px; }
+    .legend-panel .legend-panel-filter-button:nth-of-type(1) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0; }
+    .legend-panel .legend-panel-filter-button:nth-of-type(2) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0; }
+  .legend-panel .legend-panel-insurer-button {
+    min-width: 60px;
+    margin: 2px; }
+    .legend-panel .legend-panel-insurer-button.active:before {
+      content: "";
+      height: 40px;
+      width: 40px; }
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    transform: scale(0.1); }
+  85% {
+    opacity: 1;
+    transform: scale(1.05); }
+  100% {
+    opacity: 1;
+    transform: scale(1); } }

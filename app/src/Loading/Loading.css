@@ -1,11 +1,15 @@
 .loading-container {
   align-items: center;
-  background-color: #282828;
+  background-color: transparent;
   display: flex;
   flex-flow: column;
   justify-content: center;
   height: 100vh;
-  width: 100vw; }
+  position: absolute;
+  width: 75%; }
+  @media only screen and (max-width: 769px) {
+    .loading-container {
+      width: 100%; } }
 
 @keyframes spin {
   0% {

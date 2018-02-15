@@ -1,0 +1,27 @@
+.loading-container {
+  background: black;
+  width: 100vw; }
+
+.posts {
+  display: flex;
+  position: relative;
+  flex-flow: row wrap; }
+  .posts main {
+    margin: 0 auto;
+    max-width: 920px;
+    padding-top: 60px;
+    width: 80vw; }
+    @media only screen and (max-width: 1024px) {
+      .posts main {
+        margin: 0 auto; } }
+    @media only screen and (max-width: 992px) {
+      .posts main {
+        margin: 0 auto; } }
+    @media only screen and (max-width: 769px) {
+      .posts main {
+        margin: 0 auto;
+        margin-right: 0; } }
+    @media only screen and (max-width: 576px) {
+      .posts main {
+        padding: 0 2%;
+        width: 100%; } }

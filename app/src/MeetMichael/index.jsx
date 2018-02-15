@@ -13,7 +13,10 @@ const MeetMichael = props => {
             {/* <Navigation /> */}
             <div>
                 <img src={michael} alt="michael ralph" />
-                <p>{aboutText}</p>
+                <article class="text-container">
+                    <h4>Meet Michael</h4>
+                    <p>{aboutText}</p>
+                </article>
             </div>
             <Link to="/map" className="arrow-down-link">
                 <span>Data Maps</span>

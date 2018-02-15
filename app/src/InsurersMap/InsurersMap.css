@@ -1,6 +1,23 @@
 .insurers-map-container {
-  background-color: #282828;
+  background-color: #191919;
   height: 100vh;
   overflow: hidden;
   position: relative;
   width: 100%; }
+  @media only screen and (max-width: 769px) {
+    .insurers-map-container {
+      overflow: auto;
+      min-height: 100vh; } }
+
+.color-warning {
+  color: #B33A3A; }
+
+.unknown-locations {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  text-align: center; }
