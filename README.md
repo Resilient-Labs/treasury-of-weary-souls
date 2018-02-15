@@ -6,9 +6,9 @@ This project will use React, Sass and D3
 ### To run:
 1) git clone https://github.com/Resilient-Labs/treasury-of-weary-souls.git
 2) cd treasury-of-weary-souls
-3) cd backend & npm install
+3) cd backend/ & npm install
 4) npm start 
-5) cd app && npm install
+5) cd app/ && npm install
 6) npm start
 7) Locate the app running at: http://localhost:3000
 
