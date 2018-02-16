@@ -629,11 +629,11 @@ class InsurersMap extends Component {
     let recordsAvailableState = (
       <div>
         {this.state.currentState && <h2 className="interactive-info-panel-state-name">{this.state.currentState.name}</h2>}
-  //      {this.state.currentState && <img className="interactive-info-panel-state-icon" src={this.state.currentState.icon} alt={this.state.currentState.name} />}
+        {this.state.currentState && <img className="interactive-info-panel-state-icon" src={this.state.currentState.icon} alt={this.state.currentState.name} />}
         <p>
           In {this.state.currentState.name} the biggest insurer of slaves in our records was insurance company: {this.state.currentState.insurer}
         </p>
-        
+
       </div>
     )
 
