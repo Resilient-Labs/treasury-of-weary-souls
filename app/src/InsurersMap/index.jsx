@@ -633,14 +633,7 @@ class InsurersMap extends Component {
         <p>
           In {this.state.currentState.name} the biggest insurer of slaves in our records was insurance company: {this.state.currentState.insurer}
         </p>
-        {/*
-        <ul>
-          To do:
-        <li>Add industry stats/info</li>
-          <li>Add money info on premiums</li>
-          <li>Add info on cost of premium in today's dollars</li>
-        </ul>
-        */}
+        
       </div>
     )
 
