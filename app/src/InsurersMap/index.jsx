@@ -87,7 +87,7 @@ class InsurersMap extends Component {
     d3.selectAll('.legend-panel-insurer-button')
       .on('click', function () {
         // NOTE: DO NOT USE ARROW FUNCTION, LOSE CONTEXT OF THIS ,
-        // https://stackoverflow.com/questions/48015265/errors-using-d3-legend-uncaught-typeerror-node-getattribute-is-not-a-functio 
+        // https://stackoverflow.com/questions/48015265/errors-using-d3-legend-uncaught-typeerror-node-getattribute-is-not-a-functio
         d3.selectAll('.legend-panel-insurer-button').classed("active", false);
         d3.select(this).classed("active", !d3.select(this).classed("active"));
       })
@@ -95,7 +95,7 @@ class InsurersMap extends Component {
     d3.selectAll('.legend-panel-filter-button')
       .on('click', function () {
         // NOTE: DO NOT USE ARROW FUNCTION, LOSE CONTEXT OF THIS ,
-        // https://stackoverflow.com/questions/48015265/errors-using-d3-legend-uncaught-typeerror-node-getattribute-is-not-a-functio 
+        // https://stackoverflow.com/questions/48015265/errors-using-d3-legend-uncaught-typeerror-node-getattribute-is-not-a-functio
         d3.selectAll('.legend-panel-filter-button').classed("active", false);
         d3.select(this).classed("active", !d3.select(this).classed("active"));
         d3.select('.insurers-map-wrapper').classed("filter-insurer", !d3.select(this).classed("filter-insurer"));
@@ -390,9 +390,9 @@ class InsurersMap extends Component {
           .append("circle")
           // .style('fill', 'blue')
           .attr("class", "insurer-map-point")
-          .attr("insurer", function (d, i) { 
+          .attr("insurer", function (d, i) {
             if (typeof val[i - 1] != 'undefined') {
-              return val[i - 1].insurancefirm 
+              return val[i - 1].insurancefirm
             }
           })
           .attr("r", function(d) { return d.r - 0.25; })
@@ -629,16 +629,18 @@ class InsurersMap extends Component {
     let recordsAvailableState = (
       <div>
         {this.state.currentState && <h2 className="interactive-info-panel-state-name">{this.state.currentState.name}</h2>}
-        {this.state.currentState && <img className="interactive-info-panel-state-icon" src={this.state.currentState.icon} alt={this.state.currentState.name} />}
+  //      {this.state.currentState && <img className="interactive-info-panel-state-icon" src={this.state.currentState.icon} alt={this.state.currentState.name} />}
         <p>
           In {this.state.currentState.name} the biggest insurer of slaves in our records was insurance company: {this.state.currentState.insurer}
         </p>
+        {/*
         <ul>
           To do:
         <li>Add industry stats/info</li>
           <li>Add money info on premiums</li>
           <li>Add info on cost of premium in today's dollars</li>
         </ul>
+        */}
       </div>
     )
 
