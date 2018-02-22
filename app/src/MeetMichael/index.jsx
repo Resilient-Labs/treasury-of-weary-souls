@@ -1,7 +1,6 @@
 import React from 'react';
 import michael from './img/michael.jpg';
 import ArrowDown from '../Shared/ArrowDown';
-//import Navigation from '../Shared/Navigation';
 import { Link } from 'react-router-dom';
 import './MeetMichael.css';
 
@@ -10,10 +9,9 @@ const aboutText = "Michael Ralph has a degree in Africana Studies from Morris Br
 const MeetMichael = props => {
     return (
         <section className="about-michael-container">
-            {/* <Navigation /> */}
             <div>
                 <img src={michael} alt="michael ralph" />
-                <article class="text-container">
+                <article className="text-container">
                     <h4>Meet Michael</h4>
                     <p>
                     {aboutText} 
@@ -21,11 +19,10 @@ const MeetMichael = props => {
                         Click here to interactive with the Data
                     </Link>
                     </p>
-                    
                 </article>
             </div>
             <Link to="/map" className="arrow-down-link">
-                <span>View Data Map >></span>
+                <span>View Data Map</span>
                 <ArrowDown />
             </Link>
         </section>
