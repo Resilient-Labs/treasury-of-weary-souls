@@ -4,7 +4,7 @@ import ArrowDown from '../Shared/ArrowDown';
 
 const introSubHeadline = 'Treasury of';
 const introHeadline = 'WEARY SOULS';
-const introText = 'The Treasury of Weary Souls is the world’s most comprehensive ledger of the skilled Slaves who built American Industry. With more than 1300 policy records, the Treasurey highlights the pivotal role of enslaved workers in America’s most lucrative and dangerous antebellum industries.';
+const introText = 'The Treasury of Weary Souls is the world’s most comprehensive ledger of the enslaved workers who built American Industry. With more than 1300 policy records, the Treasury highlights the pivotal role of enslaved workers in America’s most lucrative and dangerous antebellum industries.';
 
 const Intro = props => {
     return (
