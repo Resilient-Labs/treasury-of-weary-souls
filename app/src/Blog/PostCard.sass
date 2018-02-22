@@ -1,3 +1,15 @@
+
+.post-card-container
+    animation: loadlazy 0.35s forwards
+    opacity: 0
+    &:nth-of-type(1)
+        animation-delay: 0.55s
+    &:nth-of-type(2)
+        animation-delay: 1.05s
+    &:nth-of-type(3)
+        animation-delay: 1.55s
+    &:nth-of-type(n+4)
+        animation-delay: 1.55s
 .post-card
     display: inline-flex
     width: 31%
@@ -40,6 +52,10 @@
         visibility: hidden
         @media only screen and (max-width: 769px)
             visibility: visible
+        @media only screen and (max-width: 992px)
+            font-size: 1.15em
+        @media only screen and (max-width: 769px)
+            font-size: 1.25em
     .post-card-link
         color: white
         font-family: 'Cabin', sans-serif
@@ -62,3 +78,6 @@
         width: 100%
         object-fit: cover
         object-position: center
+@keyframes loadlazy  
+    100% 
+        opacity: 1

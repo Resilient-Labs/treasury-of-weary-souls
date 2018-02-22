@@ -5,21 +5,27 @@
   height: 100%;
   overflow-y: scroll;
   position: absolute;
-  right: -50%;
-  width: 25%;
-  animation: slide 0.5s forwards;
-  animation-delay: 1.5s; }
+  width: 25%; }
 
 @keyframes slide {
   100% {
     right: 0; } }
+  @media only screen and (min-width: 769px) {
+    .side-panel {
+      right: -50%;
+      animation: slide 0.5s forwards;
+      animation-delay: 1.5s; }
+    @keyframes slide {
+      100% {
+        right: 0; } } }
   @media only screen and (max-width: 1024px) {
     .side-panel {
       width: 35%; } }
   @media only screen and (max-width: 769px) {
     .side-panel {
       bottom: 0;
-      max-height: 70px;
+      height: unset;
+      position: relative;
       width: 100%; } }
   .side-panel .side-panel-image-header {
     overflow: hidden;
@@ -95,3 +101,25 @@
     cursor: pointer; }
     .side-panel .side-panel-listed-name:hover {
       color: #3FB7F7; }
+
+#close-side-panel {
+  color: #F4BD00;
+  text-transform: uppercase;
+  font-family: 'Cabin', sans-serif;
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%; }
+  #close-side-panel:hover {
+    background: #F4BD00;
+    color: #FFFFFF; }
+
+.side-panel-link-button {
+  color: #3FB7F7;
+  text-transform: uppercase;
+  font-family: 'Cabin', sans-serif;
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%; }
+  .side-panel-link-button:hover {
+    background: #3FB7F7;
+    color: #FFFFFF; }

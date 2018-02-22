@@ -71,6 +71,7 @@ class InsurersMap extends Component {
     this.configureButtons = this.configureButtons.bind(this);
     this.renderChartBar = this.renderChartBar.bind(this);
     this.setCurrentState = this.setCurrentState.bind(this);
+    this.onClickClosePanel = this.onClickClosePanel.bind(this);
   }
   componentDidMount() {
     this.init();
@@ -104,13 +105,13 @@ class InsurersMap extends Component {
 
         if (filterAttr === "insurer") {
 
-          console.log("insurer")
+          // FIXME: DELETE // console.log("insurer")
           d3.select('#insurers-map-wrapper').classed("filter-industry", false);
           d3.select('#insurers-map-wrapper').classed("filter-insurer", true);
           ref.setState({ filter: "insurer" })
         } else if (filterAttr === "industry") {
 
-          console.log("industry")
+          // FIXME: DELETE // console.log("industry")
           d3.select('#insurers-map-wrapper').classed("filter-insurer", false);
           d3.select('#insurers-map-wrapper').classed("filter-industry", true);
           ref.setState({ filter: "industry" })
@@ -302,7 +303,7 @@ class InsurersMap extends Component {
           var containerH = d3.select("#insurers-map-wrapper").node().getBoundingClientRect().height;
 
           var hasActiveState = d3.selectAll('.state-container .state').classed("active");
-          console.log(hasActiveState);
+          // FIXME: DELETE // console.log(hasActiveState);
 
           if (hasActiveState) {
             d3.select(".map-contain")
@@ -313,7 +314,7 @@ class InsurersMap extends Component {
             d3.selectAll('.state-container .state').classed("active", false);
             d3.select(this).classed("active", !d3.select(this).classed("active"));
 
-            console.log("no states centered")
+            // FIXME: DELETE // console.log("no states centered")
           } else {
             if (d3.select(this).classed('active')) {
               d3.select(".map-contain")
@@ -322,8 +323,7 @@ class InsurersMap extends Component {
                 .attr("transform", "translate(" + 0 + "," + 0 + ")scale(" + 1 + ")")
 
               d3.selectAll('.state-container .state').classed("active", false);
-              console.log("current state centered")
-              console.log(d.id);
+              // FIXME: DELETE // console.log("current state centered")
               ref.setState({ currentStateId: -1 });
             } else {
               d3.selectAll('.state-container .state').classed("active", false);
@@ -333,11 +333,9 @@ class InsurersMap extends Component {
                 .transition()
                 .duration(750)
                 .attr("transform", "translate(" + ((containerW / 2)) + "," + ((containerH / 2)) + ")scale(" + k + ")translate(" + -(stateX - 50) + "," + -stateY + ")")
-              console.log("current state not centered")
-              console.log(d.id);
+              // FIXME: DELETE // console.log("current state not centered")
               ref.setState({ currentStateId: d.id });
               ref.setCurrentState(ref.state.currentStateId)
-              console.log(ref.state.currentStateId);
 
               //console.log(currentStateId);
               // Notes: each insurer, per state, percentage of insurerd workers per state population of workers on record that were insured, money they made
@@ -376,7 +374,7 @@ class InsurersMap extends Component {
       var pathCY = 0;
       if (stateId === null || stateId === 'null') {
         stateId = 'NL';
-        console.log("range:" + val.length);
+        // FIXME: DELETE // console.log("range:" + val.length);
         // set range to the number of unknown location slaves
         var unknownSlavesCircles = d3.packSiblings(d3.range(val.length).map(function (r) { return { r: 1.5 }; }));
 
@@ -602,6 +600,18 @@ class InsurersMap extends Component {
     }
   }
 
+  onClickClosePanel() {
+    let ref = this;
+    // FIXME: DELETE // console.log("errrrrgh")
+    d3.select(".map-contain")
+    .transition()
+    .duration(750)
+    .attr("transform", "translate(" + 0 + "," + 0 + ")scale(" + 1 + ")")
+
+    d3.selectAll('.state-container .state').classed("active", false);
+    ref.setState({ currentStateId: -1 });
+  }
+
   render() {
     let industryChartBar = (
       <div className={this.state.filter === 'industry' ? "industry-chart-bar-container" : "industry-chart-bar-container hidden lowered"}>
@@ -622,16 +632,16 @@ class InsurersMap extends Component {
     const noRecordsAvailableState = (
       <div>
         <h4 className="color-warning">No records available</h4>
-        <p>Looks like there are no records of insurers exploting slaves in this state</p>
+        <p>Looks like there are no records of insurance companies that hold slave insurance policies in this state</p>
         <i>Try clicking to another state to view more information</i>
       </div>
     )
     let recordsAvailableState = (
       <div>
         {this.state.currentState && <h2 className="interactive-info-panel-state-name">{this.state.currentState.name}</h2>}
-        {this.state.currentState && <img className="interactive-info-panel-state-icon" src={this.state.currentState.icon} alt={this.state.currentState.name} />}
+        {/* FIX ME DELETE {this.state.currentState && <img className="interactive-info-panel-state-icon" src={this.state.currentState.icon} alt={this.state.currentState.name} />} */}
         <p>
-          In {this.state.currentState.name} the biggest insurer of slaves in our records was insurance company: {this.state.currentState.insurer}
+        The insurance company that holds the most slave insurance policies from {this.state.currentState.name} is {this.state.currentState.insurer}
         </p>
         <ul>
           To do:
@@ -649,7 +659,7 @@ class InsurersMap extends Component {
         ('interactive-info-panel slide-down')}>
 
         {currentStateIdArray.includes(this.state.currentStateId) ? recordsAvailableState : noRecordsAvailableState}
-
+        <button id="close-side-panel" onClick={this.onClickClosePanel}>Close Panel</button>
       </div>
     )
 

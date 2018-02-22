@@ -1,17 +1,21 @@
 .post {
-  background: #F2F2F2;
   display: flex;
   flex-flow: column;
   justify-content: center; }
 
 .post-content {
-  max-width: 769px;
+  width: 769px;
   margin: 0 auto;
   display: flex;
   flex-flow: column;
   justify-content: center; }
+  @media only screen and (max-width: 769px) {
+    .post-content {
+      width: 100vw;
+      padding: 1em; } }
   .post-content figure {
-    margin: 0; }
+    margin: 0;
+    width: 100%; }
   .post-content img {
     width: 100%;
     height: auto; }

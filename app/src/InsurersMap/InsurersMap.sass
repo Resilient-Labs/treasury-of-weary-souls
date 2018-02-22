@@ -9,6 +9,9 @@ $color-warning: #B33A3A
     @media only screen and (max-width: 769px)
         overflow: auto
         min-height: 100vh
+        display: flex
+        height: unset
+        flex-flow: row wrap-reverse
 .color-warning
     color: $color-warning
 .unknown-locations
@@ -20,3 +23,5 @@ $color-warning: #B33A3A
     justify-content: center
     flex-flow: column
     text-align: center
+    @media only screen and (max-width: 769px)
+        display: none

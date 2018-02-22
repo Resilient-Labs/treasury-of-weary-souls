@@ -27,6 +27,12 @@ app.use(bodyParser.json());
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
+    app.get('/map', (req, res) => {
+        res.sendFile(path.join(__dirname + '/app/build/index.html'));
+    });
+    app.get('/post', (req, res) => {
+        res.sendFile(path.join(__dirname + '/app/build/index.html'));
+    });
     app.use('/assets', express.static("app/build"));
 }
 

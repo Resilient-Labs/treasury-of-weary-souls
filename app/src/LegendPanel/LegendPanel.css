@@ -3,6 +3,12 @@
   z-index: 4;
   padding: 10px;
   position: absolute; }
+  @media only screen and (max-width: 769px) {
+    .legend-panel {
+      bottom: 4em;
+      margin: 0 auto;
+      text-align: right;
+      width: 100%; } }
   .legend-panel .legend-panel-button {
     border: 0.5px solid #FFF;
     cursor: pointer;

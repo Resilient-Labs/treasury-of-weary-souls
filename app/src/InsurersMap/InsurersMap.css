@@ -7,7 +7,10 @@
   @media only screen and (max-width: 769px) {
     .insurers-map-container {
       overflow: auto;
-      min-height: 100vh; } }
+      min-height: 100vh;
+      display: flex;
+      height: unset;
+      flex-flow: row wrap-reverse; } }
 
 .color-warning {
   color: #B33A3A; }
@@ -21,3 +24,6 @@
   justify-content: center;
   flex-flow: column;
   text-align: center; }
+  @media only screen and (max-width: 769px) {
+    .unknown-locations {
+      display: none; } }

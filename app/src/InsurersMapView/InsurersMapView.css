@@ -10,7 +10,7 @@
       width: 65%; } }
   @media only screen and (max-width: 769px) {
     #insurers-map-wrapper {
-      height: 90vh;
+      height: 100vh;
       position: relative;
       top: 2em;
       width: 100%; } }

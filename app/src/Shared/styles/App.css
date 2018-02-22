@@ -61,6 +61,22 @@ small {
 blockquote {
   line-height: 1.3; }
 
+button {
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
+  -webkit-appearance: button;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none; }
+  button:active, button:focus {
+    outline: none; }
+
 .hidden {
   opacity: 0;
   visibility: hidden; }

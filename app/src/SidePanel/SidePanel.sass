@@ -1,5 +1,7 @@
 $color-accent: #3FB7F7
 $color-sidepanel: #2F2E2E
+$color-caution: #F4BD00
+$color-information: #3FB7F7
 $background-color-sidepanel: #F5F5F5
 $height-side-panel-header: 70px
 $width-side-panel: 25%
@@ -13,18 +15,23 @@ $width-side-panel-mobile: 100%
     height: 100%
     overflow-y: scroll
     position: absolute
-    right: -50%
     width: $width-side-panel
-    animation: slide 0.5s forwards
-    animation-delay: 1.5s
     @keyframes slide
         100% 
             right: 0
+    @media only screen and (min-width: 769px) 
+        right: -50%
+        animation: slide 0.5s forwards
+        animation-delay: 1.5s
+        @keyframes slide
+            100% 
+                right: 0
     @media only screen and (max-width: 1024px)
         width: $width-side-panel-tablet
     @media only screen and (max-width: 769px) 
         bottom: 0
-        max-height: 70px
+        height: unset
+        position: relative
         width: $width-side-panel-mobile
     .side-panel-image-header 
         overflow: hidden
@@ -100,3 +107,25 @@ $width-side-panel-mobile: 100%
         cursor: pointer
         &:hover 
             color: $color-accent
+#close-side-panel
+    //border: 1px solid $color-caution
+    color: $color-caution
+    text-transform: uppercase
+    font-family: 'Cabin', sans-serif
+    margin-top: 10px
+    padding: 10px
+    width: 100%
+    &:hover
+        background: $color-caution
+        color: #FFFFFF
+.side-panel-link-button
+    color: $color-information
+    text-transform: uppercase
+    font-family: 'Cabin', sans-serif
+    margin-top: 10px
+    padding: 10px
+    width: 100%
+    &:hover
+        background: $color-information
+        color: #FFFFFF
+        

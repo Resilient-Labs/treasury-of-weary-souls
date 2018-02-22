@@ -1,6 +1,7 @@
 import React from 'react';
 import './SidePanel.css';
 import logo from './../Shared/img/logo-blk.svg';
+import { Link } from 'react-router-dom';
 // FIXME: DELETE
 // import alabamaIcon from './../Shared/img/state-logos/alabama-icon.svg';
 // import arkansasIcon from './../Shared/img/state-logos/arkansas-icon.svg';
@@ -39,88 +40,41 @@ const SidePanel = (props) => (
             </div>
             <h4>About the Project</h4>
             <p>
-            Recent portrayals of American slavery — from 12 Years a Slave and Django Unchained to 
-            Walter Johnson’s River of Dark Dreams and Sven Beckert’s Empire of Cotton — have emphasized 
-            the brutal violence on cotton plantations in the years preceding the Civil War. 
-            What they miss is that during the same period, slaves that were engaged in other 
-            enterprises developed skills that placed them at the heart of industrial capitalism.
+            Recent scholarship on slavery and capitalism tends to emphasize the relationship between violence and 
+            productivity on cotton plantations in the decades leading up to the US Civil War. These timely interventions 
+            tend to overlook the fact that, during the same period, enslaved workers became essential to all of the nation's 
+            most profitable industries.
             </p>
             <p>
-            Especially after the slave trade was outlawed in 1808, planters found ways to keep 
-            human bondage profitable, including smuggling, controlled breeding, and renting slaves 
-            to business owners. This last option became especially pervasive in Virginia and the port 
-            cities of the Ohio River and Atlantic Coast. A slew of industries — from blacksmithing and 
-            carpentry to large-scale railroad construction, coal mining, and steamboat operations 
-            — were fortified by the skilled labor of the enslaved.
+            After the slave trade to the US was outlawed in 1808, Africans were smuggled into the country (a tricky process), 
+            they were bred (which depended on the human life cycle), and they were rented (so the people who treated them as 
+            property could make as much money as possible). People who rented slaves insured them so that these valuable assets 
+            would not be destroyed while in someone else's possession. Renting slaves was especially common in urban centers in 
+            close proximity to key industries. The precious skills of enslaved workers were essential to blacksmithing and 
+            carpentry, railroad construction, coal mining, and steamboats, besides other commercial enterprises.
             </p>
             <p>
-            These men and women became such valuable assets, in fact, that their owners sought to 
-            insure them as such. By the 1840s, the number of slaves insured in the South mirrored 
-            the number of free whites with life insurance in the North — and both kinds of policies 
-            could be issued by the same companies. Slave insurance was one of the earliest forms of 
-            industrial risk management, providing an important source of revenue for some of today’s 
-            largest multinational insurance companies. It also makes clear that the recent economic 
-            crisis, driven by credit default swaps, was not the first time new financial instruments, 
-            utilized by AIG and its peers, shaped the lives of U.S. workers. And it won’t be the last.
+            By the 1840s, the number of enslaved workers insured in chief industries of the Upper South mirrored the number of 
+            free whites with life insurance living in Northern cities — and both kinds of policies could be issued by the same 
+            companies. Slave insurance was one of the earliest forms of industrial risk management, providing an important 
+            source of revenue for some of today’s largest multinational insurance companies.
             </p>
             <p>
-            Slave insurance was issued by a wide range of companies in the North and South and sold both 
-            to people who owned many slaves and to those who owned just a few. The map here shows about 
-            1,300 antebellum-era policies found in the archives of the world’s largest insurance companies, 
-            including Aetna, AIG, and New York Life. The archives are incomplete, and evidence suggests that 
-            at least 85 percent of policy records may have been lost over time. Yet the available figures 
-            show that the market for slave insurance was mostly urban and especially vibrant in areas where 
-            plantation agriculture was in relative decline.
+            The Treasury of Weary Souls features about 1,300 antebellum policies, nearly half of them contributing to profits 
+            for some of the world’s largest insurance companies, including Aetna, AIG, and New York Life. Slave insurance was 
+            even more significant for US finance than these records reveal since The Treasury of Weary Souls features at most 
+            fifteen percent of antebellum slave insurance policies.
             </p>
             <header>
                 <small>Slavery Data Collection & Analysis: Michael Ralph</small>
                 <small>Web Development by <a href="http://www.resilientcoders.org" target="_blank" rel="noopener noreferrer">Resilient Coders</a></small>
-                <small>Design: Emily O'Brien</small>
+                <small>Design: Emily O'Brien</small>                
+                <Link to="/post">
+                    <button class="side-panel-link-button">View Blog</button>
+                </Link>
             </header>
-            {/* <ul className="side-panel-states-list"> // FIXME: DELETE
-                {renderStatesInformation(states)}
-            </ul> */}
         </article>
     </aside>
 )
-// FIXME: DELETE
-// function renderStatesInformation(states) {
-//     return states.map((state) => {
-//         return (
-//             <li className="side-panel-states-list-item" key={state.id}>
-//                 <h6 className="side-panel-states-list-headline">{ state.state }</h6>
-//                 <img className="side-panel-states-list-icon" src={ state.icon } alt={ state.state }/>
-                
-//                 <p className="side-panel-states-list-text">
-//                     In {state.state}, the biggest insurer of slaves was insurance company { state.insurer }. On average, slaves paid a policy premium of $XX. Accounting for inflatation, in today's economy, that amounts to $XXXX per slave.
-//                 </p>
-//             </li>
-//         )
-//     })    
-// }
-
-// FIXME: DELETE
-// function renderList(states, names) {
-//     return states.map((state) => {
-//         let filteredNames = names.filter((soul) => {
-//             return soul.state === state;
-//         })
-
-//         return (
-//             <div className="side-panel-column" key={state == null ? 'unknown' : state}>
-//                 <h5 className="side-panel-column-headline">{state == null ? 'Unknown Location' : state}</h5>
-//                 <ul className={`side-panel-list`} key={state}>
-//                     {filteredNames.map((soul, index) => {
-//                         if (soul.name !== '') {
-//                             return <li className={`side-panel-listed-name soul-named-` + soul.name}
-//                                 key={index}>{soul.name} </li>;
-//                         }
-//                     })
-//                     }
-//                 </ul>
-//             </div>
-//         )
-//     });
-// }
 
 export default SidePanel;
