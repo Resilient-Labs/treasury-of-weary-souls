@@ -83,3 +83,21 @@ button {
 
 .lowered {
   z-index: -1000; }
+
+.mobile-only-link {
+  color: #3FB7F7;
+  text-decoration: none; }
+  @media only screen and (min-width: 769px) {
+    .mobile-only-link {
+      display: none; } }
+
+@media only screen and (max-width: 769px) {
+  .Navigation {
+    top: 0 !important;
+    transform: translate(0%, 0%) !important; } }
+
+@media only screen and (max-width: 769px) {
+  .Navigation .Navigation-Anchor {
+    border-radius: 0 !important;
+    height: 1em !important;
+    width: 1em !important; } }

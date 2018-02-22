@@ -1,3 +1,5 @@
+$color-information: #3FB7F7
+
 html, body
   box-sizing: border-box
   font-family: 'Crimson Text', serif
@@ -71,3 +73,17 @@ button
   visibility: hidden
 .lowered
   z-index: -1000
+.mobile-only-link
+  color: $color-information
+  text-decoration: none
+  @media only screen and (min-width: 769px)
+    display: none
+.Navigation
+  @media only screen and (max-width: 769px)
+    top: 0!important
+    transform: translate(0%, 0%)!important
+  .Navigation-Anchor
+    @media only screen and (max-width: 769px)
+      border-radius: 0!important
+      height: 1em!important
+      width: 1em!important

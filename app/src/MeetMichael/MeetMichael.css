@@ -25,9 +25,12 @@
         width: 70%; } }
     @media only screen and (max-width: 769px) {
       .about-michael-container div {
-        padding: 1em;
-        width: 100%;
-        flex-flow: column; } }
+        padding: 1em; } }
+    @media only screen and (max-width: 576px) {
+      .about-michael-container div {
+        flex-flow: row wrap;
+        justify-content: center;
+        width: 100%; } }
     @media only screen and (max-width: 769px) and (orientation: landscape) {
       .about-michael-container div {
         flex-flow: row;
@@ -38,11 +41,12 @@
       width: 40%; }
       @media only screen and (max-width: 769px) {
         .about-michael-container div img {
-          max-width: 175px;
+          max-width: 30%;
           width: 100%; } }
       @media only screen and (max-width: 576px) {
         .about-michael-container div img {
-          max-width: 150px; } }
+          max-width: 150px;
+          width: 100%; } }
     .about-michael-container div .text-container {
       width: 60%; }
       @media only screen and (max-width: 769px) {

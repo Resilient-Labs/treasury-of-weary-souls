@@ -643,12 +643,12 @@ class InsurersMap extends Component {
         <p>
         The insurance company that holds the most slave insurance policies from {this.state.currentState.name} is {this.state.currentState.insurer}
         </p>
-        <ul>
+        {/* <ul>
           To do:
         <li>Add industry stats/info</li>
           <li>Add money info on premiums</li>
           <li>Add info on cost of premium in today's dollars</li>
-        </ul>
+        </ul> */}
       </div>
     )
 

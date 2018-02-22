@@ -15,11 +15,17 @@ const MeetMichael = props => {
                 <img src={michael} alt="michael ralph" />
                 <article class="text-container">
                     <h4>Meet Michael</h4>
-                    <p>{aboutText}</p>
+                    <p>
+                    {aboutText} 
+                    <Link to="/map" className="mobile-only-link">
+                        Click here to interactive with the Data
+                    </Link>
+                    </p>
+                    
                 </article>
             </div>
             <Link to="/map" className="arrow-down-link">
-                <span>Data Maps</span>
+                <span>View Data Map >></span>
                 <ArrowDown />
             </Link>
         </section>

@@ -22,8 +22,13 @@ $color-red: #CF423C
   bottom: 2em
   left: 2em
   @media only screen and (max-width: 769px)
-    bottom: 100px
-    // display: none
+    margin: 0 auto
+    left: 0
+    right: 0
+    bottom: 1em
+    .chart-bar // mobile only for the chart-bar!
+      height: 1em!important
+      width: 3em!important
   div,
   .chart-bar
     font: 10px sans-serif

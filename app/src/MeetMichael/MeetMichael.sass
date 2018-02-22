@@ -28,8 +28,12 @@ $arrow-down-icon-height: 30px
             width: 70%
         @media only screen and (max-width: 769px)
             padding: $mobile-container-padding
+            // width: 100%
+            // flex-flow: column
+        @media only screen and (max-width: 576px)
+            flex-flow: row wrap
+            justify-content: center
             width: 100%
-            flex-flow: column
         @media only screen and (max-width: 769px) and (orientation: landscape)
             flex-flow: row
             align-items: flex-start
@@ -38,10 +42,11 @@ $arrow-down-icon-height: 30px
             margin: 1em
             width: 40%
             @media only screen and (max-width: 769px)
-                max-width: 175px
+                max-width: 30%
                 width: 100%
             @media only screen and (max-width: 576px)
                 max-width: 150px
+                width: 100%
         .text-container 
             width: 60%
             @media only screen and (max-width: 769px)

@@ -5,23 +5,39 @@
   background: #282828;
   padding: 1em;
   color: white;
-  top: -100%;
   width: 25%; }
   @media only screen and (max-width: 1024px) {
     .interactive-info-panel {
       width: 35%; } }
+  @media only screen and (min-width: 770px) {
+    .interactive-info-panel {
+      top: -100%; } }
   @media only screen and (max-width: 769px) {
     .interactive-info-panel {
+      height: min-content;
+      bottom: -100%;
+      position: fixed;
+      z-index: 9;
       width: 100%; } }
   .interactive-info-panel.onload {
     opacity: 0;
     visibility: hidden; }
-  .interactive-info-panel.slide-up {
-    top: -100%;
-    animation: slidePanelUp 0.5s forwards; }
-  .interactive-info-panel.slide-down {
-    top: 0;
-    animation: slidePanelDown 0.5s forwards; }
+  @media only screen and (min-width: 770px) {
+    .interactive-info-panel.slide-up {
+      top: -100%;
+      animation: slidePanelUp 0.5s forwards; } }
+  @media only screen and (max-width: 769px) {
+    .interactive-info-panel.slide-up {
+      bottom: -100%;
+      animation: mobileSlidePanelUp 0.5s forward; } }
+  @media only screen and (min-width: 770px) {
+    .interactive-info-panel.slide-down {
+      top: 0;
+      animation: slidePanelDown 0.5s forwards; } }
+  @media only screen and (max-width: 769px) {
+    .interactive-info-panel.slide-down {
+      bottom: 0;
+      animation: mobileSlidePanelDown 0.5s forward; } }
 
 @keyframes slidePanelDown {
   0% {
@@ -34,3 +50,15 @@
     top: 0; }
   100% {
     top: -100%; } }
+
+@keyframes mobileSlidePanelDown {
+  0% {
+    bottom: -100%; }
+  100% {
+    bottom: 0; } }
+
+@keyframes mobileSlidePanelUp {
+  0% {
+    bottom: -100%; }
+  100% {
+    bottom: 0; } }
