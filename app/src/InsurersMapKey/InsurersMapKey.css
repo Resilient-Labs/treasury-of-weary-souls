@@ -8,6 +8,9 @@
   transform: scaleY(0);
   height: 0; }
 
+.hidden .insurers-map-key {
+  display: none; }
+
 .insurers-map-key {
   display: flex;
   justify-content: center;
