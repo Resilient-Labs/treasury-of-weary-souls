@@ -27,14 +27,19 @@ app.use(bodyParser.json());
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-    app.get('/map', (req, res) => {
-        res.sendFile(path.join(__dirname + '/app/build/index.html'));
-    });
-    app.get('/post', (req, res) => {
-        res.sendFile(path.join(__dirname + '/app/build/index.html'));
-    });
-    app.use('/', express.static("app/build"));
+    // app.get('/map', (req, res) => {
+    //     res.sendFile(path.join(__dirname + '/app/build/index.html'));
+    // });
+    // app.get('/post', (req, res) => {
+    //     res.sendFile(path.join(__dirname + '/app/build/index.html'));
+    // });
+    // app.use('/', express.static("app/build"));
+    // res.sendFile(path.resolve(__dirname + '/../dist/index.html'));
+    // res.sendFile(path.resolve(__dirname + '/../dist/index.html'));
     // app.use(express.static(path.join(__dirname, 'app/build')));
+    app.get('/*', function (req, res) {
+        res.sendFile(path.join(__dirname, 'build', 'index.html'));
+    });
 }
 
 // Create a document object using the ID of the spreadsheet - obtained from its URL.
@@ -180,8 +185,11 @@ app.get('/api/insurancefirms', (req, res) => {
     });
 })
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '/app/build/index.html'));
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname + '/app/build/index.html'));
+// });
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 app.listen(PORT);
