@@ -15,6 +15,6 @@
     "start": "node server.js",
     "watch": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "cd app && yarn --production=false && yarn run build"
+    "heroku-postbuild": "cd client && yarn --production=false && yarn run build"
   }
 }
