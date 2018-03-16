@@ -22,6 +22,7 @@ class State {
 app.use(morg("dev"));
 
 // Configure body parser for AJAX requests
+app.use(express.static(path.join(__dirname, '/../client/build')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(function(req, res, next) {
@@ -41,17 +42,16 @@ app.use(function(req, res, next) {
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
     console.log("IN PRODUCTION BUILD SERVING");
-    console.log(path.join(__dirname + '/build/index.html'));
-    app.get('/map', (req, res) => {
-        res.sendFile(path.join(__dirname + '/build/index.html'));
-    });
-    app.get('/post', (req, res) => {
-        res.sendFile(path.join(__dirname + '/build/index.html'));
-        // res.sendFile(path.resolve(__dirname + '/app/build/index.html'));
-    });
-    app.get('/', (req, res) => {
-        res.sendFile(path.join(__dirname + '/build/index.html'));
-    });
+    app.use(express.static("app/build"));
+    // app.get('/map', (req, res) => {
+    //     res.sendFile(path.join(__dirname + '/build/index.html'));
+    // });
+    // app.get('/post', (req, res) => {
+    //     res.sendFile(path.join(__dirname + '/build/index.html'));
+    // });
+    // app.get('/', (req, res) => {
+    //     res.sendFile(path.join(__dirname + '/build/index.html'));
+    // });
 }
 
 // Create a document object using the ID of the spreadsheet - obtained from its URL.
@@ -196,8 +196,11 @@ app.get('/api/insurancefirms', (req, res) => {
     });
 })
 
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname + '/build/index.html'));
+// });
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '/build/index.html'));
+    res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
 
 app.listen(PORT);
