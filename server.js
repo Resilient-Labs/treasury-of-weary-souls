@@ -42,10 +42,9 @@ app.use(function(req, res, next) {
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
     console.log("IN PRODUCTION BUILD SERVING");
-    app.get('/*', function (req, res) {
-        res.sendFile(path.join(__dirname, 'build', 'index.html'));
-    });
-    // app.use(express.static("app/build"));
+    console.log(__dirname)
+    console.log( path.join(__dirname + '/build/index.html') )
+    app.use(express.static("app/build"));
     // app.get('/map', (req, res) => {
     //     res.sendFile(path.join(__dirname + '/build/index.html'));
     // });
@@ -205,9 +204,9 @@ app.get('/api/insurancefirms', (req, res) => {
 // app.get('*', (req, res) => {
 //     res.sendFile(path.join(__dirname + '/client/build/index.html'));
 // });
-app.get('/*', function (req, res) {
+app.get('*', function (req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
-  });
+});
 
 app.listen(PORT);
 
