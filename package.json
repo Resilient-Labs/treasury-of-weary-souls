@@ -12,8 +12,8 @@
     "nodemon": "^1.12.1"
   },
   "scripts": {
-    "start": "node backend/server.js",
-    "watch": "nodemon backend/server.js",
+    "start": "node server.js",
+    "watch": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "heroku-postbuild": "cd app && yarn --production=false && yarn run build"
   }
