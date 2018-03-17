@@ -3,13 +3,17 @@
     animation: loadlazy 0.35s forwards
     opacity: 0
     &:nth-of-type(1)
-        animation-delay: 0.55s
+        animation-delay: 0.15s
     &:nth-of-type(2)
-        animation-delay: 1.05s
+        animation-delay: 0.55s
     &:nth-of-type(3)
-        animation-delay: 1.55s
-    &:nth-of-type(n+4)
-        animation-delay: 1.55s
+        animation-delay: 0.85s
+    &:nth-of-type(4)
+        animation-delay: 1.15s
+    &:nth-of-type(5)
+        animation-delay: 1.35s
+    &:nth-of-type(n+6)
+        animation-delay: 1.5s
 .post-card
     display: inline-flex
     width: 31%
@@ -26,7 +30,6 @@
         margin: 1% 0
     @media only screen and (max-width: 576px)
         height: 240px
-    // &:hover
     &:before
         background: #CF423C
         opacity: 0.9
@@ -34,17 +37,6 @@
         position: absolute
         height: 100%
         width: 100%
-    .post-card-link,
-    .post-card-title
-        visibility: visible
-    @media only screen and (max-width: 769px)
-        &:before
-            background: #CF423C
-            opacity: 0.9
-            content: ''
-            position: absolute
-            height: 100%
-            width: 100%
     .post-card-title
         color: white
         position: absolute
