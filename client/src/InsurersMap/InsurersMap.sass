@@ -1,0 +1,27 @@
+$color-base: #191919
+$color-warning: #B33A3A
+.insurers-map-container 
+    background-color: $color-base
+    height: 100vh
+    overflow: hidden
+    position: relative
+    width: 100%
+    @media only screen and (max-width: 769px)
+        overflow: auto
+        min-height: 100vh
+        display: flex
+        height: unset
+        flex-flow: row wrap-reverse
+.color-warning
+    color: $color-warning
+.unknown-locations
+    position: absolute
+    bottom: 20px
+    right: 20px
+    color: white
+    display: flex
+    justify-content: center
+    flex-flow: column
+    text-align: center
+    @media only screen and (max-width: 769px)
+        display: none

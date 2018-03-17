@@ -1,0 +1,91 @@
+$color-information: #3FB7F7
+
+html, body
+  box-sizing: border-box
+  font-family: 'Crimson Text', serif
+  font-weight: 400
+  font-size: 18px
+  @media only screen and (min-width: 1920px)
+    font-size: 32px
+*, *:before, *:after
+  box-sizing: inherit
+section
+  float: left
+h1, h2, h3, h4, h5 ,h6 
+  font-weight: normal
+  margin-top: 0.75em
+  margin-bottom: 0.75em
+h1 
+  font-family: 'Anton', sans-serif
+  font-size: 3em
+  letter-spacing: 2px
+  line-height: 1.4
+h2
+  line-height: 1.4
+  font-size: 1.5em
+  font-style: italic
+h3 
+  font-family: 'Anton', sans-serif
+  font-size: 1.5em
+  font-weight: bold
+  margin-bottom: 0.75em
+h4 
+  line-height: 1.4
+  font-size: 1.35em
+  margin-bottom: 0.75em
+h5 
+  font-family: 'Anton', sans-serif
+  font-size: 1.2em
+  margin-bottom: 0.75em
+h6 
+  font-size: 1.05em
+  margin-bottom: 0.75em
+p
+  font-size: 1em
+  line-height: 1.5
+  @media only screen and (max-width: 769px)
+    font-size: 0.9em
+small
+  display: block
+  font-size: 0.7em
+a  
+  
+blockquote 
+  line-height: 1.3
+button 
+  background: none
+  border: 0
+  color: inherit
+  cursor: pointer
+  font: inherit
+  line-height: normal
+  overflow: visible
+  padding: 0
+  -webkit-appearance: button 
+  -webkit-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  &:active, &:focus
+    outline: none
+
+// Util classes
+
+.hidden
+  opacity: 0
+  visibility: hidden
+.lowered
+  z-index: -1000
+.mobile-only-link
+  color: $color-information
+  text-decoration: none
+  @media only screen and (min-width: 769px)
+    display: none
+.Navigation
+  @media only screen and (max-width: 769px)
+    top: 0!important
+    transform: translate(0%, 0%)!important
+  .Navigation-Anchor
+    @media only screen and (max-width: 769px)
+      border-radius: 0!important
+      height: 1em!important
+      width: 1em!important

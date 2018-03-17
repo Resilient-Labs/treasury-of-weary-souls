@@ -1,0 +1,131 @@
+$color-accent: #3FB7F7
+$color-sidepanel: #2F2E2E
+$color-caution: #F4BD00
+$color-information: #3FB7F7
+$background-color-sidepanel: #F5F5F5
+$height-side-panel-header: 70px
+$width-side-panel: 25%
+$width-side-panel-tablet: 35%
+$width-side-panel-mobile: 100%
+
+.side-panel 
+    background-color: $background-color-sidepanel
+    color: $color-sidepanel
+    display: inline-block
+    height: 100%
+    overflow-y: scroll
+    position: absolute
+    width: $width-side-panel
+    @keyframes slide
+        100% 
+            right: 0
+    @media only screen and (min-width: 769px) 
+        right: -50%
+        animation: slide 0.5s forwards
+        animation-delay: 1.5s
+        @keyframes slide
+            100% 
+                right: 0
+    @media only screen and (max-width: 1024px)
+        width: $width-side-panel-tablet
+    @media only screen and (max-width: 769px) 
+        bottom: 0
+        height: unset
+        position: relative
+        width: $width-side-panel-mobile
+    .side-panel-image-header 
+        overflow: hidden
+        position: relative
+        width: 100%
+        &:before
+            content: ""
+            height: 100%
+            width: 100%
+            background-color: rgba(71,70,70,0.74)
+            position: absolute
+            z-index: 2
+        img 
+            display: block
+            height: auto
+            width: 100%
+    .side-panel-article 
+        padding: 1em
+    .logo
+        margin: 1em auto
+    .side-panel-states-list
+        list-style: none
+        margin: 0
+        padding: 0
+    .side-panel-states-list-item
+        display: flex
+        justify-content: space-between
+        flex-flow: row wrap
+        margin: 1em 0
+    .side-panel-states-list-headline
+        display: inline
+        margin-top: 0
+    .side-panel-states-list-icon
+        display: 
+        height: 40px
+    .side-panel-states-list-text
+        margin-top: 0
+    .side-panel-header
+        align-items: center
+        background-color: $color-sidepanel
+        border-bottom: 1px solid #353535
+        color: white
+        display: flex
+        position: fixed
+        width: $width-side-panel
+        @media only screen and (max-width: 769px) 
+            width: $width-side-panel-mobile
+    .side-panel-header-link
+        color: white
+        height: $height-side-panel-header
+        line-height: $height-side-panel-header
+        padding: 0 10px
+        text-align: center
+        text-decoration: none
+        width: 50%
+        &:hover
+            background-color: $color-accent
+        &:visited, &:hover
+            color: white
+    .side-panel-column
+        padding-left: 2em
+        &:first-of-type
+            margin-top: calc( #{$height-side-panel-header} + 1em )
+    .side-panel-column-headline 
+        border-bottom: 1px solid white
+        text-transform: uppercase
+        width: 90%
+    .side-panel-list 
+        list-style: none
+        margin: 0
+        padding: 0
+    .side-panel-listed-name 
+        cursor: pointer
+        &:hover 
+            color: $color-accent
+#close-side-panel
+    //border: 1px solid $color-caution
+    color: $color-caution
+    text-transform: uppercase
+    font-family: 'Cabin', sans-serif
+    margin-top: 10px
+    padding: 10px
+    width: 100%
+    &:hover
+        background: $color-caution
+        color: #FFFFFF
+.side-panel-link-button
+    color: $color-information
+    text-transform: uppercase
+    font-family: 'Cabin', sans-serif
+    margin-top: 10px
+    padding: 10px
+    width: 100%
+    &:hover
+        background: $color-information
+        color: #FFFFFF
+        

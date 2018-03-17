@@ -1,0 +1,27 @@
+{
+  "name": "test2018",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "package.json",
+  "author": "Muigai Unaka <muigai@resilientcoders.org>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "sanity start",
+    "test": "sanity check"
+  },
+  "keywords": [
+    "sanity"
+  ],
+  "dependencies": {
+    "@sanity/base": "^0.125.4",
+    "@sanity/components": "^0.125.4",
+    "@sanity/core": "^0.125.4",
+    "@sanity/default-layout": "^0.125.5",
+    "@sanity/default-login": "^0.125.0",
+    "@sanity/desk-tool": "^0.125.5",
+    "react": "^15.6",
+    "react-dom": "^15.6"
+  },
+  "devDependencies": {}
+}

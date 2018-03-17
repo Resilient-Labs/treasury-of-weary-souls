@@ -1,0 +1,61 @@
+$width-side-panel: 25%
+$width-side-panel-tablet: 35%
+$width-side-panel-mobile: 100%
+$color-base: #282828
+
+.interactive-info-panel
+    position: absolute
+    right: 0
+    height: 100%
+    background: $color-base
+    padding: 1em
+    color: white
+    width: $width-side-panel
+    @media only screen and (max-width: 1024px)
+        width: $width-side-panel-tablet
+    @media only screen and (min-width: 770px) 
+        top: -100%
+    @media only screen and (max-width: 769px) 
+        height: min-content
+        bottom: -100%
+        position: fixed
+        z-index: 9
+        width: $width-side-panel-mobile
+    &.onload
+        opacity: 0
+        visibility: hidden
+    &.slide-up
+        @media only screen and (min-width: 770px) 
+            top: -100%
+            animation: slidePanelUp 0.5s forwards
+        @media only screen and (max-width: 769px) 
+            bottom: -100%
+            animation: mobileSlidePanelUp 0.5s forward
+    &.slide-down
+        @media only screen and (min-width: 770px) 
+            top: 0
+            animation: slidePanelDown 0.5s forwards
+        @media only screen and (max-width: 769px) 
+            bottom: 0
+            animation: mobileSlidePanelDown 0.5s forward
+
+@keyframes slidePanelDown  
+    0%
+        top:  -100%
+    100%
+        top: 0
+@keyframes slidePanelUp
+    0%
+        top: 0
+    100%
+        top: -100%
+@keyframes mobileSlidePanelDown 
+    0%
+        bottom: -100%
+    100%
+        bottom: 0
+@keyframes mobileSlidePanelUp
+    0%
+        bottom: -100%
+    100%
+        bottom: 0

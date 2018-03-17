@@ -1,0 +1,23 @@
+{
+  "root": true,
+  "project": {
+    "name": "test2018"
+  },
+  "api": {
+    "projectId": "4nwujqdw",
+    "dataset": "development"
+  },
+  "plugins": [
+    "@sanity/base",
+    "@sanity/components",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool"
+  ],
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./schemas/schema.js"
+    }
+  ]
+}
