@@ -14,7 +14,9 @@ section {
   float: left; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: normal; }
+  font-weight: normal;
+  margin-top: 0.75em;
+  margin-bottom: 0.75em; }
 
 h1 {
   font-family: 'Anton', sans-serif;
@@ -44,7 +46,7 @@ h5 {
   margin-bottom: 0.75em; }
 
 h6 {
-  font-size: 1.2em;
+  font-size: 1.05em;
   margin-bottom: 0.75em; }
 
 p {

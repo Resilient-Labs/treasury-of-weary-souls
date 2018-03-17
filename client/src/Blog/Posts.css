@@ -25,3 +25,9 @@
       .posts main {
         padding: 0 2%;
         width: 100%; } }
+  .posts .context-subheader small {
+    margin: 0;
+    margin-left: 2em; }
+    .posts .context-subheader small span {
+      min-width: 2em;
+      display: inline-block; }

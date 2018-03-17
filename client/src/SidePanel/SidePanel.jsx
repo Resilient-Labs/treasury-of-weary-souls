@@ -41,7 +41,7 @@ const SidePanel = (props) => (
                 <small>Web Development by <a href="http://www.resilientcoders.org" target="_blank" rel="noopener noreferrer">Resilient Coders</a></small>
                 <small>Design: Emily O'Brien</small>                
                 <Link to="/post">
-                    <button className="side-panel-link-button">View Blog</button>
+                    <button className="side-panel-link-button">The work of Weary Souls</button>
                 </Link>
             </header>
         </article>

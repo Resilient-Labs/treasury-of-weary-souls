@@ -34,7 +34,24 @@ export default class Posts extends React.Component {
                 <div className="posts">
                     <SideNavigation />
                     <main>
-                        <h2>Our Stories</h2>
+                        <header className="context-subheader">
+                            <h4>
+                                <b>Our Stories</b>
+                            </h4>
+                            <h6>Weary:</h6>
+                            <small>
+                                <span>adj.</span> 
+                                <span><b>physically and mentally fatigued</b></span>
+                            </small>
+                            <small>
+                                <span>v.</span> 
+                                <b>to become exhausted</b>
+                            </small>
+                            <small>
+                                <span></span>
+                                <b>to grow tired from tremendous strain and stress</b>
+                            </small>
+                        </header>
                         {this.state.posts.map(function(post, idx) {
                             return <PostCard
                                 title={post.title}

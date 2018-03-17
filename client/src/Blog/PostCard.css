@@ -19,7 +19,8 @@
   position: relative; }
   @media only screen and (max-width: 992px) {
     .post-card {
-      height: 320px; } }
+      height: 320px;
+      width: 48%; } }
   @media only screen and (max-width: 769px) {
     .post-card {
       height: 280px;
@@ -28,15 +29,15 @@
   @media only screen and (max-width: 576px) {
     .post-card {
       height: 240px; } }
-  .post-card:hover:before {
+  .post-card:before {
     background: #CF423C;
     opacity: 0.9;
     content: '';
     position: absolute;
     height: 100%;
     width: 100%; }
-  .post-card:hover .post-card-link,
-  .post-card:hover .post-card-title {
+  .post-card .post-card-link,
+  .post-card .post-card-title {
     visibility: visible; }
   @media only screen and (max-width: 769px) {
     .post-card:before {
@@ -50,11 +51,7 @@
     color: white;
     position: absolute;
     padding: 1em;
-    font-size: 1.35em;
-    visibility: hidden; }
-    @media only screen and (max-width: 769px) {
-      .post-card .post-card-title {
-        visibility: visible; } }
+    font-size: 1.35em; }
     @media only screen and (max-width: 992px) {
       .post-card .post-card-title {
         font-size: 1.15em; } }
@@ -71,11 +68,7 @@
     padding: 0.5em 1em;
     text-decoration: none;
     bottom: 1em;
-    left: 1em;
-    visibility: hidden; }
-    @media only screen and (max-width: 769px) {
-      .post-card .post-card-link {
-        visibility: visible; } }
+    left: 1em; }
     .post-card .post-card-link:hover {
       background: white;
       color: #CF423C; }

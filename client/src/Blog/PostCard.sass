@@ -19,23 +19,24 @@
     position: relative
     @media only screen and (max-width: 992px)
         height: 320px
+        width: 48%
     @media only screen and (max-width: 769px)
         height: 280px
         width: 100%
         margin: 1% 0
     @media only screen and (max-width: 576px)
         height: 240px
-    &:hover
-        &:before
-            background: #CF423C
-            opacity: 0.9
-            content: ''
-            position: absolute
-            height: 100%
-            width: 100%
-        .post-card-link,
-        .post-card-title
-            visibility: visible
+    // &:hover
+    &:before
+        background: #CF423C
+        opacity: 0.9
+        content: ''
+        position: absolute
+        height: 100%
+        width: 100%
+    .post-card-link,
+    .post-card-title
+        visibility: visible
     @media only screen and (max-width: 769px)
         &:before
             background: #CF423C
@@ -49,9 +50,6 @@
         position: absolute
         padding: 1em
         font-size: 1.35em
-        visibility: hidden
-        @media only screen and (max-width: 769px)
-            visibility: visible
         @media only screen and (max-width: 992px)
             font-size: 1.15em
         @media only screen and (max-width: 769px)
@@ -67,9 +65,6 @@
         text-decoration: none
         bottom: 1em
         left: 1em
-        visibility: hidden
-        @media only screen and (max-width: 769px)
-            visibility: visible
         &:hover
             background: white
             color: #CF423C

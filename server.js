@@ -37,7 +37,7 @@ app.use(function(req, res, next) {
     res.header('Access-Control-Allow-Credentials', true);
     res.header('Cache-Control', 'public, max-age=31557600');
     return next();
-  });
+});
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
