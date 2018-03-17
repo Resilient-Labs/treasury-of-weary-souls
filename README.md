@@ -11,12 +11,12 @@ cd treasury-of-weary-souls
 
 ### To access the data and run the server
 ``` 
-cd backend && npm install && npm start
+npm install && npm start
 ```
 
-### To run the frontend
+### (Open a new terminal tab) To run the frontend
 ``` 
-cd ../treasury-of-weary-souls/app && npm install && npm start
+cd ../treasury-of-weary-souls/client && npm install && npm start
 ```
 Locate the app running at: http://localhost:3000
 
