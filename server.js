@@ -22,7 +22,7 @@ class State {
 app.use(morg("dev"));
 
 // Configure body parser for AJAX requests
-app.use(express.static(path.join(__dirname, '/../client/build')));
+app.use(express.static(path.join(__dirname, '/client/build')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(function(req, res, next) {
